@@ -1,0 +1,43 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="SiteRegistrar.master.cs" Inherits="RapidNote.SiteMaster.SiteRegistrar" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head id="Head1" runat="server">
+    <title></title>
+    <link href="../Styles/Site.css" rel="stylesheet" type="text/css" />
+    <link href="../Styles/StyleSheet.css" rel="stylesheet" type="text/css" />
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+<form id="Form1" runat="server">
+    <div class="page">
+        <div class="header">
+            <div class="title">
+                <table width='800' border='0' align='center'>
+                    <tr>
+                        <td width="40"><img src="../../Styles/Images/Logo.png" width="37,16" height="40" /></td>
+                        <td><h1>RapidNote</h1></td>                         
+                     </tr>
+                 </table>
+            </div>            
+               <div class="clear hideSkiplink"> 
+                   <div id="menu">
+                    </div>
+               </div> 
+        </div>
+        <div class="main">
+            <asp:ContentPlaceHolder ID="MainContent" runat="server">
+                <p>
+                    <br />
+                </p>
+            </asp:ContentPlaceHolder>
+        </div>
+        <div class="clear">
+            <br />
+        </div>
+    </div>
+    </form>    
+</body>
+</html>
