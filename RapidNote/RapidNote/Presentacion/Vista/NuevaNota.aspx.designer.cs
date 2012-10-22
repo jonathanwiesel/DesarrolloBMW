@@ -10,87 +10,69 @@
 namespace RapidNote.Presentacion.Vista {
     
     
-    public partial class Login {
+    public partial class NuevaNota {
         
         /// <summary>
-        /// Controllo nombreUsuario.
+        /// Controllo nombreNota.
         /// </summary>
         /// <remarks>
         /// Campo generato automaticamente.
         /// Per la modifica, spostare la dichiarazione di campo dal file di progettazione al file code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label nombreUsuario;
+        protected global::System.Web.UI.WebControls.Label nombreNota;
         
         /// <summary>
-        /// Controllo user_id.
+        /// Controllo nota_title.
         /// </summary>
         /// <remarks>
         /// Campo generato automaticamente.
         /// Per la modifica, spostare la dichiarazione di campo dal file di progettazione al file code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox user_id;
+        protected global::System.Web.UI.WebControls.TextBox nota_title;
         
         /// <summary>
-        /// Controllo contrasena.
+        /// Controllo content.
         /// </summary>
         /// <remarks>
         /// Campo generato automaticamente.
         /// Per la modifica, spostare la dichiarazione di campo dal file di progettazione al file code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label contrasena;
+        protected global::System.Web.UI.WebControls.Label content;
         
         /// <summary>
-        /// Controllo recuperarContrasena.
+        /// Controllo Label1.
         /// </summary>
         /// <remarks>
         /// Campo generato automaticamente.
         /// Per la modifica, spostare la dichiarazione di campo dal file di progettazione al file code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label recuperarContrasena;
+        protected global::System.Web.UI.WebControls.Label Label1;
         
         /// <summary>
-        /// Controllo user_password.
+        /// Controllo FileUpload1.
         /// </summary>
         /// <remarks>
         /// Campo generato automaticamente.
         /// Per la modifica, spostare la dichiarazione di campo dal file di progettazione al file code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox user_password;
+        protected global::System.Web.UI.WebControls.FileUpload FileUpload1;
         
         /// <summary>
-        /// Controllo error.
+        /// Controllo Button2.
         /// </summary>
         /// <remarks>
         /// Campo generato automaticamente.
         /// Per la modifica, spostare la dichiarazione di campo dal file di progettazione al file code-behind.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl error;
+        protected global::System.Web.UI.WebControls.Button Button2;
         
         /// <summary>
-        /// Controllo mensajeError.
+        /// Controllo guardar.
         /// </summary>
         /// <remarks>
         /// Campo generato automaticamente.
         /// Per la modifica, spostare la dichiarazione di campo dal file di progettazione al file code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label mensajeError;
-        
-        /// <summary>
-        /// Controllo excepcion.
-        /// </summary>
-        /// <remarks>
-        /// Campo generato automaticamente.
-        /// Per la modifica, spostare la dichiarazione di campo dal file di progettazione al file code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label excepcion;
-        
-        /// <summary>
-        /// Controllo iniciarsesion.
-        /// </summary>
-        /// <remarks>
-        /// Campo generato automaticamente.
-        /// Per la modifica, spostare la dichiarazione di campo dal file di progettazione al file code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button iniciarsesion;
+        protected global::System.Web.UI.WebControls.Button guardar;
     }
 }
