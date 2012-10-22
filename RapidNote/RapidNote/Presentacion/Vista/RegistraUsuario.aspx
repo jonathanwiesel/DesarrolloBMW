@@ -66,7 +66,7 @@
                         <asp:Label ID="lavatar" runat="server" Text="Avatar"></asp:Label>
                     </td>
                     <td>
-                        <asp:FileUpload ID="FileUpload1" runat="server" />
+                        <asp:FileUpload ID="FileUpload1" runat="server" Width="217px" />
                     </td>
                 </tr>
                 <tr>
