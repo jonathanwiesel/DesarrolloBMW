@@ -1,0 +1,104 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.Master.cs" Inherits="RapidNote.SiteMaster.SiteBeta" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title>
+        <asp:ContentPlaceHolder ID="TitleContent" runat="server" />
+    </title>
+    <link href="../Styles/Site.css" rel="stylesheet" type="text/css" />
+    <link href="../Styles/StyleSheet.css" rel="stylesheet" type="text/css" />
+    <script type="text/javascript" src="../../Scripts/jquery-1.7.1.min.js"></script>
+    <script type="text/javascript" src="../../Scripts/jquery.dropotron-1.0.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            $('#menu > ul').dropotron({
+                alignment: 'right',
+                mode: 'fade',
+                offsetY: -13
+            });
+        });
+    </script>
+</head>
+<body>
+    <form id="Form1" runat="server">
+    <div class="page">
+        <div class="header">
+            <div class="title">
+                <table width='800' border='0' align='center'>
+                    <tr>
+                        <td width="40">
+                            <img src="../../Styles/Images/Logo.png" width="37,16" height="40" />
+                        </td>
+                        <td>
+                            <h1>RapidNote</h1>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <div class="loginDisplay">
+                <table>
+                    <tr>
+                        <asp:TextBox ID="TextBox1" runat="server" Width="250px"></asp:TextBox>
+                        <asp:Button ID="Button1" runat="server" Text="Buscar" />
+                    </tr>
+                </table>
+            </div>
+            <div class="clear hideSkiplink">
+                <div id="menu">
+                    <table>
+                        <tr>
+                            <ul>
+                                <li class="first">Nota<span class="down-arrow"></span>
+                                    <ul>
+                                        <li><a href="#">Agregar Nota</a></li>
+                                        <li><a href="#">Modificar Nota</a></li>
+                                        <li><a href="#">Consultar Nota</a></li>
+                                        <li><a href="#">Eliminar Nota</a></li>
+                                    </ul>
+                                </li>
+                                <li>Libreta<span class="down-arrow"></span>
+                                    <ul>
+                                        <li><a href="#">Agregar Libreta</a></li>
+                                        <li><a href="#">Modificar Libreta</a></li>
+                                        <li><a href="#">Consultar Libreta</a></li>
+                                        <li><a href="#">Eliminar Libreta</a></li>
+                                    </ul>
+                                </li>
+                                <li>Etiqueta<span class="down-arrow"></span>
+                                    <ul>
+                                        <li><a href="#">Agregar Etiqueta</a></li>
+                                        <li><a href="#">Modificar Etiqueta</a></li>
+                                        <li><a href="#">Consultar Etiqueta</a></li>
+                                        <li><a href="#">Eliminar Etiqueta</a></li>
+                                    </ul>
+                                </li>
+                                <li>Configuracion<span class="down-arrow"></span>
+                                    <ul>
+                                        <li><a href="#">Editar Usuario</a></li>
+                                        <li><a href="#">Dropbox Autorizar/Desautorizar</a></li>
+                                        <li><a href="#">Exportar XML</a></li>
+                                        <li><a href="#">Importar XML</a></li>
+                                    </ul>
+                                </li>
+                                <li><a href="#">Salir</a></li>
+                            </ul>
+                        </tr>
+                    </table>                    
+                </div>                
+            </div>
+        </div>
+        <div class="main">
+            <asp:ContentPlaceHolder ID="MainContent" runat="server">
+                <p>
+                    <br />
+                </p>
+            </asp:ContentPlaceHolder>
+        </div>
+        <div class="clear">
+            <br />
+        </div>
+    </div>
+    </form>
+</body>
+</html>
