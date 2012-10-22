@@ -56,6 +56,7 @@
   <ItemGroup>
     <Content Include="index.aspx" />
     <Content Include="Presentacion\Vista\Login.aspx" />
+    <Content Include="Presentacion\Vista\NuevaNota.aspx" />
     <Content Include="Presentacion\Vista\RegistraUsuario.aspx" />
     <Content Include="Scripts\jquery-1.7.1.min.js" />
     <Content Include="Scripts\jquery.dropotron-1.0.js" />
@@ -84,6 +85,12 @@
     </Compile>
     <Compile Include="Presentacion\Vista\Login.aspx.designer.cs">
       <DependentUpon>Login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Presentacion\Vista\NuevaNota.aspx.cs">
+      <DependentUpon>NuevaNota.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Presentacion\Vista\NuevaNota.aspx.designer.cs">
+      <DependentUpon>NuevaNota.aspx</DependentUpon>
     </Compile>
     <Compile Include="Presentacion\Vista\RegistraUsuario.aspx.cs">
       <DependentUpon>RegistraUsuario.aspx</DependentUpon>
