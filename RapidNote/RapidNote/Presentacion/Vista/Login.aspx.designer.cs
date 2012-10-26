@@ -13,31 +13,31 @@ namespace RapidNote.Presentacion.Vista {
     public partial class Login {
         
         /// <summary>
-        /// nombreUsuario control.
+        /// correoUsuario control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label nombreUsuario;
+        protected global::System.Web.UI.WebControls.Label correoUsuario;
         
         /// <summary>
-        /// user_id control.
+        /// correo control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox user_id;
+        protected global::System.Web.UI.WebControls.TextBox correo;
         
         /// <summary>
-        /// contrasena control.
+        /// claveUsuario control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label contrasena;
+        protected global::System.Web.UI.WebControls.Label claveUsuario;
         
         /// <summary>
         /// recuperarContrasena control.
@@ -49,13 +49,13 @@ namespace RapidNote.Presentacion.Vista {
         protected global::System.Web.UI.WebControls.Label recuperarContrasena;
         
         /// <summary>
-        /// user_password control.
+        /// clave control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox user_password;
+        protected global::System.Web.UI.WebControls.TextBox clave;
         
         /// <summary>
         /// error control.

@@ -29,21 +29,21 @@
             <table align="center">
                 <tr>
                     <td>
-                        <asp:Label ID="nombreUsuario" runat="server" Text="Nombre de usuario"></asp:Label>
+                        <asp:Label ID="correoUsuario" runat="server" Text="Correo de usuario"></asp:Label>
                     </td>
                     <td>
-                        <asp:TextBox ID="user_id" runat="server"></asp:TextBox><span class="style1"> <strong>
+                        <asp:TextBox ID="correo" runat="server"></asp:TextBox><span class="style1"> <strong>
                             *</strong></span>
                     </td>
                 </tr>
                 <tr>
                     <td>
-                        <asp:Label ID="contrasena" runat="server" Text="Contrasena"></asp:Label>
+                        <asp:Label ID="claveUsuario" runat="server" Text="clave"></asp:Label>
                         <asp:Label ID="recuperarContrasena" runat="server" Style="text-align: right; color: Blue;
                             font-weight: 500;"><a href="RecuperarContrasena.aspx">[recuperar]</a></asp:Label>
                     </td>
                     <td>
-                        <asp:TextBox ID="user_password" TextMode="Password" runat="server"></asp:TextBox>
+                        <asp:TextBox ID="clave" TextMode="Password" runat="server"></asp:TextBox>
                         <span class="style1"><strong>*</strong></span>
                     </td>
                 </tr>

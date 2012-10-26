@@ -72,6 +72,12 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DAO\Conexion.cs" />
+    <Compile Include="DAO\DAOFactory\FabricaDAO.cs" />
+    <Compile Include="DAO\DAOFactory\FabricaDAOSQLServer.cs" />
+    <Compile Include="DAO\DAOSQL\DAOUsuario.cs" />
+    <Compile Include="DAO\IDAOS\IDAO.cs" />
+    <Compile Include="DAO\IDAOS\IDAOUsuario.cs" />
     <Compile Include="index.aspx.cs">
       <DependentUpon>index.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -79,6 +85,13 @@
     <Compile Include="index.aspx.designer.cs">
       <DependentUpon>index.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Logica\Comandos\Comando.cs" />
+    <Compile Include="Logica\Comandos\Login\ComandoLogin.cs" />
+    <Compile Include="Logica\Fabrica\FabricaComando.cs" />
+    <Compile Include="Presentacion\Contrato\Login\IContratoLogin.cs" />
+    <Compile Include="Presentacion\Contrato\Usuario\IcontratoAgregarUsuario.cs" />
+    <Compile Include="Presentacion\Presentador\Login\PresentadorLogin.cs" />
+    <Compile Include="Presentacion\Presentador\Usuario\PresentadorAgregarUsuario.cs" />
     <Compile Include="Presentacion\Vista\Login.aspx.cs">
       <DependentUpon>Login.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -88,6 +101,7 @@
     </Compile>
     <Compile Include="Presentacion\Vista\NuevaNota.aspx.cs">
       <DependentUpon>NuevaNota.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Presentacion\Vista\NuevaNota.aspx.designer.cs">
       <DependentUpon>NuevaNota.aspx</DependentUpon>
@@ -124,14 +138,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Clases\Fabrica\" />
-    <Folder Include="DAO\DAOFactory\" />
     <Folder Include="DAO\DAOFILE\" />
-    <Folder Include="DAO\DAOSQL\" />
-    <Folder Include="DAO\IDAOS\" />
-    <Folder Include="Logica\Comandos\" />
-    <Folder Include="Logica\Fabrica\" />
-    <Folder Include="Presentacion\Contrato\" />
-    <Folder Include="Presentacion\Presentador\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="SiteMaster\Site.Master" />
