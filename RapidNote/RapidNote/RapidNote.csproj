@@ -72,6 +72,9 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Clases\Entidad.cs" />
+    <Compile Include="Clases\Fabrica\FabricaEntidad.cs" />
+    <Compile Include="Clases\Usuario.cs" />
     <Compile Include="DAO\Conexion.cs" />
     <Compile Include="DAO\DAOFactory\FabricaDAO.cs" />
     <Compile Include="DAO\DAOFactory\FabricaDAOSQLServer.cs" />
@@ -137,7 +140,6 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Clases\Fabrica\" />
     <Folder Include="DAO\DAOFILE\" />
   </ItemGroup>
   <ItemGroup>
