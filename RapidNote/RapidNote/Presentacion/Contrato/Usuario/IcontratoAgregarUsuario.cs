@@ -10,11 +10,11 @@ namespace RapidNote.Presentacion.Contrato
 {
     public interface IcontratoAgregarUsuario
     {
-        TextBox Nombre { get; set; }
-        TextBox Apellido { get; set; }
-        TextBox Correo { get; set; }
-        TextBox clave { get; set; }
-        FileUpload avatar { get; set; }
+        String getNombre();
+        String getApellido();
+        String getCorreo();
+        String getclave();
+        String getavatar();
 
     }
 }

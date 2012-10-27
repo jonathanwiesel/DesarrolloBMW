@@ -55,9 +55,11 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="index.aspx" />
+    <Content Include="Presentacion\Vista\ConfiguracionUsuario.aspx" />
+    <Content Include="Presentacion\Vista\CrearLibreta.aspx" />
     <Content Include="Presentacion\Vista\Login.aspx" />
     <Content Include="Presentacion\Vista\NuevaNota.aspx" />
-    <Content Include="Presentacion\Vista\RegistraUsuario.aspx" />
+    <Content Include="Presentacion\Vista\AgregarUsuario.aspx" />
     <Content Include="Scripts\jquery-1.7.1.min.js" />
     <Content Include="Scripts\jquery.dropotron-1.0.js" />
     <Content Include="Styles\Images\Logo.png" />
@@ -72,8 +74,13 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Clases\Adjunto.cs" />
+    <Compile Include="Clases\Bitacora.cs" />
     <Compile Include="Clases\Entidad.cs" />
+    <Compile Include="Clases\Etiqueta.cs" />
     <Compile Include="Clases\Fabrica\FabricaEntidad.cs" />
+    <Compile Include="Clases\Libreta.cs" />
+    <Compile Include="Clases\Nota.cs" />
     <Compile Include="Clases\Usuario.cs" />
     <Compile Include="DAO\Conexion.cs" />
     <Compile Include="DAO\DAOFactory\FabricaDAO.cs" />
@@ -95,6 +102,20 @@
     <Compile Include="Presentacion\Contrato\Usuario\IcontratoAgregarUsuario.cs" />
     <Compile Include="Presentacion\Presentador\Login\PresentadorLogin.cs" />
     <Compile Include="Presentacion\Presentador\Usuario\PresentadorAgregarUsuario.cs" />
+    <Compile Include="Presentacion\Vista\ConfiguracionUsuario.aspx.cs">
+      <DependentUpon>ConfiguracionUsuario.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Presentacion\Vista\ConfiguracionUsuario.aspx.designer.cs">
+      <DependentUpon>ConfiguracionUsuario.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Presentacion\Vista\CrearLibreta.aspx.cs">
+      <DependentUpon>CrearLibreta.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Presentacion\Vista\CrearLibreta.aspx.designer.cs">
+      <DependentUpon>CrearLibreta.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Presentacion\Vista\Login.aspx.cs">
       <DependentUpon>Login.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -109,12 +130,12 @@
     <Compile Include="Presentacion\Vista\NuevaNota.aspx.designer.cs">
       <DependentUpon>NuevaNota.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Presentacion\Vista\RegistraUsuario.aspx.cs">
-      <DependentUpon>RegistraUsuario.aspx</DependentUpon>
+    <Compile Include="Presentacion\Vista\AgregarUsuario.aspx.cs">
+      <DependentUpon>AgregarUsuario.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Presentacion\Vista\RegistraUsuario.aspx.designer.cs">
-      <DependentUpon>RegistraUsuario.aspx</DependentUpon>
+    <Compile Include="Presentacion\Vista\AgregarUsuario.aspx.designer.cs">
+      <DependentUpon>AgregarUsuario.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SiteMaster\Site.Master.cs">

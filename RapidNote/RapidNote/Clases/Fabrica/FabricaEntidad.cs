@@ -11,5 +11,6 @@ namespace RapidNote.Clases.Fabrica
         {
             return new Usuario();
         }
+
     }
 }
