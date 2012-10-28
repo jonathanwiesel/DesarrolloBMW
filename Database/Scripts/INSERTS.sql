@@ -1,6 +1,6 @@
 INSERT INTO USUARIO (correo, clave, nombre, apellido, avatar, idDropbox) 
 VALUES ('elbano28@gmail.com',
-'d404559f602eab6fd602ac7680dacbfaadd13630335e951f097af3900e9de176b6db28512f2e000b9d04fba5133e8b1c6e8df59db3a8ab9d60be4b97cc9e81db',
+'e1223d9bbcd82236f9f09ae1f5578e3cbbd4e8f48954cead3003be60ac85629726dc04b1f875353459f97ba4a4283a1a6adb89d3524bb4816c7125964097106c',
 'elbano','marquez',null,null);
 
 insert into LIBRETA (nombreLibreta,fkidUsuario) 
