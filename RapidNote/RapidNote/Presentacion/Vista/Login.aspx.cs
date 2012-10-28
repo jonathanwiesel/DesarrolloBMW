@@ -13,8 +13,15 @@ namespace RapidNote.Presentacion.Vista
     {
         private PresentadorLogin presentador;
 
-        protected void Page_Load(object sender, EventArgs e)
+        protected override void OnInit(EventArgs e)
         {
+            base.OnInit(e);
+            presentador = new PresentadorLogin(this);
+
+        }
+
+        protected void Page_Load(object sender, EventArgs e)
+        {     
             presentador = new PresentadorLogin(this);
         }
 
@@ -33,10 +40,6 @@ namespace RapidNote.Presentacion.Vista
                 excepcion.Text = "Bienvenido";
                 Console.WriteLine("Bienvenido");
                 Response.Redirect("../../index.aspx");
-            }
-            else if (resultado == null)
-            {
-                excepcion.Text = "nulo";
             }
         }
 

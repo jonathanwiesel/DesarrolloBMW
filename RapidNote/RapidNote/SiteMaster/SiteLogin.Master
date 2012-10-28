@@ -26,7 +26,7 @@
             <LoggedInTemplate>                        
                     <asp:menu ID="Menulo" runat="server" Orientation="Horizontal">
                         <Items>
-                            <asp:MenuItem  Text="Registrar" Value="Registrar" NavigateUrl="~/Presentacion/Vista/Login/RegistrarUsuario.aspx"></asp:MenuItem>
+                            <asp:MenuItem  Text="Registrar" Value="Registrar" NavigateUrl="/Presentacion/Vista/AgregarUsuario.aspx"></asp:MenuItem>
                         </Items>
                         </asp:menu>
              </LoggedInTemplate>    

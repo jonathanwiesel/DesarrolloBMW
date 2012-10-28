@@ -73,6 +73,8 @@ namespace RapidNote.Presentacion.Vista
         protected void Button1_Click(object sender, EventArgs e)
         {
             presentador.Ejecutar();
+            LabelResultado.Text="Almacenado";
+            Response.Redirect("../../index.aspx");
         }
     }
 }

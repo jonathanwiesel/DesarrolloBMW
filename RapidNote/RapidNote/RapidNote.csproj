@@ -55,6 +55,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="index.aspx" />
+    <Content Include="Presentacion\Vista\CerrarSession.aspx" />
     <Content Include="Presentacion\Vista\ConfiguracionUsuario.aspx" />
     <Content Include="Presentacion\Vista\CrearLibreta.aspx" />
     <Content Include="Presentacion\Vista\Login.aspx" />
@@ -107,6 +108,9 @@
     <Compile Include="Logica\Comandos\Nota\ComandoListarTituloNotas.cs" />
     <Compile Include="Logica\Comandos\Nota\ComandoMostrarNota.cs" />
     <Compile Include="Logica\Comandos\Nota\ComandoNuevaNota.cs" />
+    <Compile Include="Logica\Comandos\Usuario\ComandoAgregarUsuario.cs" />
+    <Compile Include="Logica\Comandos\Usuario\ComandoListaUsuario.cs" />
+    <Compile Include="Logica\Comandos\Usuario\ComandoSha512.cs" />
     <Compile Include="Logica\Fabrica\FabricaComando.cs" />
     <Compile Include="Presentacion\Contrato\Login\IContratoLogin.cs" />
     <Compile Include="Presentacion\Contrato\Nota\IContratoMostrarNota.cs" />
@@ -116,6 +120,13 @@
     <Compile Include="Presentacion\Presentador\Nota\PresentadorMostrarNota.cs" />
     <Compile Include="Presentacion\Presentador\Nota\PresentadorNuevaNota.cs" />
     <Compile Include="Presentacion\Presentador\Usuario\PresentadorAgregarUsuario.cs" />
+    <Compile Include="Presentacion\Vista\CerrarSession.aspx.cs">
+      <DependentUpon>CerrarSession.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Presentacion\Vista\CerrarSession.aspx.designer.cs">
+      <DependentUpon>CerrarSession.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Presentacion\Vista\ConfiguracionUsuario.aspx.cs">
       <DependentUpon>ConfiguracionUsuario.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

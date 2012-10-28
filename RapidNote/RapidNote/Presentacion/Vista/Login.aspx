@@ -32,8 +32,9 @@
                         <asp:Label ID="correoUsuario" runat="server" Text="Correo de usuario"></asp:Label>
                     </td>
                     <td>
-                        <asp:TextBox ID="correo" runat="server"></asp:TextBox><span class="style1"> <strong>
-                            *</strong></span>
+                        <asp:TextBox ID="correo" runat="server"></asp:TextBox>
+                        <asp:requiredfieldvalidator id="Requiredfieldvalidator2" runat="server" Display="Dynamic" ControlToValidate="correo" ErrorMessage="Falta Ingreso de Email" class="style1" >*</asp:requiredfieldvalidator>
+                        <asp:regularexpressionvalidator id="revEmail" runat="server" ControlToValidate="correo" ErrorMessage="Formato de correo no valido" ValidationExpression="\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*" class="style1">**</asp:regularexpressionvalidator>
                     </td>
                 </tr>
                 <tr>
@@ -44,7 +45,7 @@
                     </td>
                     <td>
                         <asp:TextBox ID="clave" TextMode="Password" runat="server"></asp:TextBox>
-                        <span class="style1"><strong>*</strong></span>
+                        <asp:requiredfieldvalidator id="Requiredfieldvalidator3" runat="server" Display="Dynamic" ControlToValidate="clave" ErrorMessage="Falta Ingreso de Email" class="style1" >*</asp:requiredfieldvalidator>
                     </td>
                 </tr>
                 <tr>
@@ -74,4 +75,16 @@
         </fieldset>
         <br />
     </div>
+    <table align="center">
+        <tr>
+            <td>
+                <asp:Label ID="Label1" runat="server" Text="*: Campo obligatorio"></asp:Label>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <asp:Label ID="Label2" runat="server" Text="**: Formato invalido"></asp:Label>
+            </td>
+        </tr>
+    </table>
 </asp:Content>

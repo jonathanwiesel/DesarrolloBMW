@@ -16,6 +16,8 @@ namespace RapidNote.Presentacion.Presentador.Login
 
         private Comando<Entidad> comando;
 
+        private Comando<String> comando2;
+
         private Entidad usuario;
 
         public PresentadorLogin(IContratoLogin _contrato)
@@ -26,8 +28,13 @@ namespace RapidNote.Presentacion.Presentador.Login
         public int Ejecutar() 
         {
             usuario = FabricaEntidad.CrearUsuario();
+
             (usuario as Usuario).Correo = contrato.getCorreo();
             (usuario as Usuario).Clave = contrato.getClave();
+
+            comando2 = FabricaComando.CrearComandoSha512(contrato.getClave());
+            (usuario as Usuario).Clave = comando2.Ejecutar();
+
             comando = FabricaComando.CrearComandoLogin(usuario);
             usuario = comando.Ejecutar();
             if ((usuario as Usuario).Id > 0)

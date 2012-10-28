@@ -9,6 +9,7 @@ namespace RapidNote.DAO.IDAOS
     public interface IDAOUsuario : IDAO
     {
         Entidad ConsultarLogin(Entidad usuario);
-
+        void AgregarUsuario(Entidad usuario);
+        Entidad ListarUsuario(Entidad usuario);
     }
 }

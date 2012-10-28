@@ -50,6 +50,7 @@
                 </tr>     
                 <tr>
                     <td>
+                        <asp:Label ID="LabelResultado" runat="server" Text=""></asp:Label>
                     </td>
                     <td>
                         <asp:Button ID="Button1" runat="server" Text="Guardar" 
@@ -68,5 +69,13 @@
                 </table>              
         </fieldset>
         <br />
+        </div>
+        <table align="center">
+        <tr>
+            <td>
+                <asp:Label ID="Label1" runat="server" Text="*: Campo obligatorio"></asp:Label>
+            </td>
+        </tr>        
+    </table>
 
 </asp:Content>

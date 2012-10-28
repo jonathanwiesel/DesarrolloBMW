@@ -81,7 +81,7 @@
                                         <li><a href="#">Importar XML</a></li>
                                     </ul>
                                 </li>
-                                <li><a href="#">Salir</a></li>
+                                <li><a href="../../Presentacion/Vista/CerrarSession.aspx">Salir</a></li>
                             </ul>
                         </tr>
                     </table>                    
