@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using RapidNote.Clases.Fabrica;
 
 namespace RapidNote.Clases
 {
@@ -16,6 +17,11 @@ namespace RapidNote.Clases
         private List<Etiqueta> listaEtiqueta;
         private Libreta libreta;
 
+        public Nota() 
+        {
+            //libreta = (FabricaEntidad.CrearLibreta() as Libreta);
+            libreta = FabricaEntidad.CrearLibretaNew();
+        }
 
         public string Contenido
         {

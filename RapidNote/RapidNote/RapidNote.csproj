@@ -58,6 +58,7 @@
     <Content Include="Presentacion\Vista\ConfiguracionUsuario.aspx" />
     <Content Include="Presentacion\Vista\CrearLibreta.aspx" />
     <Content Include="Presentacion\Vista\Login.aspx" />
+    <Content Include="Presentacion\Vista\MostrarNota.aspx" />
     <Content Include="Presentacion\Vista\NuevaNota.aspx" />
     <Content Include="Presentacion\Vista\AgregarUsuario.aspx" />
     <Content Include="Scripts\jquery-1.7.1.min.js" />
@@ -82,11 +83,14 @@
     <Compile Include="Clases\Libreta.cs" />
     <Compile Include="Clases\Nota.cs" />
     <Compile Include="Clases\Usuario.cs" />
+    <Compile Include="Controles\SemanticUpdatePanel .cs" />
     <Compile Include="DAO\Conexion.cs" />
     <Compile Include="DAO\DAOFactory\FabricaDAO.cs" />
     <Compile Include="DAO\DAOFactory\FabricaDAOSQLServer.cs" />
+    <Compile Include="DAO\DAOSQL\DAONota.cs" />
     <Compile Include="DAO\DAOSQL\DAOUsuario.cs" />
     <Compile Include="DAO\IDAOS\IDAO.cs" />
+    <Compile Include="DAO\IDAOS\IDAONota.cs" />
     <Compile Include="DAO\IDAOS\IDAOUsuario.cs" />
     <Compile Include="index.aspx.cs">
       <DependentUpon>index.aspx</DependentUpon>
@@ -97,10 +101,20 @@
     </Compile>
     <Compile Include="Logica\Comandos\Comando.cs" />
     <Compile Include="Logica\Comandos\Login\ComandoLogin.cs" />
+    <Compile Include="Logica\Comandos\Nota\ComandoListarAdjuntosPorNota.cs" />
+    <Compile Include="Logica\Comandos\Nota\ComandoListarEtiquetasPorNota.cs" />
+    <Compile Include="Logica\Comandos\Nota\ComandoListarLibretas.cs" />
+    <Compile Include="Logica\Comandos\Nota\ComandoListarTituloNotas.cs" />
+    <Compile Include="Logica\Comandos\Nota\ComandoMostrarNota.cs" />
+    <Compile Include="Logica\Comandos\Nota\ComandoNuevaNota.cs" />
     <Compile Include="Logica\Fabrica\FabricaComando.cs" />
     <Compile Include="Presentacion\Contrato\Login\IContratoLogin.cs" />
+    <Compile Include="Presentacion\Contrato\Nota\IContratoMostrarNota.cs" />
+    <Compile Include="Presentacion\Contrato\Nota\IContratoNuevaNota.cs" />
     <Compile Include="Presentacion\Contrato\Usuario\IcontratoAgregarUsuario.cs" />
     <Compile Include="Presentacion\Presentador\Login\PresentadorLogin.cs" />
+    <Compile Include="Presentacion\Presentador\Nota\PresentadorMostrarNota.cs" />
+    <Compile Include="Presentacion\Presentador\Nota\PresentadorNuevaNota.cs" />
     <Compile Include="Presentacion\Presentador\Usuario\PresentadorAgregarUsuario.cs" />
     <Compile Include="Presentacion\Vista\ConfiguracionUsuario.aspx.cs">
       <DependentUpon>ConfiguracionUsuario.aspx</DependentUpon>
@@ -122,6 +136,13 @@
     </Compile>
     <Compile Include="Presentacion\Vista\Login.aspx.designer.cs">
       <DependentUpon>Login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Presentacion\Vista\MostrarNota.aspx.cs">
+      <DependentUpon>MostrarNota.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Presentacion\Vista\MostrarNota.aspx.designer.cs">
+      <DependentUpon>MostrarNota.aspx</DependentUpon>
     </Compile>
     <Compile Include="Presentacion\Vista\NuevaNota.aspx.cs">
       <DependentUpon>NuevaNota.aspx</DependentUpon>

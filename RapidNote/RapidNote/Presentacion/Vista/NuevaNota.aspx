@@ -1,4 +1,5 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="NuevaNota.aspx.cs" Inherits="RapidNote.Presentacion.Vista.NuevaNota" MasterPageFile="~/SiteMaster/Site.Master" %>
+<%@ Register Assembly="RapidNote" Namespace="RapidNote.Controles" TagPrefix="cc1" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="TitleContent" runat="server">
     Nota
@@ -11,47 +12,61 @@
         <br />
         <br />
         <fieldset>
-            <legend>Nota</legend>
-            <table align="center">
+            <legend>Crear Nota</legend>
+            <table align="center">                
+                <cc1:semanticupdatepanel ID="SemanticUpdatePanel1" runat="server" 
+                    RenderedElement="TBODY">
+                <ContentTemplate>
                 <tr>
                     <td>
-                        <asp:Label ID="nombreNota" runat="server" Text="Titulo de Nota"></asp:Label>
+                        <asp:Label ID="nombreNota" runat="server" Text="Titulo de la Nota"></asp:Label>
                     </td>
                     <td>
-                        <asp:TextBox ID="nota_title" runat="server"></asp:TextBox><span class="style1"> <strong>
-                            *</strong></span>
+                         <asp:TextBox ID="TextBoxTitulo" runat="server" 
+                            Width="430px"></asp:TextBox>
+                            <asp:requiredfieldvalidator id="rfvEmail" runat="server" 
+                            Display="Dynamic" ControlToValidate="TextBoxTitulo" ErrorMessage="falta titulo">*</asp:requiredfieldvalidator>
                     </td>
-                </tr>
+                </tr>                    
                 <tr>
                     <td>
                         <asp:Label ID="content" runat="server" Text="Contenido"></asp:Label>
                     </td>
-                    <td>
-                        <span class="style1"><strong>
-                        <textarea id="TextArea1" name="S1" style="height: 239px; width: 443px"></textarea></strong></span>
+                    <td>                        
+                        <asp:TextBox ID="TextBoxContenido" runat="server" rows="20" TextMode="multiline" Width="430px" Height="240px" >
+                        </asp:TextBox>
+                        <asp:requiredfieldvalidator id="Requiredfieldvalidator1" runat="server" 
+                            Display="Dynamic" ControlToValidate="TextBoxContenido" ErrorMessage="falta contenido">*</asp:requiredfieldvalidator>
                     </td>
                 </tr>
                 <tr>
-                <td>
-                    <asp:Label ID="Label1" runat="server" Text="Adjuntar archivo"></asp:Label>
-                </td>
                     <td>
-                        
-                        <asp:FileUpload ID="FileUpload1" runat="server" />
+                        <asp:Label ID="Label2" runat="server" Text="Nombre de la libreta"></asp:Label>
                     </td>
-
-                </tr>
-                </table>
-                <table align="center" width="550px">
+                    <td>                        
+                        <asp:DropDownList ID="DropDownListLibretas" runat="server" Width="430px">
+                        </asp:DropDownList>
+                    </td>
+                </tr>     
                 <tr>
-                    <td align="right">
-                         <asp:Button ID="Button2" runat="server" Text="Cancelar" OnClick="cancelar_Click" align= "right"/>          
-
-                        <asp:Button ID="guardar" runat="server" Text="Guardar" OnClick="guardar_Click" align="right" />
+                    <td>
                     </td>
-                </tr>
-            </table>
+                    <td>
+                        <asp:Button ID="Button1" runat="server" Text="Guardar" 
+                                onclick="Button1_Click" />
+                    </td>
+                </tr>        
+                </ContentTemplate>
+                </cc1:semanticupdatepanel>
+                </table>  
+                <table aling="center">
+                    <tr>
+                        <td>
+                            
+                        </td>
+                    </tr>
+                </table>              
         </fieldset>
         <br />
-    </div>
+
 </asp:Content>

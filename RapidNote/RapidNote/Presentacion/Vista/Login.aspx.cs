@@ -25,12 +25,14 @@ namespace RapidNote.Presentacion.Vista
             {
                 Console.WriteLine("No esta en sistema");
                 excepcion.Text = "No esta en sistema";
+                Response.Redirect("../Vista/Login.aspx");
             }
             else if (resultado > 0)
             {
 
                 excepcion.Text = "Bienvenido";
                 Console.WriteLine("Bienvenido");
+                Response.Redirect("../../index.aspx");
             }
             else if (resultado == null)
             {
@@ -47,6 +49,12 @@ namespace RapidNote.Presentacion.Vista
         public string getClave()
         {
             return clave.Text;
+        }
+
+
+        public System.Web.SessionState.HttpSessionState Sesion
+        {
+            get { return Session; }
         }
     }
 }

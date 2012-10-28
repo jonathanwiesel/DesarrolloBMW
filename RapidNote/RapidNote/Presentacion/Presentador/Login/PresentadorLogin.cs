@@ -30,6 +30,10 @@ namespace RapidNote.Presentacion.Presentador.Login
             (usuario as Usuario).Clave = contrato.getClave();
             comando = FabricaComando.CrearComandoLogin(usuario);
             usuario = comando.Ejecutar();
+            if ((usuario as Usuario).Id > 0)
+            {
+                contrato.Sesion["usuario"] = usuario;
+            }
             return (usuario as Usuario).Id;
         }
 

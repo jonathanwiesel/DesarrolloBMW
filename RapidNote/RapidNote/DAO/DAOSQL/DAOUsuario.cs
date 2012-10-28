@@ -10,7 +10,7 @@ using RapidNote.Clases;
 namespace RapidNote.DAO.DAOSQL
 {
     public class DAOUsuario : IDAOUsuario
-    {
+    {        
         public Entidad ConsultarLogin(Entidad usuario)
         {
 

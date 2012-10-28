@@ -27,5 +27,10 @@ namespace RapidNote.DAO.DAOFactory
         {
             return new DAOUsuario();
         }
+
+        public override IDAONota CrearDAONota()
+        {
+            return new DAONota();
+        }
     }
 }

@@ -51,9 +51,9 @@
                             <ul>
                                 <li class="first">Nota<span class="down-arrow"></span>
                                     <ul>
-                                        <li><a href="#">Agregar Nota</a></li>
+                                        <li><a href="../../Presentacion/Vista/NuevaNota.aspx">Agregar Nota</a></li>
                                         <li><a href="#">Modificar Nota</a></li>
-                                        <li><a href="#">Consultar Nota</a></li>
+                                        <li><a href="../../Presentacion/Vista/MostrarNota.aspx">Consultar Nota</a></li>
                                         <li><a href="#">Eliminar Nota</a></li>
                                     </ul>
                                 </li>
@@ -89,6 +89,8 @@
             </div>
         </div>
         <div class="main">
+            <asp:ScriptManager ID="ScriptManager1" runat="server">
+            </asp:ScriptManager>
             <asp:ContentPlaceHolder ID="MainContent" runat="server">
                 <p>
                     <br />
