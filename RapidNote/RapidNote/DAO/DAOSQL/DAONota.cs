@@ -35,7 +35,9 @@ namespace RapidNote.DAO.DAOSQL
                 while (sqlrd.Read())
                 {
                     nota = FabricaEntidad.CrearNota();
+                    (nota as Nota).Idnota = int.Parse(sqlrd["idNota"].ToString());
                     (nota as Nota).Titulo = sqlrd["TITULO"].ToString();
+                    (nota as Nota).Fechacreacion = DateTime.Parse(sqlrd["fechaCreacion"].ToString());
                     listaNotas.Add(nota);
                 }
                 return listaNotas;
@@ -255,5 +257,257 @@ namespace RapidNote.DAO.DAOSQL
                 connexion.CerrarConexionBd();
             }
         }
+
+
+        public List<Entidad> BuscarNotasEtiqueta(Entidad usuario)
+        {
+            SqlCommand sqlcmd = new SqlCommand();
+            Conexion connexion = new Conexion();
+            List<Entidad> listaNotas = new List<Entidad>();
+            Entidad nota = null;
+
+            try
+            {
+                connexion.AbrirConexionBd();
+                sqlcmd.Connection = connexion.ObjetoConexion();
+                sqlcmd.CommandType = CommandType.StoredProcedure;
+                sqlcmd.CommandText = "BuscarNotaEtiqueta";
+                sqlcmd.CommandTimeout = 2;
+
+                SqlParameter parametroFraseBusqueda = new SqlParameter("@contenidoBusqueda", usuario.Estado);
+                sqlcmd.Parameters.Add(parametroFraseBusqueda);
+                SqlParameter parametroCorreo = new SqlParameter("@correoUsuario", (usuario as Usuario).Correo);
+                sqlcmd.Parameters.Add(parametroCorreo);
+                
+                sqlcmd.ExecuteNonQuery();
+                SqlDataReader sqlrd;
+                sqlrd = sqlcmd.ExecuteReader();
+                while (sqlrd.Read())
+                {
+                    nota = FabricaEntidad.CrearNota();
+                    (nota as Nota).Idnota = Convert.ToInt32(sqlrd["idNota"]);
+                    (nota as Nota).Titulo = sqlrd["titulo"].ToString();
+                    (nota as Nota).Fechacreacion = DateTime.Parse(sqlrd["fechaCreacion"].ToString());
+                    listaNotas.Add(nota);
+                }
+                return listaNotas;
+            }
+            catch (Exception E)
+            {
+                Console.WriteLine(E.Message);
+                return listaNotas;
+            }
+
+            finally
+            {
+                connexion.CerrarConexionBd();
+            }
+        }
+
+
+        public List<Entidad> BuscarNotas(Entidad usuario)
+        {
+            SqlCommand sqlcmd = new SqlCommand();
+            Conexion connexion = new Conexion();
+            List<Entidad> listaNotas = new List<Entidad>();
+            Entidad nota = null;
+
+            try
+            {
+                connexion.AbrirConexionBd();
+                sqlcmd.Connection = connexion.ObjetoConexion();
+                sqlcmd.CommandType = CommandType.StoredProcedure;
+                sqlcmd.CommandText = "BuscarNotaContenido";
+                sqlcmd.CommandTimeout = 2;
+
+                SqlParameter parametroFraseBusqueda = new SqlParameter("@contenidoBusqueda", usuario.Estado);
+                sqlcmd.Parameters.Add(parametroFraseBusqueda);
+                SqlParameter parametroCorreo = new SqlParameter("@correoUsuario", (usuario as Usuario).Correo);
+                sqlcmd.Parameters.Add(parametroCorreo);
+
+                sqlcmd.ExecuteNonQuery();
+                SqlDataReader sqlrd;
+                sqlrd = sqlcmd.ExecuteReader();
+                while (sqlrd.Read())
+                {
+                    nota = FabricaEntidad.CrearNota();
+                    (nota as Nota).Idnota = Convert.ToInt32(sqlrd["idNota"]);
+                    (nota as Nota).Titulo = sqlrd["titulo"].ToString();
+                    (nota as Nota).Fechacreacion = DateTime.Parse(sqlrd["fechaCreacion"].ToString());
+                    listaNotas.Add(nota);
+                }
+                return listaNotas;
+            }
+            catch (Exception E)
+            {
+                Console.WriteLine(E.Message);
+                return listaNotas;
+            }
+
+            finally
+            {
+                connexion.CerrarConexionBd();
+            }
+        }
+
+        public int BuscarIdNota(Entidad nota)
+        {
+            SqlCommand sqlcmd = new SqlCommand();
+            Conexion connexion = new Conexion();
+            int aux = 0;
+
+            try
+            {
+                connexion.AbrirConexionBd();
+                sqlcmd.Connection = connexion.ObjetoConexion();
+                sqlcmd.CommandType = CommandType.StoredProcedure;
+                sqlcmd.CommandText = "BuscarIdNota";
+                sqlcmd.CommandTimeout = 2;
+
+                SqlParameter parametroTitulo = new SqlParameter("@tituloNota", (nota as Nota).Titulo);
+                sqlcmd.Parameters.Add(parametroTitulo);
+
+                sqlcmd.ExecuteNonQuery();
+                SqlDataReader sqlrd;
+                sqlrd = sqlcmd.ExecuteReader();
+                while (sqlrd.Read())
+                {
+
+                    aux = int.Parse(sqlrd["IDNOTA"].ToString());
+
+                }
+
+                return aux;
+            }
+            catch (Exception E)
+            {
+                Console.WriteLine(E.Message);
+                return aux;
+            }
+
+            finally
+            {
+                connexion.CerrarConexionBd();
+            }
+        }
+
+        public Entidad BuscarNota(Entidad nota)
+        {
+            SqlCommand sqlcmd = new SqlCommand();
+            Conexion connexion = new Conexion();
+            //int aux = 0;
+
+            try
+            {
+                connexion.AbrirConexionBd();
+                sqlcmd.Connection = connexion.ObjetoConexion();
+                sqlcmd.CommandType = CommandType.StoredProcedure;
+                sqlcmd.CommandText = "BuscarNota";
+                sqlcmd.CommandTimeout = 2;
+
+                SqlParameter parametroTitulo = new SqlParameter("@idNota", (nota as Nota).Idnota);
+                sqlcmd.Parameters.Add(parametroTitulo);
+
+                sqlcmd.ExecuteNonQuery();
+                SqlDataReader sqlrd;
+                sqlrd = sqlcmd.ExecuteReader();
+                while (sqlrd.Read())
+                {
+
+                    (nota as Nota).Contenido = sqlrd["CONTENIDO"].ToString();
+                    (nota as Nota).Fechacreacion = DateTime.Parse(sqlrd["fechaCreacion"].ToString());
+                    (nota as Nota).Libreta.NombreLibreta = sqlrd["nombreLibreta"].ToString();
+                    (nota as Nota).Titulo = sqlrd["titulo"].ToString();
+                    if (sqlrd["fechaModificacion"].ToString() != null)
+                    {
+                        (nota as Nota).Fechamodificacion = DateTime.Parse(sqlrd["fechaModificacion"].ToString());
+                    }
+
+                }
+
+                return nota;
+            }
+            catch (Exception E)
+            {
+                Console.WriteLine(E.Message);
+                return nota;
+            }
+
+            finally
+            {
+                connexion.CerrarConexionBd();
+            }
+        }
+
+
+        public Entidad EditarNota(Entidad nota)
+        {
+            SqlCommand sqlcmd = new SqlCommand();
+            Conexion connexion = new Conexion();
+
+            try
+            {
+                connexion.AbrirConexionBd();
+                sqlcmd.Connection = connexion.ObjetoConexion();
+                sqlcmd.CommandType = CommandType.StoredProcedure;
+                sqlcmd.CommandText = "EditarNota";
+                sqlcmd.CommandTimeout = 2;
+
+                SqlParameter parametroTitulo = new SqlParameter("@tituloNota", (nota as Nota).Titulo);
+                sqlcmd.Parameters.Add(parametroTitulo);
+                SqlParameter parametroContenido = new SqlParameter("@contenidoNota", (nota as Nota).Contenido);
+                sqlcmd.Parameters.Add(parametroContenido);
+                SqlParameter parametroIdNota = new SqlParameter("@idNota", (nota as Nota).Idnota);
+                sqlcmd.Parameters.Add(parametroIdNota);
+
+                sqlcmd.ExecuteNonQuery();
+
+                return nota;
+            }
+            catch (Exception E)
+            {
+                Console.WriteLine(E.Message);
+                return nota;
+            }
+
+            finally
+            {
+                connexion.CerrarConexionBd();
+            }
+        }
+
+
+        public Entidad BorrarNota(Entidad nota)
+        {
+            SqlCommand sqlcmd = new SqlCommand();
+            Conexion connexion = new Conexion();
+
+            try
+            {
+                connexion.AbrirConexionBd();
+                sqlcmd.Connection = connexion.ObjetoConexion();
+                sqlcmd.CommandType = CommandType.StoredProcedure;
+                sqlcmd.CommandText = "BorrarNota";
+                sqlcmd.CommandTimeout = 2;
+
+                SqlParameter parametroIdNota = new SqlParameter("@idNota", (nota as Nota).Idnota);
+                sqlcmd.Parameters.Add(parametroIdNota);
+
+                sqlcmd.ExecuteNonQuery();
+
+                return nota;
+            }
+            catch (Exception E)
+            {
+                Console.WriteLine(E.Message);
+                return nota;
+            }
+
+            finally
+            {
+                connexion.CerrarConexionBd();
+            }
+        }
+
     }
 }

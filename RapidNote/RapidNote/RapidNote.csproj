@@ -54,10 +54,13 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="index.aspx" />
+    <Content Include="Presentacion\Vista\index.aspx" />
+    <Content Include="Presentacion\Vista\AccesarNota.aspx" />
+    <Content Include="Presentacion\Vista\BuscarNota.aspx" />
     <Content Include="Presentacion\Vista\CerrarSession.aspx" />
     <Content Include="Presentacion\Vista\ConfiguracionUsuario.aspx" />
     <Content Include="Presentacion\Vista\CrearLibreta.aspx" />
+    <Content Include="Presentacion\Vista\EditarNota.aspx" />
     <Content Include="Presentacion\Vista\Login.aspx" />
     <Content Include="Presentacion\Vista\MostrarNota.aspx" />
     <Content Include="Presentacion\Vista\NuevaNota.aspx" />
@@ -93,33 +96,59 @@
     <Compile Include="DAO\IDAOS\IDAO.cs" />
     <Compile Include="DAO\IDAOS\IDAONota.cs" />
     <Compile Include="DAO\IDAOS\IDAOUsuario.cs" />
-    <Compile Include="index.aspx.cs">
+    <Compile Include="Presentacion\Vista\index.aspx.cs">
       <DependentUpon>index.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="index.aspx.designer.cs">
+    <Compile Include="Presentacion\Vista\index.aspx.designer.cs">
       <DependentUpon>index.aspx</DependentUpon>
     </Compile>
     <Compile Include="Logica\Comandos\Comando.cs" />
     <Compile Include="Logica\Comandos\Login\ComandoLogin.cs" />
+    <Compile Include="Logica\Comandos\Nota\ComandoBorrarNota.cs" />
+    <Compile Include="Logica\Comandos\Nota\ComandoBuscarIdNota.cs" />
+    <Compile Include="Logica\Comandos\Nota\ComandoBuscarNota.cs" />
+    <Compile Include="Logica\Comandos\Nota\ComandoBuscarNotas.cs" />
+    <Compile Include="Logica\Comandos\Nota\ComandoEditarNota.cs" />
     <Compile Include="Logica\Comandos\Nota\ComandoListarAdjuntosPorNota.cs" />
     <Compile Include="Logica\Comandos\Nota\ComandoListarEtiquetasPorNota.cs" />
     <Compile Include="Logica\Comandos\Nota\ComandoListarLibretas.cs" />
-    <Compile Include="Logica\Comandos\Nota\ComandoListarTituloNotas.cs" />
+    <Compile Include="Logica\Comandos\Nota\ComandoListarNotas.cs" />
     <Compile Include="Logica\Comandos\Nota\ComandoMostrarNota.cs" />
     <Compile Include="Logica\Comandos\Nota\ComandoNuevaNota.cs" />
     <Compile Include="Logica\Comandos\Usuario\ComandoAgregarUsuario.cs" />
     <Compile Include="Logica\Comandos\Usuario\ComandoListaUsuario.cs" />
     <Compile Include="Logica\Comandos\Usuario\ComandoSha512.cs" />
     <Compile Include="Logica\Fabrica\FabricaComando.cs" />
+    <Compile Include="Presentacion\Contrato\IContratoIndex.cs" />
     <Compile Include="Presentacion\Contrato\Login\IContratoLogin.cs" />
+    <Compile Include="Presentacion\Contrato\Nota\IContratoAccesarNota.cs" />
+    <Compile Include="Presentacion\Contrato\Nota\IContratoBuscarNota.cs" />
+    <Compile Include="Presentacion\Contrato\Nota\IContratoEditarNota.cs" />
     <Compile Include="Presentacion\Contrato\Nota\IContratoMostrarNota.cs" />
     <Compile Include="Presentacion\Contrato\Nota\IContratoNuevaNota.cs" />
     <Compile Include="Presentacion\Contrato\Usuario\IcontratoAgregarUsuario.cs" />
     <Compile Include="Presentacion\Presentador\Login\PresentadorLogin.cs" />
+    <Compile Include="Presentacion\Presentador\Nota\PresentadorAccesarNota.cs" />
+    <Compile Include="Presentacion\Presentador\Nota\PresentadorEditarNota.cs" />
     <Compile Include="Presentacion\Presentador\Nota\PresentadorMostrarNota.cs" />
     <Compile Include="Presentacion\Presentador\Nota\PresentadorNuevaNota.cs" />
+    <Compile Include="Presentacion\Presentador\Nota\PresentarBuscarNota.cs" />
     <Compile Include="Presentacion\Presentador\Usuario\PresentadorAgregarUsuario.cs" />
+    <Compile Include="Presentacion\Vista\AccesarNota.aspx.cs">
+      <DependentUpon>AccesarNota.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Presentacion\Vista\AccesarNota.aspx.designer.cs">
+      <DependentUpon>AccesarNota.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Presentacion\Vista\BuscarNota.aspx.cs">
+      <DependentUpon>BuscarNota.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Presentacion\Vista\BuscarNota.aspx.designer.cs">
+      <DependentUpon>BuscarNota.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Presentacion\Vista\CerrarSession.aspx.cs">
       <DependentUpon>CerrarSession.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -140,6 +169,13 @@
     </Compile>
     <Compile Include="Presentacion\Vista\CrearLibreta.aspx.designer.cs">
       <DependentUpon>CrearLibreta.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Presentacion\Vista\EditarNota.aspx.cs">
+      <DependentUpon>EditarNota.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Presentacion\Vista\EditarNota.aspx.designer.cs">
+      <DependentUpon>EditarNota.aspx</DependentUpon>
     </Compile>
     <Compile Include="Presentacion\Vista\Login.aspx.cs">
       <DependentUpon>Login.aspx</DependentUpon>

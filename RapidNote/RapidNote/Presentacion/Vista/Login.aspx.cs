@@ -39,7 +39,8 @@ namespace RapidNote.Presentacion.Vista
 
                 excepcion.Text = "Bienvenido";
                 Console.WriteLine("Bienvenido");
-                Response.Redirect("../../index.aspx");
+                //Response.Redirect("../../index.aspx");
+                Response.Redirect("../Vista/index.aspx");
             }
         }
 

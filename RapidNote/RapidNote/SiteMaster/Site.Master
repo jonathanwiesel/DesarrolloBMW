@@ -39,8 +39,7 @@
             <div class="loginDisplay">
                 <table>
                     <tr>
-                        <asp:TextBox ID="TextBox1" runat="server" Width="250px"></asp:TextBox>
-                        <asp:Button ID="Button1" runat="server" Text="Buscar" />
+                        <asp:ContentPlaceHolder ID="BuscadorMain" runat="server"/>                    
                     </tr>
                 </table>
             </div>
@@ -52,9 +51,8 @@
                                 <li class="first">Nota<span class="down-arrow"></span>
                                     <ul>
                                         <li><a href="../../Presentacion/Vista/NuevaNota.aspx">Agregar Nota</a></li>
-                                        <li><a href="#">Modificar Nota</a></li>
-                                        <li><a href="../../Presentacion/Vista/MostrarNota.aspx">Consultar Nota</a></li>
-                                        <li><a href="#">Eliminar Nota</a></li>
+                                        <!--<li><a href="../../Presentacion/Vista/MostrarNota.aspx">Consultar Nota</a></li>-->
+                                        <li><a href="../../Presentacion/Vista/AccesarNota.aspx">Accesar Nota</a></li>
                                     </ul>
                                 </li>
                                 <li>Libreta<span class="down-arrow"></span>

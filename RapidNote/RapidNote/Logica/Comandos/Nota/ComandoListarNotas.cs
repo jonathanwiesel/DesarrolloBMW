@@ -8,13 +8,13 @@ using RapidNote.DAO.IDAOS;
 
 namespace RapidNote.Logica.Comandos.Nota
 {
-    public class ComandoListarTituloNotas : Comando<List<Entidad>>
+    public class ComandoListarNotas : Comando<List<Entidad>>
     {
         private Entidad usuario;
         
         private List<Entidad> listaNotas;
 
-        public ComandoListarTituloNotas(Entidad _usuario) 
+        public ComandoListarNotas(Entidad _usuario) 
         {
             usuario = _usuario;
         }

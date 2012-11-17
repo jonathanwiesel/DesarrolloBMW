@@ -26,7 +26,7 @@ namespace RapidNote.Presentacion.Presentador.Nota
         public void IniciarVista() 
         {
             Entidad usuario = (contrato.Sesion["usuario"] as Usuario);
-            comando = FabricaComando.CrearComandoListarTituloNotas(usuario);
+            comando = FabricaComando.CrearComandoListarNotas(usuario);
             contrato.setListaNotas(comando.Ejecutar());
         }
 

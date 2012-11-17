@@ -10,25 +10,7 @@
 namespace RapidNote.Presentacion.Vista {
     
     
-    public partial class MostrarNota {
-        
-        /// <summary>
-        /// TextBoxBuscadorSiteM control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBoxBuscadorSiteM;
-        
-        /// <summary>
-        /// ButtonBuscadorSiteM control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button ButtonBuscadorSiteM;
+    public partial class EditarNota {
         
         /// <summary>
         /// SemanticUpdatePanel1 control.
@@ -49,13 +31,22 @@ namespace RapidNote.Presentacion.Vista {
         protected global::System.Web.UI.WebControls.Label nombreNota;
         
         /// <summary>
-        /// DropDownList1 control.
+        /// TextBoxTitulo control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList DropDownList1;
+        protected global::System.Web.UI.WebControls.TextBox TextBoxTitulo;
+        
+        /// <summary>
+        /// rfvEmail control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvEmail;
         
         /// <summary>
         /// content control.
@@ -76,6 +67,15 @@ namespace RapidNote.Presentacion.Vista {
         protected global::System.Web.UI.WebControls.TextBox TextBoxContenido;
         
         /// <summary>
+        /// Requiredfieldvalidator1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator Requiredfieldvalidator1;
+        
+        /// <summary>
         /// Label2 control.
         /// </summary>
         /// <remarks>
@@ -85,67 +85,40 @@ namespace RapidNote.Presentacion.Vista {
         protected global::System.Web.UI.WebControls.Label Label2;
         
         /// <summary>
-        /// TextBoxLibreta control.
+        /// DropDownListLibretas control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBoxLibreta;
+        protected global::System.Web.UI.WebControls.DropDownList DropDownListLibretas;
         
         /// <summary>
-        /// Label3 control.
+        /// LabelResultado control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label3;
+        protected global::System.Web.UI.WebControls.Label LabelResultado;
         
         /// <summary>
-        /// TextBoxFechaC control.
+        /// Button1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBoxFechaC;
+        protected global::System.Web.UI.WebControls.Button Button1;
         
         /// <summary>
-        /// Label4 control.
+        /// Button2 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label4;
-        
-        /// <summary>
-        /// TextBoxFechaM control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBoxFechaM;
-        
-        /// <summary>
-        /// Label5 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label5;
-        
-        /// <summary>
-        /// ListBoxEtiquetas control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.ListBox ListBoxEtiquetas;
+        protected global::System.Web.UI.WebControls.Button Button2;
         
         /// <summary>
         /// Label1 control.
@@ -155,14 +128,5 @@ namespace RapidNote.Presentacion.Vista {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label Label1;
-        
-        /// <summary>
-        /// ListBoxArchivos control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.ListBox ListBoxArchivos;
     }
 }

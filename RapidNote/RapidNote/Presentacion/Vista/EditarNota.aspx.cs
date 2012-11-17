@@ -10,20 +10,22 @@ using RapidNote.Presentacion.Presentador.Nota;
 
 namespace RapidNote.Presentacion.Vista
 {
-    public partial class NuevaNota : System.Web.UI.Page, IContratoNuevaNota
+    public partial class EditarNota : System.Web.UI.Page, IContratoEditarNota
     {
-        PresentadorNuevaNota presentador;
+        private string idNota;
+
+        PresentadorEditarNota presentador;
 
         protected override void OnInit(EventArgs e)
         {
             base.OnInit(e);
-            presentador = new PresentadorNuevaNota(this);
+            presentador = new PresentadorEditarNota(this);
 
         }
 
         protected void Page_PreRender(object sender, EventArgs e)
         {
-            presentador = new PresentadorNuevaNota(this);
+            presentador = new PresentadorEditarNota(this);
         }
         
 
@@ -38,13 +40,6 @@ namespace RapidNote.Presentacion.Vista
                     presentador.IniciarVista();
                 }
             }
-        }
-
-        protected void ClickBuscarNota(object sender, EventArgs e)
-        {
-            (Sesion["usuario"] as Usuario).Estado = TextBoxBuscadorSiteM.Text;
-            Response.Redirect("BuscarNota.aspx");
-            //presentador.IniciarVista();
         }
 
         public System.Web.SessionState.HttpSessionState Sesion
@@ -77,11 +72,42 @@ namespace RapidNote.Presentacion.Vista
             }
         }
 
+        public String getIdNota() {
+            idNota = Request.QueryString["id"].ToString();
+            return idNota;
+        }
+
+        public void setContenido(String contenido)
+        {
+            TextBoxContenido.Text = contenido;
+        }
+
+        public void setTitulo(String titulo)
+        {
+            TextBoxTitulo.Text = titulo;
+        }
+        
+        //actualizar
         protected void Button1_Click(object sender, EventArgs e)
         {
             presentador.Ejecutar();
-            LabelResultado.Text="Almacenado";
-            Response.Redirect("../../index.aspx");
+            LabelResultado.Text="Actualizando";
+            Response.Redirect("../Vista/index.aspx");
+        }
+
+        //eliminar
+        protected void Button2_Click(object sender, EventArgs e)
+        {
+            presentador.EjecutarDel();
+            LabelResultado.Text = "Eliminando";
+            Response.Redirect("../Vista/index.aspx");
+        }
+
+
+        public void setNombreLibreta(String nombreLibreta)
+        {
+            DropDownListLibretas.Items.Clear();
+            DropDownListLibretas.Items.Add(nombreLibreta);
         }
     }
 }

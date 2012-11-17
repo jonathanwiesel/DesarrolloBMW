@@ -5,27 +5,26 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using RapidNote.Presentacion.Contrato.Nota;
-using RapidNote.Clases;
 using RapidNote.Presentacion.Presentador.Nota;
+using RapidNote.Clases;
 
 namespace RapidNote.Presentacion.Vista
 {
-    public partial class NuevaNota : System.Web.UI.Page, IContratoNuevaNota
+    public partial class AccesarNota : System.Web.UI.Page, IContratoAccesarNota
     {
-        PresentadorNuevaNota presentador;
-
+        private PresentadorAccesarNota presentador;
+        
         protected override void OnInit(EventArgs e)
         {
             base.OnInit(e);
-            presentador = new PresentadorNuevaNota(this);
+            presentador = new PresentadorAccesarNota(this);
 
         }
 
         protected void Page_PreRender(object sender, EventArgs e)
         {
-            presentador = new PresentadorNuevaNota(this);
+            presentador = new PresentadorAccesarNota(this);
         }
-        
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -47,41 +46,35 @@ namespace RapidNote.Presentacion.Vista
             //presentador.IniciarVista();
         }
 
+
         public System.Web.SessionState.HttpSessionState Sesion
         {
             get { return Session; }
         }
 
-
-        public string getContenido()
+        public List<Clases.Entidad> gridviewnota
         {
-            return TextBoxContenido.Text;
-        }
-
-        public string getTitulo()
-        {
-            return TextBoxTitulo.Text;
-        }                
-
-        public string getNombreLibreta()
-        {
-            return DropDownListLibretas.SelectedValue;
-        }
-
-        public void setListaLibretas(List<Entidad> listaLibretas)
-        {
-            DropDownListLibretas.Items.Clear();
-            for (int i = 0; i < listaLibretas.Count; i++) 
+            set
             {
-                DropDownListLibretas.Items.Add((listaLibretas[i] as Libreta).NombreLibreta);
+                GridViewNotas.DataSource = value;
+                GridViewNotas.DataBind();
             }
         }
 
-        protected void Button1_Click(object sender, EventArgs e)
+        public string contenidoBusqueda
         {
-            presentador.Ejecutar();
-            LabelResultado.Text="Almacenado";
-            Response.Redirect("../../index.aspx");
+            get { return "%" + TextBoxBuscadorSiteM.Text + "%"; }
+        }
+
+        protected void GridViewRowEventHandler(object sender, GridViewRowEventArgs e)
+        {
+            if (e.Row.RowType == DataControlRowType.DataRow)
+            {
+                e.Row.Attributes.Add("onmouseover", "this.style.backgroundColor='#ceedfc'");
+                e.Row.Attributes.Add("onmouseout", "this.style.backgroundColor=''");
+                e.Row.Attributes.Add("style", "cursor:pointer;");
+                e.Row.Attributes.Add("onclick", "location='EditarNota.aspx?id=" + e.Row.Cells[0].Text + "'");
+            }
         }
     }
 }

@@ -7,10 +7,10 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace RapidNote.Presentacion.Vista {
+namespace Sistema_Totem.Vista {
     
     
-    public partial class CrearLibreta {
+    public partial class WebForm1 {
         
         /// <summary>
         /// TextBoxBuscadorSiteM control.
@@ -29,32 +29,5 @@ namespace RapidNote.Presentacion.Vista {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button ButtonBuscadorSiteM;
-        
-        /// <summary>
-        /// lnombre control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lnombre;
-        
-        /// <summary>
-        /// nombre control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox nombre;
-        
-        /// <summary>
-        /// registrar control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button registrar;
     }
 }

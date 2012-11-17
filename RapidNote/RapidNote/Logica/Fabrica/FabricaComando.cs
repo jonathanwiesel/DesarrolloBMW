@@ -18,9 +18,9 @@ namespace RapidNote.Logica.Fabrica
             return new ComandoLogin(entidad);
         }
 
-        public static Comando<List<Entidad>> CrearComandoListarTituloNotas(Entidad entidad) 
+        public static Comando<List<Entidad>> CrearComandoListarNotas(Entidad entidad) 
         {
-            return new ComandoListarTituloNotas(entidad);
+            return new ComandoListarNotas(entidad);
         }
 
         public static Comando<Entidad> CrearComandoMostrarNota(Entidad entidad) 
@@ -61,6 +61,31 @@ namespace RapidNote.Logica.Fabrica
         public static Comando<Entidad> CrearComandoListaUsuario(Entidad entidad)
         {
             return new ComandoListaUsuario(entidad);
+        }
+
+        public static Comando<List<Entidad>> CrearComandoBuscarNotas(Entidad usuario) 
+        {
+            return new ComandoBuscarNotas(usuario);
+        }
+
+        public static Comando<Entidad> CrearComandoEditarNota(Entidad nota)
+        {
+            return new ComandoEditarNota(nota);
+        }
+
+        public static Comando<Entidad> CrearComandoBorrarNota(Entidad nota)
+        {
+            return new ComandoBorrarNota(nota);
+        }
+
+        public static Comando<int> CrearComandoBuscarIdNota(Entidad nota)
+        {
+            return new ComandoBuscarIdNota(nota);
+        }
+
+        public static Comando<Entidad> CrearComandoBuscarNota(Entidad nota)
+        {
+            return new ComandoBuscarNota(nota);
         }
     }
 }

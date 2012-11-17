@@ -17,6 +17,10 @@
         }
     </style>
 </asp:Content>
+<asp:Content ID="Content3" ContentPlaceHolderID="BuscadorMain" runat="server"> 
+    <asp:TextBox ID="TextBoxBuscadorSiteM" runat="server" Width="250px"></asp:TextBox>
+    <asp:Button ID="ButtonBuscadorSiteM" runat="server" Text="Buscar" OnClick="ClickBuscarNota"/>
+</asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
     <div id="contenido">
         <br />

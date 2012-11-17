@@ -13,6 +13,24 @@ namespace RapidNote.Presentacion.Vista {
     public partial class NuevaNota {
         
         /// <summary>
+        /// TextBoxBuscadorSiteM control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox TextBoxBuscadorSiteM;
+        
+        /// <summary>
+        /// ButtonBuscadorSiteM control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button ButtonBuscadorSiteM;
+        
+        /// <summary>
         /// SemanticUpdatePanel1 control.
         /// </summary>
         /// <remarks>

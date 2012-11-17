@@ -10,7 +10,7 @@
 namespace RapidNote.Presentacion.Vista {
     
     
-    public partial class CrearLibreta {
+    public partial class BuscarNota {
         
         /// <summary>
         /// TextBoxBuscadorSiteM control.
@@ -31,30 +31,21 @@ namespace RapidNote.Presentacion.Vista {
         protected global::System.Web.UI.WebControls.Button ButtonBuscadorSiteM;
         
         /// <summary>
-        /// lnombre control.
+        /// SemanticUpdatePanel1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lnombre;
+        protected global::RapidNote.Controles.SemanticUpdatePanel SemanticUpdatePanel1;
         
         /// <summary>
-        /// nombre control.
+        /// GridViewNotas control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox nombre;
-        
-        /// <summary>
-        /// registrar control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button registrar;
+        protected global::System.Web.UI.WebControls.GridView GridViewNotas;
     }
 }

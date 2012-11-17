@@ -1,12 +1,8 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="NuevaNota.aspx.cs" Inherits="RapidNote.Presentacion.Vista.NuevaNota" MasterPageFile="~/SiteMaster/Site.Master" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="EditarNota.aspx.cs" Inherits="RapidNote.Presentacion.Vista.EditarNota" MasterPageFile="~/SiteMaster/Site.Master" %>
 <%@ Register Assembly="RapidNote" Namespace="RapidNote.Controles" TagPrefix="cc1" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="TitleContent" runat="server">
     Nota
-</asp:Content>
-<asp:Content ID="Content3" ContentPlaceHolderID="BuscadorMain" runat="server"> 
-    <asp:TextBox ID="TextBoxBuscadorSiteM" runat="server" Width="250px"></asp:TextBox>
-    <asp:Button ID="ButtonBuscadorSiteM" runat="server" Text="Buscar" OnClick="ClickBuscarNota"/>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
     <div id="contenido">
@@ -16,7 +12,7 @@
         <br />
         <br />
         <fieldset>
-            <legend>Crear Nota</legend>
+            <legend>Editar Nota</legend>
             <table align="center">                
                 <cc1:semanticupdatepanel ID="SemanticUpdatePanel1" runat="server" 
                     RenderedElement="TBODY">
@@ -48,7 +44,7 @@
                         <asp:Label ID="Label2" runat="server" Text="Nombre de la libreta"></asp:Label>
                     </td>
                     <td>                        
-                        <asp:DropDownList ID="DropDownListLibretas" runat="server" Width="430px">
+                        <asp:DropDownList ID="DropDownListLibretas" runat="server" Width="430px" Enabled="false">
                         </asp:DropDownList>
                     </td>
                 </tr>     
@@ -59,6 +55,8 @@
                     <td>
                         <asp:Button ID="Button1" runat="server" Text="Guardar" 
                                 onclick="Button1_Click" />
+                        <asp:Button ID="Button2" runat="server" Text="Eliminar" 
+                                onclick="Button2_Click" />
                     </td>
                 </tr>        
                 </ContentTemplate>
