@@ -22,7 +22,7 @@ namespace RapidNote.Presentacion.Presentador.Nota
 
         private Entidad nota;
 
-        private int idNota;
+        //private int idNota;
 
         public PresentadorEditarNota(IContratoEditarNota _contrato) 
         {
@@ -37,11 +37,11 @@ namespace RapidNote.Presentacion.Presentador.Nota
             //contrato.setListaLibretas(comandoLista.Ejecutar());
 
             //agarro el ID que viene de la pagina de seleccion
-            idNota = int.Parse(contrato.getIdNota());
+            //idNota = int.Parse(contrato.getIdNota());
 
             //busco la nota segun su ID
             nota = FabricaEntidad.CrearNota();
-            (nota as Clases.Nota).Idnota = idNota;
+            (nota as Clases.Nota).Idnota = int.Parse(contrato.getIdNota());
 
             comando = FabricaComando.CrearComandoBuscarNota(nota);
             nota = comando.Ejecutar();
@@ -69,7 +69,7 @@ namespace RapidNote.Presentacion.Presentador.Nota
             nota = FabricaEntidad.CrearNota();
             (nota as Clases.Nota).Titulo = contrato.getTitulo();
             (nota as Clases.Nota).Contenido = contrato.getContenido();
-            (nota as Clases.Nota).Idnota = idNota;
+            (nota as Clases.Nota).Idnota = int.Parse(contrato.getIdNota());
             (nota as Clases.Nota).Libreta.NombreLibreta = contrato.getNombreLibreta();
 
             comando = FabricaComando.CrearComandoEditarNota(nota);
@@ -81,7 +81,7 @@ namespace RapidNote.Presentacion.Presentador.Nota
         public void EjecutarDel()
         {
             nota = FabricaEntidad.CrearNota();
-            (nota as Clases.Nota).Idnota = idNota;
+            (nota as Clases.Nota).Idnota = int.Parse(contrato.getIdNota());
 
             comando = FabricaComando.CrearComandoBorrarNota(nota);
 
