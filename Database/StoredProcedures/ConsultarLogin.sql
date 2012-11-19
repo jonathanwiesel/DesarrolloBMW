@@ -16,7 +16,7 @@ CREATE PROCEDURE [dbo].[ConsultarLogin](
 AS
 BEGIN
 
-	SELECT IDUSUARIO FROM USUARIO WHERE CORREO = @correoUsuario AND CLAVE = @claveUsuario;			
+	SELECT IDUSUARIO,acesstoken,acesssecret FROM USUARIO WHERE CORREO = @correoUsuario AND CLAVE = @claveUsuario;			
 	
 END
 

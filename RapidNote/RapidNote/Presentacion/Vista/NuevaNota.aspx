@@ -51,6 +51,14 @@
                         <asp:DropDownList ID="DropDownListLibretas" runat="server" Width="430px">
                         </asp:DropDownList>
                     </td>
+                </tr>
+                <tr>
+                    <td>
+                        <asp:Label ID="Label3" runat="server" Text="Archivo Adjunto"></asp:Label>
+                    </td>
+                    <td>
+                        <asp:FileUpload ID="FileUploadArchivo" runat="server"/>
+                    </td>
                 </tr>     
                 <tr>
                     <td>
@@ -81,5 +89,5 @@
             </td>
         </tr>        
     </table>
-
-</asp:Content>
+   
+    </asp:Content>

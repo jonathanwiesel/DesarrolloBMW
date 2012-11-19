@@ -57,7 +57,7 @@
                                 </li>
                                 <li>Libreta<span class="down-arrow"></span>
                                     <ul>
-                                        <li><a href="#">Agregar Libreta</a></li>
+                                        <li><a href="../../Presentacion/Vista/CrearLibreta.aspx">Agregar Libreta</a></li>
                                         <li><a href="#">Modificar Libreta</a></li>
                                         <li><a href="#">Consultar Libreta</a></li>
                                         <li><a href="#">Eliminar Libreta</a></li>

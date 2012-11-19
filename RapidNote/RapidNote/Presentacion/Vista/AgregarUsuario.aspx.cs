@@ -12,6 +12,7 @@ namespace RapidNote.Presentacion.Vista
     public partial class Registrausuario : System.Web.UI.Page, IcontratoAgregarUsuario
     {
         private PresentadorAgregarUsuario presentador;
+        
         protected void Page_Load(object sender, EventArgs e)
         {
             presentador = new PresentadorAgregarUsuario(this);
@@ -21,6 +22,7 @@ namespace RapidNote.Presentacion.Vista
         {
             return nombre.Text;
         }
+
 
         public String getApellido()
         {
@@ -42,16 +44,28 @@ namespace RapidNote.Presentacion.Vista
             return confpassword.Text;
         }
 
+        public String puerto
+        {
+            get { return Request.Url.GetLeftPart(UriPartial.Authority); }
+        }
+
         public Label MensajeError
         {
             get { return mensajeError; }
             set { mensajeError = value; }
         }
 
+
+        public System.Web.SessionState.HttpSessionState Correo
+        {
+            get { return Session; }
+        }
+
         protected void Registrar_Click(object sender, EventArgs e)
         {
-            presentador.Ejecutar();
-            Response.Redirect("../Vista/Login.aspx");
+            String ruta =  presentador.Ejecutar();
+            Response.Redirect(ruta);
+            
         }
     }
 }

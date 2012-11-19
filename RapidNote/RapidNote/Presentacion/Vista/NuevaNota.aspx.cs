@@ -38,6 +38,8 @@ namespace RapidNote.Presentacion.Vista
                     presentador.IniciarVista();
                 }
             }
+            ScriptManager scripManager = ScriptManager.GetCurrent(this.Page);
+            scripManager.RegisterPostBackControl(Button1);
         }
 
         protected void ClickBuscarNota(object sender, EventArgs e)
@@ -56,6 +58,11 @@ namespace RapidNote.Presentacion.Vista
         public string getContenido()
         {
             return TextBoxContenido.Text;
+        }
+
+        public string archivo() 
+        {
+            return FileUploadArchivo.FileName;
         }
 
         public string getTitulo()
@@ -80,8 +87,16 @@ namespace RapidNote.Presentacion.Vista
         protected void Button1_Click(object sender, EventArgs e)
         {
             presentador.Ejecutar();
+            if (FileUploadArchivo.HasFile)
+            {
+                string directorio = @"C:\Users\victor\Documents\GitHub\DesarrolloBMW\RapidNote\RapidNote\Archivo\";
+                string archivo = directorio + FileUploadArchivo.FileName;
+                FileUploadArchivo.SaveAs(archivo);
+                presentador.Adjuntar(archivo);
+            }
             LabelResultado.Text="Almacenado";
             Response.Redirect("../Vista/index.aspx");
         }
+
     }
 }

@@ -8,6 +8,8 @@ using RapidNote.Logica.Comandos;
 using RapidNote.Logica.Comandos.Nota;
 using RapidNote.Logica.Comandos.usuario;
 using RapidNote.Logica.Comandos.Usuario;
+using RapidNote.Logica.Comandos.Dropbox;
+using RapidNote.Logica.Comandos.Libreta;
 
 namespace RapidNote.Logica.Fabrica
 {
@@ -86,6 +88,26 @@ namespace RapidNote.Logica.Fabrica
         public static Comando<Entidad> CrearComandoBuscarNota(Entidad nota)
         {
             return new ComandoBuscarNota(nota);
+        }
+
+        public static Comando<String> CrearComandoAutentificacionDropbox(String puerto)
+        {
+            return new ComandoAutentificarDropbox(puerto);
+        }
+
+        public static Comando<Boolean> CrearComandoObetenerToken(String correo)
+        {
+            return new ComandoObtenerToken(correo);
+        }
+
+        public static Comando<Boolean> CrearComandoAgregarLibreta(Entidad libreta, Entidad usuario)
+        {
+            return new ComandoAgregarLibreta(libreta, usuario);
+        }
+
+        public static Comando<Boolean> CrearComandoAdjuntarDropbox(String archivo, String nombre, Entidad usuario)
+        {
+            return new ComandoAdjuntarDropbox(archivo, nombre, usuario);
         }
     }
 }

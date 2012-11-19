@@ -19,7 +19,9 @@ namespace RapidNote.Clases
 
         private String urlImagen;
 
-        private String idDropBox;
+        private String accesToken;
+
+        private String accesSecret;
 
         public int Id
         {
@@ -44,7 +46,7 @@ namespace RapidNote.Clases
             get { return nombre; }
             set { nombre = value; }
         }
-        
+
         public String Apellido
         {
             get { return apellido; }
@@ -57,11 +59,17 @@ namespace RapidNote.Clases
             set { urlImagen = value; }
         }
 
-        public String IdDropBox
+
+        public String AccesToken
         {
-            get { return idDropBox; }
-            set { idDropBox = value; }
+            get { return accesToken; }
+            set { accesToken = value; }
         }
 
+        public String AccesSecret
+        {
+            get { return accesSecret; }
+            set { accesSecret = value; }
+        }
     }
 }

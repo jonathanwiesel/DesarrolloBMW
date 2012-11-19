@@ -11,5 +11,6 @@ namespace RapidNote.DAO.IDAOS
         Entidad ConsultarLogin(Entidad usuario);
         void AgregarUsuario(Entidad usuario);
         Entidad ListarUsuario(Entidad usuario);
+        Boolean InsertarToken(String correo, Entidad usuario);
     }
 }

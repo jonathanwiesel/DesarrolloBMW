@@ -18,6 +18,8 @@ namespace RapidNote.Presentacion.Presentador.Nota
 
         private Comando<List<Entidad>> comandoLista;
 
+        private Comando<Boolean> comando2;
+
         private Entidad nota;
 
         public PresentadorNuevaNota(IContratoNuevaNota _contrato) 
@@ -27,13 +29,14 @@ namespace RapidNote.Presentacion.Presentador.Nota
 
         public void IniciarVista() 
         {
-            Entidad usuario = (contrato.Sesion["usuario"] as Usuario);
+            Entidad usuario = (contrato.Sesion["usuario"] as Clases.Usuario);
             comandoLista = FabricaComando.CrearComandoListarLibretas(usuario);
             contrato.setListaLibretas(comandoLista.Ejecutar());
         }
 
         public void Ejecutar() 
         {
+            
             nota = FabricaEntidad.CrearNota();
             (nota as Clases.Nota).Titulo = contrato.getTitulo();
             (nota as Clases.Nota).Contenido = contrato.getContenido();
@@ -42,6 +45,13 @@ namespace RapidNote.Presentacion.Presentador.Nota
             comando = FabricaComando.CrearComandoNuevaNota(nota);
 
             nota = comando.Ejecutar();
+        }
+
+        public void Adjuntar(string archivo)
+        {
+            Entidad usuario = (contrato.Sesion["usuario"] as Clases.Usuario);
+            comando2 = FabricaComando.CrearComandoAdjuntarDropbox(archivo,contrato.archivo(),usuario);
+            comando2.Ejecutar();
         }
     }
 }

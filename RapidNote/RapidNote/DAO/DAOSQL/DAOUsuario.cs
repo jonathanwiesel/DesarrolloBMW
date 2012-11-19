@@ -35,6 +35,8 @@ namespace RapidNote.DAO.DAOSQL
                 while (sqlrd.Read())
                 {
                     (usuario as Usuario).Id = int.Parse(sqlrd["IDUSUARIO"].ToString());
+                    (usuario as Usuario).AccesToken = sqlrd["acesstoken"].ToString();
+                    (usuario as Usuario).AccesSecret = sqlrd["acesssecret"].ToString();
                 }
                 return usuario;
             }
@@ -120,6 +122,44 @@ namespace RapidNote.DAO.DAOSQL
             {
                 Console.WriteLine(E.Message);
                 return usuario;
+            }
+
+            finally
+            {
+                connexion.CerrarConexionBd();
+            }
+
+        }
+
+        public Boolean InsertarToken(String correo, Entidad usuario)
+        {
+            Boolean estado = false;
+            SqlCommand sqlcmd = new SqlCommand();
+            Conexion connexion = new Conexion();
+
+            try
+            {
+                connexion.AbrirConexionBd();
+                sqlcmd.Connection = connexion.ObjetoConexion();
+                sqlcmd.CommandType = CommandType.StoredProcedure;
+                sqlcmd.CommandText = "InsertarToken";
+                sqlcmd.CommandTimeout = 2;
+
+                SqlParameter parametroCorreo = new SqlParameter("@CORREO", correo);
+                sqlcmd.Parameters.Add(parametroCorreo);
+                SqlParameter parametroAcesstoken = new SqlParameter("@ACCESSTOKEN", (usuario as Usuario).AccesToken);
+                sqlcmd.Parameters.Add(parametroAcesstoken);
+                SqlParameter parametroAcesssecret = new SqlParameter("@ACCESSSECRET", (usuario as Usuario).AccesSecret);
+                sqlcmd.Parameters.Add(parametroAcesssecret);
+                sqlcmd.ExecuteNonQuery();
+                estado = true;
+                return estado;
+
+            }
+            catch (Exception E)
+            {
+                Console.WriteLine(E.Message);
+                return estado;
             }
 
             finally

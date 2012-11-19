@@ -26,6 +26,8 @@ namespace RapidNote.DAO.DAOFactory
 
         public abstract IDAOUsuario CrearDAOUsuario();
 
-        public abstract IDAONota CrearDAONota();        
+        public abstract IDAONota CrearDAONota();
+
+        public abstract IDAOLibreta CrearDAOLibreta();
     }
 }

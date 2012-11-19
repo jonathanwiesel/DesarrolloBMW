@@ -23,7 +23,7 @@ namespace RapidNote.Presentacion.Presentador.Nota
 
         public void IniciarVista() 
         {
-            Entidad usuario = (contrato.Sesion["usuario"] as Usuario);
+            Entidad usuario = (contrato.Sesion["usuario"] as Clases.Usuario);
             usuario.Estado = contrato.contenidoBusqueda;
             List<Entidad> listaNotas;
 

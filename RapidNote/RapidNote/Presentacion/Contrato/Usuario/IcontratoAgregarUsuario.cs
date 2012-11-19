@@ -15,7 +15,9 @@ namespace RapidNote.Presentacion.Contrato
         String getCorreo();
         String getclave();
         String getconfirmar();
+        String puerto { get; }
         Label MensajeError { get; set; }
+        HttpSessionState Correo { get; }
 
     }
 }

@@ -29,19 +29,19 @@ namespace RapidNote.Presentacion.Presentador.Login
         {
             usuario = FabricaEntidad.CrearUsuario();
 
-            (usuario as Usuario).Correo = contrato.getCorreo();
-            (usuario as Usuario).Clave = contrato.getClave();
+            (usuario as Clases.Usuario).Correo = contrato.getCorreo();
+            (usuario as Clases.Usuario).Clave = contrato.getClave();
 
             comando2 = FabricaComando.CrearComandoSha512(contrato.getClave());
-            (usuario as Usuario).Clave = comando2.Ejecutar();
+            (usuario as Clases.Usuario).Clave = comando2.Ejecutar();
 
             comando = FabricaComando.CrearComandoLogin(usuario);
             usuario = comando.Ejecutar();
-            if ((usuario as Usuario).Id > 0)
+            if ((usuario as Clases.Usuario).Id > 0)
             {
                 contrato.Sesion["usuario"] = usuario;
             }
-            return (usuario as Usuario).Id;
+            return (usuario as Clases.Usuario).Id;
         }
 
     }
