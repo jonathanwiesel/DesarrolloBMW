@@ -10,7 +10,9 @@ using RapidNote.Clases;
 namespace RapidNote.DAO.DAOSQL
 {
     public class DAOUsuario : IDAOUsuario
-    {        
+    {
+        private static readonly log4net.ILog log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
+
         public Entidad ConsultarLogin(Entidad usuario)
         {
 
@@ -38,11 +40,15 @@ namespace RapidNote.DAO.DAOSQL
                     (usuario as Usuario).AccesToken = sqlrd["acesstoken"].ToString();
                     (usuario as Usuario).AccesSecret = sqlrd["acesssecret"].ToString();
                 }
+
+                if (log.IsInfoEnabled) log.Info((usuario as Clases.Usuario).ToString());
+
                 return usuario;
             }
             catch (Exception E)
             {
                 Console.WriteLine(E.Message);
+                if (log.IsErrorEnabled) log.Error(E.Message, E);
                 return usuario;
             }
 
@@ -76,13 +82,13 @@ namespace RapidNote.DAO.DAOSQL
                 sqlcmd.Parameters.Add(parametroApellido);
                 sqlcmd.ExecuteNonQuery();
 
-
+                if (log.IsInfoEnabled) log.Info((usuario as Clases.Usuario).ToString());
 
             }
             catch (Exception E)
             {
                 Console.WriteLine(E.Message);
-
+                if (log.IsErrorEnabled) log.Error(E.Message, E);
             }
 
             finally
@@ -115,13 +121,16 @@ namespace RapidNote.DAO.DAOSQL
                     (usuario as Usuario).Id = int.Parse(sqlrd["IDUSUARIO"].ToString());
                 }
 
+                if (log.IsInfoEnabled) log.Info((usuario as Clases.Usuario).ToString());
+
                 return usuario;
 
             }
             catch (Exception E)
             {
                 Console.WriteLine(E.Message);
-                return usuario;
+                if (log.IsErrorEnabled) log.Error(E.Message, E);
+                return usuario;                
             }
 
             finally
@@ -153,12 +162,14 @@ namespace RapidNote.DAO.DAOSQL
                 sqlcmd.Parameters.Add(parametroAcesssecret);
                 sqlcmd.ExecuteNonQuery();
                 estado = true;
+                if (log.IsInfoEnabled) log.Info((usuario as Clases.Usuario).ToString());
                 return estado;
 
             }
             catch (Exception E)
             {
                 Console.WriteLine(E.Message);
+                if (log.IsErrorEnabled) log.Error(E.Message, E);
                 return estado;
             }
 

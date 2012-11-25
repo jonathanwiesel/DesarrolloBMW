@@ -39,6 +39,10 @@
     <Reference Include="Common.Logging">
       <HintPath>..\packages\Common.Logging.2.0.0\lib\2.0\Common.Logging.dll</HintPath>
     </Reference>
+    <Reference Include="log4net, Version=1.2.11.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\log4net.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="Spring.Rest">
       <HintPath>..\packages\Spring.Rest.1.1.0\lib\net40\Spring.Rest.dll</HintPath>

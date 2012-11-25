@@ -71,5 +71,21 @@ namespace RapidNote.Clases
             get { return accesSecret; }
             set { accesSecret = value; }
         }
+
+        public override String ToString() 
+        {
+            String resultado = "";
+
+            resultado += "Id: " + this.id + " ";
+            resultado += "correo: " + this.correo + " ";
+            resultado += "clave: " + this.clave + " ";
+            resultado += "nombre: " + this.nombre + " ";
+            resultado += "apellido: " + this.apellido + " ";
+            resultado += "urlImagen: " + this.urlImagen + " ";
+            resultado += "accesToken: " + this.accesToken + " ";
+            resultado += "accesSecret: " + this.accesSecret + " ";
+
+            return resultado;
+        }
     }
 }
