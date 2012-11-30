@@ -24,19 +24,30 @@ namespace RapidNote.Presentacion.Vista
             return nombre.Text;
         }
 
+        public Label MensajeError
+        {
+            get { return mensajeError; }
+            set { mensajeError = value; }
+        }
+
         public System.Web.SessionState.HttpSessionState Sesion
         {
             get { return Session; }
         }
 
+        public void Redireccionar(string _ruta)
+        {
+            Response.Redirect(_ruta);
+        }   
+
         protected void registrar_Click(object sender, EventArgs e)
         {
-            Boolean estado = presentador.Ejecutar();
-            if (estado == true)
-            {
-                Response.Redirect("../../index.aspx");     
-            }
-           
+             presentador.Ejecutar();
+        }
+
+        protected void Cancelar_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("../Vista/index.aspx");
         }
     }
 }

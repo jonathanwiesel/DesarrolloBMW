@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.IO;
 using RapidNote.Presentacion.Contrato.Nota;
 using RapidNote.Clases;
 using RapidNote.Presentacion.Presentador.Nota;
@@ -13,6 +14,9 @@ namespace RapidNote.Presentacion.Vista
     public partial class NuevaNota : System.Web.UI.Page, IContratoNuevaNota
     {
         PresentadorNuevaNota presentador;
+        string rutaArchivo="";
+        string nombreArchivo = "";
+        HttpFileCollection hffc;
 
         protected override void OnInit(EventArgs e)
         {
@@ -38,6 +42,7 @@ namespace RapidNote.Presentacion.Vista
                     presentador.IniciarVista();
                 }
             }
+     
             ScriptManager scripManager = ScriptManager.GetCurrent(this.Page);
             scripManager.RegisterPostBackControl(Button1);
         }
@@ -75,6 +80,21 @@ namespace RapidNote.Presentacion.Vista
             return DropDownListLibretas.SelectedValue;
         }
 
+        public string[] getRutas()
+        {
+            return rutaArchivo.Split(';');
+        }
+
+        public string[] getNombrearchivo()
+        {
+            return nombreArchivo.Split(';');
+        }
+
+        public HttpFileCollection getHfc()
+        {
+            return hffc;
+        }
+
         public void setListaLibretas(List<Entidad> listaLibretas)
         {
             DropDownListLibretas.Items.Clear();
@@ -87,13 +107,23 @@ namespace RapidNote.Presentacion.Vista
         protected void Button1_Click(object sender, EventArgs e)
         {
             presentador.Ejecutar();
-            if (FileUploadArchivo.HasFile)
+            string directorio = @"C:\Users\victor\Documents\GitHub\DesarrolloBMW\RapidNote\RapidNote\Archivo\";
+            hffc = Request.Files;
+            for (int i = 0; i < hffc.Count; i++)
             {
-                string directorio = @"C:\Users\victor\Documents\GitHub\DesarrolloBMW\RapidNote\RapidNote\Archivo\";
-                string archivo = directorio + FileUploadArchivo.FileName;
-                FileUploadArchivo.SaveAs(archivo);
-                presentador.Adjuntar(archivo);
+                HttpPostedFile hpf = hffc[i];
+                if (hpf.ContentLength > 0)
+                {
+                    nombreArchivo += hpf.FileName + ";";
+                    rutaArchivo += directorio + hpf.FileName + ";";
+                }
+
             }
+            if (rutaArchivo != "")
+            {
+                presentador.Adjuntar();
+            }
+            
             LabelResultado.Text="Almacenado";
             Response.Redirect("../Vista/index.aspx");
         }

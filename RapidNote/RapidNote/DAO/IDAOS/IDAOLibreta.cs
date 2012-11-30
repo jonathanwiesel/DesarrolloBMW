@@ -9,5 +9,6 @@ namespace RapidNote.DAO.IDAOS
     public interface IDAOLibreta
     {
         Boolean AgregarLibreta(Entidad libreta, Entidad usuario);
+        Entidad VerificarLibreta(Entidad libreta, Entidad usuario);
     }
 }

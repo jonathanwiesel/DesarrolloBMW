@@ -47,5 +47,46 @@ namespace RapidNote.DAO.DAOSQL
                 connexion.CerrarConexionBd();
             }
         }
+
+        public Entidad VerificarLibreta(Entidad libreta, Entidad usuario)
+        {
+            SqlCommand sqlcmd = new SqlCommand();
+            Conexion connexion = new Conexion();
+
+            try
+            {
+                connexion.AbrirConexionBd();
+                sqlcmd.Connection = connexion.ObjetoConexion();
+                sqlcmd.CommandType = CommandType.StoredProcedure;
+                sqlcmd.CommandText = "VerificarLibreta";
+                sqlcmd.CommandTimeout = 2;
+
+                SqlParameter parametroNombre = new SqlParameter("@NOMBRE", (libreta as Libreta).NombreLibreta);
+                sqlcmd.Parameters.Add(parametroNombre);
+                SqlParameter parametroId = new SqlParameter("@ID", (usuario as Usuario).Id);
+                sqlcmd.Parameters.Add(parametroId);
+                sqlcmd.ExecuteNonQuery();
+                SqlDataReader sqlrd;
+                sqlrd = sqlcmd.ExecuteReader();
+                while (sqlrd.Read())
+                {
+                    (libreta as Libreta).Idlibreta = int.Parse(sqlrd["idLibreta"].ToString());
+                }
+                return libreta;
+
+            }
+            catch (Exception E)
+            {
+                Console.WriteLine(E.Message);
+                return libreta;
+
+            }
+
+            finally
+            {
+                connexion.CerrarConexionBd();
+            }
+
+        }
     }
 }

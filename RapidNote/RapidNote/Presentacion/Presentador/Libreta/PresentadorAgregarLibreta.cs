@@ -14,6 +14,9 @@ namespace RapidNote.Presentacion.Presentador.Libreta
     {
         private IContratoAgregarLibreta _vista;
         private Comando<Boolean> comando;
+        private Comando<Entidad> comando2;
+        private string _mensajeErrorInsertar = "Error al insertar en base de datos";
+        private string _mensajeErrorExiste = "Error, ya posee una libreta con ese nombre";
         private Entidad libreta;
         private Boolean estado;
 
@@ -22,14 +25,34 @@ namespace RapidNote.Presentacion.Presentador.Libreta
             _vista = vista;
         }
 
-        public Boolean Ejecutar()
+        public void Ejecutar()
         {
             Entidad usuario = (_vista.Sesion["usuario"] as Clases.Usuario);
             libreta = FabricaEntidad.CrearLibreta();
             (libreta as Clases.Libreta).NombreLibreta = _vista.getNombre();
-            comando = FabricaComando.CrearComandoAgregarLibreta(libreta, usuario);
-            estado = comando.Ejecutar();
-            return estado;
+            comando2 = FabricaComando.CrearComandoVerificarLibreta(libreta, usuario);
+            libreta = comando2.Ejecutar();
+            if ((libreta as Clases.Libreta).Idlibreta == 0)
+            {
+                comando = FabricaComando.CrearComandoAgregarLibreta(libreta, usuario);
+                estado = comando.Ejecutar();
+                if (estado == true)
+                {
+                    _vista.Redireccionar("../Vista/NuevaNota.aspx");
+                }
+                else
+                {
+                    _vista.MensajeError.Text = _mensajeErrorInsertar;
+                    _vista.MensajeError.Visible = true;
+                }
+            }
+            else 
+            {
+                _vista.MensajeError.Text = _mensajeErrorExiste;
+                _vista.MensajeError.Visible = true;
+            }
+
+            
         }
     }
 }

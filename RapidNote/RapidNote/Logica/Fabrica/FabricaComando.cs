@@ -105,9 +105,21 @@ namespace RapidNote.Logica.Fabrica
             return new ComandoAgregarLibreta(libreta, usuario);
         }
 
-        public static Comando<Boolean> CrearComandoAdjuntarDropbox(String archivo, String nombre, Entidad usuario)
+        public static Comando<Boolean> CrearComandoAdjuntarDropbox(string[] archivo, string[] nombre, Entidad usuario)
         {
             return new ComandoAdjuntarDropbox(archivo, nombre, usuario);
         }
+
+
+        public static Comando<Boolean> CrearComandoSubirArchivoServidor(HttpFileCollection hfc)
+        {
+            return new ComandoSubirArchivoServidor(hfc);
+        }
+
+        public static Comando<Entidad> CrearComandoVerificarLibreta(Entidad libreta, Entidad usuario)
+        {
+            return new ComandoVerificarLibreta(libreta, usuario);
+        }
+
     }
 }

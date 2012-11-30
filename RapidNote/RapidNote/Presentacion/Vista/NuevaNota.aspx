@@ -1,6 +1,6 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="NuevaNota.aspx.cs" Inherits="RapidNote.Presentacion.Vista.NuevaNota" MasterPageFile="~/SiteMaster/Site.Master" %>
 <%@ Register Assembly="RapidNote" Namespace="RapidNote.Controles" TagPrefix="cc1" %>
-
+   
 <asp:Content ID="Content1" ContentPlaceHolderID="TitleContent" runat="server">
     Nota
 </asp:Content>
@@ -21,6 +21,7 @@
                 <cc1:semanticupdatepanel ID="SemanticUpdatePanel1" runat="server" 
                     RenderedElement="TBODY">
                 <ContentTemplate>
+                <script src="../../Scripts/jquery.MultiFile.js" type="text/javascript"></script>
                 <tr>
                     <td>
                         <asp:Label ID="nombreNota" runat="server" Text="Titulo de la Nota"></asp:Label>
@@ -57,7 +58,7 @@
                         <asp:Label ID="Label3" runat="server" Text="Archivo Adjunto"></asp:Label>
                     </td>
                     <td>
-                        <asp:FileUpload ID="FileUploadArchivo" runat="server"/>
+                        <asp:FileUpload ID="FileUploadArchivo" class="multi" runat="server"/>
                     </td>
                 </tr>     
                 <tr>
@@ -68,7 +69,7 @@
                         <asp:Button ID="Button1" runat="server" Text="Guardar" 
                                 onclick="Button1_Click" />
                     </td>
-                </tr>        
+                </tr>   
                 </ContentTemplate>
                 </cc1:semanticupdatepanel>
                 </table>  

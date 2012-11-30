@@ -20,6 +20,8 @@ namespace RapidNote.Presentacion.Presentador.Nota
 
         private Comando<Boolean> comando2;
 
+        private Comando<Boolean> comando3;
+
         private Entidad nota;
 
         public PresentadorNuevaNota(IContratoNuevaNota _contrato) 
@@ -47,11 +49,16 @@ namespace RapidNote.Presentacion.Presentador.Nota
             nota = comando.Ejecutar();
         }
 
-        public void Adjuntar(string archivo)
+        public void Adjuntar()
         {
             Entidad usuario = (contrato.Sesion["usuario"] as Clases.Usuario);
-            comando2 = FabricaComando.CrearComandoAdjuntarDropbox(archivo,contrato.archivo(),usuario);
-            comando2.Ejecutar();
+            comando2 = FabricaComando.CrearComandoSubirArchivoServidor(contrato.getHfc());
+            bool estado = comando2.Ejecutar();
+            if (estado == true)
+            {
+                comando3 = FabricaComando.CrearComandoAdjuntarDropbox(contrato.getRutas(), contrato.getNombrearchivo(), usuario);
+                comando3.Ejecutar();
+            }
         }
     }
 }

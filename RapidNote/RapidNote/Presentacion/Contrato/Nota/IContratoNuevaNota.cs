@@ -23,5 +23,12 @@ namespace RapidNote.Presentacion.Contrato.Nota
         string archivo();
 
         void setListaLibretas(List<Entidad> listaLibretas);
+
+        string[] getRutas();
+
+        string[] getNombrearchivo();
+
+        HttpFileCollection getHfc();
+
     }
 }
