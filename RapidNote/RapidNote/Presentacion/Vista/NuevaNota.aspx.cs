@@ -8,6 +8,7 @@ using System.IO;
 using RapidNote.Presentacion.Contrato.Nota;
 using RapidNote.Clases;
 using RapidNote.Presentacion.Presentador.Nota;
+using AjaxControlToolkit;
 
 namespace RapidNote.Presentacion.Vista
 {
@@ -45,6 +46,7 @@ namespace RapidNote.Presentacion.Vista
      
             ScriptManager scripManager = ScriptManager.GetCurrent(this.Page);
             scripManager.RegisterPostBackControl(Button1);
+
         }
 
         protected void ClickBuscarNota(object sender, EventArgs e)
@@ -104,6 +106,18 @@ namespace RapidNote.Presentacion.Vista
             }
         }
 
+        public List<Entidad> getEtiquetas()
+        {
+            List<Entidad> listaE = new List<Entidad>();
+            foreach (ListItem item in ListBoxEtiquetas.Items)
+            {
+                Etiqueta e = new Etiqueta();
+                e.Nombre = item.Text;
+                listaE.Add(e);
+            }
+            return listaE;
+        }
+
         protected void Button1_Click(object sender, EventArgs e)
         {
             presentador.Ejecutar();
@@ -126,6 +140,20 @@ namespace RapidNote.Presentacion.Vista
             
             LabelResultado.Text="Almacenado";
             Response.Redirect("../Vista/index.aspx");
+        }
+
+        //agregar etiqueta a lista
+        protected void Button4_Click(object sender, EventArgs e)
+        {
+            ListBoxEtiquetas.Items.Add(TextBoxEtiqueta.Text);
+            TextBoxEtiqueta.Text = "";
+        }
+
+
+        //eliminar etiqueta de lista
+        protected void Button2_Click(object sender, EventArgs e)
+        {
+            ListBoxEtiquetas.Items.RemoveAt(ListBoxEtiquetas.SelectedIndex);
         }
 
     }

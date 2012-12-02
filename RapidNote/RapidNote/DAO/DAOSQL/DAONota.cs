@@ -202,6 +202,23 @@ namespace RapidNote.DAO.DAOSQL
                 sqlcmd.Parameters.Add(parametroNombreL);
 
                 sqlcmd.ExecuteNonQuery();
+
+                //meto en base de datos las etiquetas que no existen y obtengo los 
+                //ids de todas las etiquetas de la nota a editar
+                List<int> idEtiquetas = new List<int>();
+                foreach (Etiqueta etiqueta in (nota as Clases.Nota).ListaEtiqueta)
+                {
+                    int id = Agregar_Consultar_Etiqueta(etiqueta.Nombre);
+                    idEtiquetas.Add(id);
+                }
+
+
+                //le asigno las etiquetas
+                foreach (int idEti in idEtiquetas)
+                {
+                    int id = BuscarIdNota(nota);
+                    AsignarEtiquetasNota(id, idEti);
+                }
                 
                 return nota;
             }
@@ -442,9 +459,22 @@ namespace RapidNote.DAO.DAOSQL
 
         public Entidad EditarNota(Entidad nota)
         {
+            //primero borro todas las etiquetas de la nota
+            BorrarEtiquetasDeNota((nota as Clases.Nota));
+            List<int> idEtiquetas = new List<int>();
+
+            //meto en base de datos las etiquetas que no existen y obtengo los 
+            //ids de todas las etiquetas de la nota a editar
+            foreach (Etiqueta etiqueta in (nota as Clases.Nota).ListaEtiqueta)
+            {
+                int id = Agregar_Consultar_Etiqueta(etiqueta.Nombre);
+                idEtiquetas.Add(id);
+            }
+
             SqlCommand sqlcmd = new SqlCommand();
             Conexion connexion = new Conexion();
 
+            //actualizo la nota
             try
             {
                 connexion.AbrirConexionBd();
@@ -462,12 +492,119 @@ namespace RapidNote.DAO.DAOSQL
 
                 sqlcmd.ExecuteNonQuery();
 
+                //le asigno las etiquetas
+                foreach (int idEti in idEtiquetas)
+                {
+                    AsignarEtiquetasNota((nota as Nota).Idnota, idEti);
+                }
+
                 return nota;
             }
             catch (Exception E)
             {
                 Console.WriteLine(E.Message);
                 return nota;
+            }
+
+            finally
+            {
+                connexion.CerrarConexionBd();
+            }
+        }
+
+        public int Agregar_Consultar_Etiqueta(string nombreEtiqueta)
+        {
+            SqlCommand sqlcmd = new SqlCommand();
+            Conexion connexion = new Conexion();
+            int idEtiqueta = 0;
+            try
+            {
+                connexion.AbrirConexionBd();
+                sqlcmd.Connection = connexion.ObjetoConexion();
+                sqlcmd.CommandType = CommandType.StoredProcedure;
+                sqlcmd.CommandText = "Agregar_Consultar_Etiqueta";
+                sqlcmd.CommandTimeout = 2;
+
+                SqlParameter parametroNombre = new SqlParameter("@nombre", nombreEtiqueta);
+                sqlcmd.Parameters.Add(parametroNombre);
+
+                sqlcmd.ExecuteNonQuery();
+                SqlDataReader sqlrd;
+                sqlrd = sqlcmd.ExecuteReader();
+
+                while (sqlrd.Read())
+                {
+                    idEtiqueta = Convert.ToInt32(sqlrd["idEtiqueta"]);
+                }
+
+                return idEtiqueta;
+            }
+            catch (Exception E)
+            {
+                Console.WriteLine(E.Message);
+                return idEtiqueta;
+            }
+
+            finally
+            {
+                connexion.CerrarConexionBd();
+            }
+        }
+
+        public void BorrarEtiquetasDeNota(Entidad nota)
+        {
+            SqlCommand sqlcmd = new SqlCommand();
+            Conexion connexion = new Conexion();
+
+            try
+            {
+                connexion.AbrirConexionBd();
+                sqlcmd.Connection = connexion.ObjetoConexion();
+                sqlcmd.CommandType = CommandType.StoredProcedure;
+                sqlcmd.CommandText = "BorrarEtiquetasDeNota";
+                sqlcmd.CommandTimeout = 2;
+
+                SqlParameter parametroIdNota = new SqlParameter("@idNota", (nota as Nota).Idnota);
+                sqlcmd.Parameters.Add(parametroIdNota);
+
+                sqlcmd.ExecuteNonQuery();
+
+            }
+            catch (Exception E)
+            {
+                Console.WriteLine(E.Message);
+            }
+
+            finally
+            {
+                connexion.CerrarConexionBd();
+            }
+        }
+
+        public void AsignarEtiquetasNota(int idNota, int idEtiqueta)
+        {
+            SqlCommand sqlcmd = new SqlCommand();
+            Conexion connexion = new Conexion();
+
+            try
+            {
+                connexion.AbrirConexionBd();
+                sqlcmd.Connection = connexion.ObjetoConexion();
+                sqlcmd.CommandType = CommandType.StoredProcedure;
+                sqlcmd.CommandText = "AsignarEtiquetasNota";
+                sqlcmd.CommandTimeout = 2;
+
+                SqlParameter parametroIdNota = new SqlParameter("@idNota", idNota);
+                sqlcmd.Parameters.Add(parametroIdNota);
+                SqlParameter parametroIdEtiqueta = new SqlParameter("@idEtiqueta", idEtiqueta);
+                sqlcmd.Parameters.Add(parametroIdEtiqueta);
+
+                sqlcmd.ExecuteNonQuery();
+
+            }
+            catch (Exception E)
+            {
+                Console.WriteLine(E.Message);
             }
 
             finally

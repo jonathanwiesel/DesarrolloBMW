@@ -20,6 +20,8 @@ namespace RapidNote.Presentacion.Contrato.Nota
 
         String getNombreLibreta();
 
+        List<Entidad> getEtiquetas();
+
         string archivo();
 
         void setListaLibretas(List<Entidad> listaLibretas);

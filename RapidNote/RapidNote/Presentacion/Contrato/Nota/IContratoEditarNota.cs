@@ -17,6 +17,8 @@ namespace RapidNote.Presentacion.Contrato.Nota
 
         String getNombreLibreta();
 
+        List<Entidad> getEtiquetas();
+
         void setListaLibretas(List<Entidad> listaLibretas);
 
         void setNombreLibreta(String nombreLibreta);
@@ -26,5 +28,7 @@ namespace RapidNote.Presentacion.Contrato.Nota
         void setTitulo(String titulo);
 
         String getIdNota();
+
+        void setListaEtiquetas(List<Entidad> listaEtiquetas);
     }
 }

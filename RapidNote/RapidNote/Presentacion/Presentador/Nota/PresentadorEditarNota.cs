@@ -16,7 +16,7 @@ namespace RapidNote.Presentacion.Presentador.Nota
 
         private Comando<Entidad> comando;
 
-        private Comando<int> comando1;
+        //private Comando<int> comando1;
 
         private Comando<List<Entidad>> comandoLista;
 
@@ -60,6 +60,10 @@ namespace RapidNote.Presentacion.Presentador.Nota
             //comando1 = FabricaComando.CrearComandoBuscarIdNota(nota);
 
             //idNota = comando1.Ejecutar();
+
+            //busco las etiquetas de la nota
+            comandoLista = FabricaComando.CrearComandoListarEtiquetasPorNota(nota);
+            contrato.setListaEtiquetas(comandoLista.Ejecutar());
             
         }
 
@@ -71,6 +75,7 @@ namespace RapidNote.Presentacion.Presentador.Nota
             (nota as Clases.Nota).Contenido = contrato.getContenido();
             (nota as Clases.Nota).Idnota = int.Parse(contrato.getIdNota());
             (nota as Clases.Nota).Libreta.NombreLibreta = contrato.getNombreLibreta();
+            (nota as Clases.Nota).ListaEtiqueta = contrato.getEtiquetas().Cast<Etiqueta>().ToList();
 
             comando = FabricaComando.CrearComandoEditarNota(nota);
 

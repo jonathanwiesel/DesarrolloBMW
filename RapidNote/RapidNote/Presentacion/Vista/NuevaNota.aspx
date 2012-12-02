@@ -32,7 +32,8 @@
                             <asp:requiredfieldvalidator id="rfvEmail" runat="server" 
                             Display="Dynamic" ControlToValidate="TextBoxTitulo" ErrorMessage="falta titulo">*</asp:requiredfieldvalidator>
                     </td>
-                </tr>                    
+                </tr>                  
+                <tr>                    
                 <tr>
                     <td>
                         <asp:Label ID="content" runat="server" Text="Contenido"></asp:Label>
@@ -44,6 +45,28 @@
                             Display="Dynamic" ControlToValidate="TextBoxContenido" ErrorMessage="falta contenido">*</asp:requiredfieldvalidator>
                     </td>
                 </tr>
+                <tr>
+                     <td>
+                        <asp:Label ID="nombreEtiqueta" runat="server" Text="Etiquetas"></asp:Label>
+                    </td>
+                    <td>
+                        <asp:TextBox ID="TextBoxEtiqueta" runat="server" Width="430px"></asp:TextBox>
+                        <asp:regularexpressionvalidator id="revEtiqueta" runat="server" ControlToValidate="TextBoxEtiqueta" ErrorMessage="Formato de etiqueta no valido" ValidationExpression="^[A-Za-z0-9 _]*$" class="style1">**</asp:regularexpressionvalidator>
+                    </td>
+                    <td>
+                      <asp:Button ID="Button4" runat="server" Text="Agregar Etiqueta" OnClick="Button4_Click" />
+                    </td>
+                </tr>
+                <tr>
+                     <td>   
+                    </td>
+                    <td>
+                        <asp:ListBox ID="ListBoxEtiquetas" Height="80px" runat="server" Width="430px" ReadOnly="true"></asp:ListBox>
+                    </td>
+                    <td>
+                        <asp:Button ID="Button2" runat="server" Text="Quitar Etiqueta" OnClick="Button2_Click" /> 
+                    </td>
+                </tr>  
                 <tr>
                     <td>
                         <asp:Label ID="Label2" runat="server" Text="Nombre de la libreta"></asp:Label>
@@ -73,7 +96,7 @@
                 </ContentTemplate>
                 </cc1:semanticupdatepanel>
                 </table>  
-                <table aling="center">
+                <table align="center">
                     <tr>
                         <td>
                             
@@ -89,6 +112,6 @@
                 <asp:Label ID="Label1" runat="server" Text="*: Campo obligatorio"></asp:Label>
             </td>
         </tr>        
-    </table>
+        </table>
    
     </asp:Content>

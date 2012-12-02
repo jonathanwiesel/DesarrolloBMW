@@ -40,6 +40,30 @@
                     </td>
                 </tr>
                 <tr>
+                     <td>
+                        <asp:Label ID="nombreEtiqueta" runat="server" Text="Etiquetas"></asp:Label>
+                    </td>
+                    <td>
+                        <asp:TextBox ID="TextBoxEtiqueta" runat="server" Width="430px"></asp:TextBox>
+                        <asp:regularexpressionvalidator id="revEtiqueta" runat="server" ControlToValidate="TextBoxEtiqueta" ErrorMessage="Formato de etiqueta no valido" ValidationExpression="^[A-Za-z0-9 _]*$" class="style1">**</asp:regularexpressionvalidator>
+                    </td>
+                    <td>
+                        <asp:Button ID="Button4" runat="server" Text="Agregar Etiqueta" 
+                                onclick="Button4_Click" />
+                    </td>
+                </tr>
+                <tr>
+                     <td>   
+                    </td>
+                    <td>
+                        <asp:ListBox ID="ListBoxEtiquetas" Height="80px" runat="server" Width="430px" ReadOnly="true"></asp:ListBox>
+                    </td>
+                    <td>
+                        <asp:Button ID="Button3" runat="server" Text="Quitar Etiqueta" 
+                                onclick="Button3_Click" />
+                    </td>
+                </tr>
+                <tr>
                     <td>
                         <asp:Label ID="Label2" runat="server" Text="Nombre de la libreta"></asp:Label>
                     </td>
@@ -62,7 +86,7 @@
                 </ContentTemplate>
                 </cc1:semanticupdatepanel>
                 </table>  
-                <table aling="center">
+                <table align="center">
                     <tr>
                         <td>
                             

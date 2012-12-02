@@ -70,9 +70,12 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="AjaxControlToolkit.dll" />
     <Content Include="App_Readme\Spring.Rest.txt" />
     <Content Include="App_Readme\Spring.Social.Core.txt" />
     <Content Include="App_Readme\Spring.Social.Dropbox.txt" />
+    <Content Include="Common.Logging.dll" />
+    <Content Include="log4net.dll" />
     <Content Include="Presentacion\Vista\index.aspx" />
     <Content Include="Presentacion\Vista\AccesarNota.aspx" />
     <Content Include="Presentacion\Vista\BuscarNota.aspx" />
@@ -85,6 +88,7 @@
     <Content Include="Presentacion\Vista\NuevaNota.aspx" />
     <Content Include="Presentacion\Vista\AgregarUsuario.aspx" />
     <Content Include="Presentacion\Vista\TokenizeUser.aspx" />
+    <Content Include="RapidNote.dll" />
     <Content Include="Scripts\jquery-1.7.1.js" />
     <Content Include="Scripts\jquery-1.7.1.min.js" />
     <Content Include="Scripts\jquery.blockUI.js" />
@@ -95,6 +99,9 @@
     <Content Include="Scripts\jquery.MultiFile.js" />
     <Content Include="Scripts\jquery.MultiFile.pack.js" />
     <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Spring.Rest.dll" />
+    <Content Include="Spring.Social.Core.dll" />
+    <Content Include="Spring.Social.Dropbox.dll" />
     <Content Include="Styles\Images\Logo.png" />
     <Content Include="Styles\Site.css" />
     <Content Include="Styles\StyleSheet.css" />

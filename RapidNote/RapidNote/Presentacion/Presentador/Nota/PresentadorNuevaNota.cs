@@ -43,6 +43,7 @@ namespace RapidNote.Presentacion.Presentador.Nota
             (nota as Clases.Nota).Titulo = contrato.getTitulo();
             (nota as Clases.Nota).Contenido = contrato.getContenido();
             (nota as Clases.Nota).Libreta.NombreLibreta = contrato.getNombreLibreta();
+            (nota as Clases.Nota).ListaEtiqueta = contrato.getEtiquetas().Cast<Etiqueta>().ToList();
 
             comando = FabricaComando.CrearComandoNuevaNota(nota);
 

@@ -86,6 +86,25 @@ namespace RapidNote.Presentacion.Vista
         {
             TextBoxTitulo.Text = titulo;
         }
+
+        public List<Entidad> getEtiquetas(){
+            List<Entidad> listaE = new List<Entidad>();
+            foreach (ListItem item in ListBoxEtiquetas.Items) {
+                Etiqueta e = new Etiqueta();
+                e.Nombre = item.Text;
+                listaE.Add(e);
+            }
+            return listaE;
+        }
+
+        public void setListaEtiquetas(List<Entidad> listaEtiquetas)
+        {
+            ListBoxEtiquetas.Items.Clear();
+            for (int i = 0; i < listaEtiquetas.Count; i++)
+            {
+                ListBoxEtiquetas.Items.Add((listaEtiquetas[i] as Etiqueta).Nombre);
+            }
+        }
         
         //actualizar
         protected void Button1_Click(object sender, EventArgs e)
@@ -101,6 +120,19 @@ namespace RapidNote.Presentacion.Vista
             presentador.EjecutarDel();
             LabelResultado.Text = "Eliminando";
             Response.Redirect("../Vista/index.aspx");
+        }
+
+        //eliminar etiqueta de lista
+        protected void Button3_Click(object sender, EventArgs e)
+        {
+            ListBoxEtiquetas.Items.RemoveAt(ListBoxEtiquetas.SelectedIndex);
+        }
+
+        //agregar etiqueta a lista
+        protected void Button4_Click(object sender, EventArgs e)
+        {
+            ListBoxEtiquetas.Items.Add(TextBoxEtiqueta.Text);
+            TextBoxEtiqueta.Text = "";
         }
 
 
