@@ -75,6 +75,7 @@
     <Content Include="App_Readme\Spring.Social.Core.txt" />
     <Content Include="App_Readme\Spring.Social.Dropbox.txt" />
     <Content Include="Common.Logging.dll" />
+    <Content Include="DAO\getTagNames.asmx" />
     <Content Include="log4net.dll" />
     <Content Include="Presentacion\Vista\index.aspx" />
     <Content Include="Presentacion\Vista\AccesarNota.aspx" />
@@ -129,6 +130,10 @@
     <Compile Include="DAO\DAOSQL\DAOLibreta.cs" />
     <Compile Include="DAO\DAOSQL\DAONota.cs" />
     <Compile Include="DAO\DAOSQL\DAOUsuario.cs" />
+    <Compile Include="DAO\getTagNames.asmx.cs">
+      <DependentUpon>getTagNames.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="DAO\IDAOS\IDAO.cs" />
     <Compile Include="DAO\IDAOS\IDAOLibreta.cs" />
     <Compile Include="DAO\IDAOS\IDAONota.cs" />
