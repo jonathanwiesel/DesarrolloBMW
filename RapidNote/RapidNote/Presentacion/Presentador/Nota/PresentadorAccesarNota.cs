@@ -14,7 +14,7 @@ namespace RapidNote.Presentacion.Presentador.Nota
     public class PresentadorAccesarNota
     {
         private IContratoAccesarNota contrato;
-
+        private string _mensajeError = "No posee notas";
         private Comando<List<Entidad>> comando;
 
         public PresentadorAccesarNota(IContratoAccesarNota _contrato)
@@ -32,7 +32,15 @@ namespace RapidNote.Presentacion.Presentador.Nota
 
             listaNotas = comando.Ejecutar();
 
-            contrato.gridviewnota = listaNotas;
+            if (listaNotas.Count() == 0)
+            {
+                contrato.MensajeError.Text = _mensajeError;
+                contrato.MensajeError.Visible = true;
+            }
+            else
+            {
+                contrato.gridviewnota = listaNotas;
+            }
         }
     }
 }

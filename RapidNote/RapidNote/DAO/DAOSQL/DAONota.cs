@@ -258,6 +258,7 @@ namespace RapidNote.DAO.DAOSQL
                 while (sqlrd.Read())
                 {
                     libreta = FabricaEntidad.CrearLibreta();
+                    (libreta as Libreta).Idlibreta = int.Parse(sqlrd["idLibreta"].ToString());
                     (libreta as Libreta).NombreLibreta = sqlrd["nombreLibreta"].ToString();
                     listaLibretas.Add(libreta);
                 }
@@ -644,6 +645,49 @@ namespace RapidNote.DAO.DAOSQL
             {
                 connexion.CerrarConexionBd();
             }
+        }
+
+        public List<Entidad> ListarNotasLibreta(Entidad libreta)
+        {
+            SqlCommand sqlcmd = new SqlCommand();
+            Conexion connexion = new Conexion();
+            List<Entidad> listaNotas = new List<Entidad>();
+            Entidad nota = null;
+
+            try
+            {
+                connexion.AbrirConexionBd();
+                sqlcmd.Connection = connexion.ObjetoConexion();
+                sqlcmd.CommandType = CommandType.StoredProcedure;
+                sqlcmd.CommandText = "ListarNotasLibreta";
+                sqlcmd.CommandTimeout = 2;
+
+                SqlParameter parametroId = new SqlParameter("@ID", (libreta as Libreta).Idlibreta);
+                sqlcmd.Parameters.Add(parametroId);
+                sqlcmd.ExecuteNonQuery();
+                SqlDataReader sqlrd;
+                sqlrd = sqlcmd.ExecuteReader();
+                while (sqlrd.Read())
+                {
+                    nota = FabricaEntidad.CrearNota();
+                    (nota as Nota).Idnota = int.Parse(sqlrd["idNota"].ToString());
+                    (nota as Nota).Titulo = sqlrd["titulo"].ToString();
+                    (nota as Nota).Fechacreacion = DateTime.Parse(sqlrd["fechaCreacion"].ToString());
+                    listaNotas.Add(nota);
+                }
+                return listaNotas;
+            }
+            catch (Exception E)
+            {
+                Console.WriteLine(E.Message);
+                return listaNotas;
+            }
+
+            finally
+            {
+                connexion.CerrarConexionBd();
+            }
+
         }
 
     }

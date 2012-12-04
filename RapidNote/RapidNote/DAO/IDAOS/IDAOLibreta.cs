@@ -10,5 +10,7 @@ namespace RapidNote.DAO.IDAOS
     {
         Boolean AgregarLibreta(Entidad libreta, Entidad usuario);
         Entidad VerificarLibreta(Entidad libreta, Entidad usuario);
+        Entidad TraerLibreta(Entidad libreta);
+        Boolean EditarLibreta(Entidad libreta);
     }
 }

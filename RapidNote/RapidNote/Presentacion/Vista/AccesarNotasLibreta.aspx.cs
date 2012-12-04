@@ -4,26 +4,27 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using RapidNote.Clases;
 using RapidNote.Presentacion.Contrato.Nota;
 using RapidNote.Presentacion.Presentador.Nota;
-using RapidNote.Clases;
 
 namespace RapidNote.Presentacion.Vista
 {
-    public partial class AccesarNota : System.Web.UI.Page, IContratoAccesarNota
+    public partial class AccesarNotasLibreta : System.Web.UI.Page, IContratoAccesarNotaLibreta
     {
-        private PresentadorAccesarNota presentador;
-        
-        protected override void OnInit(EventArgs e)
+        private PresentadorAccesarNotasLibreta presentador;
+        private string idLibreta;
+
+       protected override void OnInit(EventArgs e)
         {
             base.OnInit(e);
-            presentador = new PresentadorAccesarNota(this);
+            presentador = new PresentadorAccesarNotasLibreta(this);
 
         }
 
         protected void Page_PreRender(object sender, EventArgs e)
         {
-            presentador = new PresentadorAccesarNota(this);
+            presentador = new PresentadorAccesarNotasLibreta(this);
         }
 
         protected void Page_Load(object sender, EventArgs e)
@@ -39,25 +40,7 @@ namespace RapidNote.Presentacion.Vista
             }
         }
 
-        protected void ClickBuscarNota(object sender, EventArgs e)
-        {
-            (Sesion["usuario"] as Usuario).Estado = TextBoxBuscadorSiteM.Text;
-            Response.Redirect("BuscarNota.aspx");
-            //presentador.IniciarVista();
-        }
-
-        public Label MensajeError
-        {
-            get { return mensajeError; }
-            set { mensajeError = value; }
-        }
-
-        public System.Web.SessionState.HttpSessionState Sesion
-        {
-            get { return Session; }
-        }
-
-        public List<Clases.Entidad> gridviewnota
+        public List<Entidad> gridviewnota
         {
             set
             {
@@ -66,9 +49,32 @@ namespace RapidNote.Presentacion.Vista
             }
         }
 
+        public Label MensajeError
+        {
+            get { return mensajeError; }
+            set { mensajeError = value; }
+        }
+
         public string contenidoBusqueda
         {
             get { return "%" + TextBoxBuscadorSiteM.Text + "%"; }
+        }
+
+        public string getIdLibreta()
+        {
+            idLibreta = Request.QueryString["id"].ToString();
+            return idLibreta;
+        }
+
+        public System.Web.SessionState.HttpSessionState Sesion
+        {
+            get { return Session; }
+        }
+
+        protected void ClickBuscarNota(object sender, EventArgs e)
+        {
+            (Sesion["usuario"] as Usuario).Estado = TextBoxBuscadorSiteM.Text;
+            Response.Redirect("BuscarNota.aspx");
         }
 
         protected void GridViewRowEventHandler(object sender, GridViewRowEventArgs e)

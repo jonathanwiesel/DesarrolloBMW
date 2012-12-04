@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/SiteMaster/Site.Master" AutoEventWireup="true" CodeBehind="AccesarNota.aspx.cs" Inherits="RapidNote.Presentacion.Vista.AccesarNota" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" MasterPageFile="~/SiteMaster/Site.Master" CodeBehind="AccesarNotasLibreta.aspx.cs" Inherits="RapidNote.Presentacion.Vista.AccesarNotasLibreta" %>
 <%@ Register Assembly="RapidNote" Namespace="RapidNote.Controles" TagPrefix="cc1" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="TitleContent" runat="server">
 Accesar Nota
@@ -30,7 +30,7 @@ Accesar Nota
                                     <FooterStyle BackColor="#AA2828" ForeColor="White" />
                                     <PagerStyle BackColor="#AA2828" ForeColor="White" HorizontalAlign="Center"/>
                                     <Columns> 
-                                        <asp:BoundField DataField="idnota" HeaderText="id"/>     
+                                        <asp:BoundField DataField="idNota" HeaderText="id"/>     
                                         <asp:BoundField DataField="titulo" HeaderText="titulo"/>      
                                         <asp:BoundField DataField="fechacreacion" HeaderText="fecha de creacion"/>     
                                     </Columns>            
@@ -39,7 +39,7 @@ Accesar Nota
                         </tr>
                     </ContentTemplate>
                     </cc1:semanticupdatepanel>
-                     <tr>
+                    <tr>
                         <td>
                          <asp:Label  ID="mensajeError" runat="server" Text="Mensaje error"  Visible="false" 
                      style="text-align: center; color: #CC0000; font-weight: 700; font-style: italic"></asp:Label>

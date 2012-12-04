@@ -121,5 +121,20 @@ namespace RapidNote.Logica.Fabrica
             return new ComandoVerificarLibreta(libreta, usuario);
         }
 
+        public static Comando<Entidad> CrearComandoTraerLibreta(Entidad libreta)
+        {
+            return new ComandoTraerLibreta(libreta);
+        }
+
+        public static Comando<Boolean> CrearComandoEditarLibreta(Entidad libreta)
+        {
+            return new ComandoEditarLibreta(libreta);
+        }
+
+        public static Comando<List<Entidad>> CrearComandoListarNotasLibreta(Entidad libreta)
+        {
+            return new ComandoListarNotasLibreta(libreta);
+        }
+
     }
 }

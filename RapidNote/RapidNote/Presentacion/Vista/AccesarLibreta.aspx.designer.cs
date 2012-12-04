@@ -10,7 +10,7 @@
 namespace RapidNote.Presentacion.Vista {
     
     
-    public partial class AccesarNota {
+    public partial class AccesarLibreta {
         
         /// <summary>
         /// TextBoxBuscadorSiteM control.
@@ -40,13 +40,13 @@ namespace RapidNote.Presentacion.Vista {
         protected global::RapidNote.Controles.SemanticUpdatePanel SemanticUpdatePanel1;
         
         /// <summary>
-        /// GridViewNotas control.
+        /// GridViewLibreta control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView GridViewNotas;
+        protected global::System.Web.UI.WebControls.GridView GridViewLibreta;
         
         /// <summary>
         /// mensajeError control.

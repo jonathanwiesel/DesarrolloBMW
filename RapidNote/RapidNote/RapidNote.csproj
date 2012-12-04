@@ -36,7 +36,7 @@
       <HintPath>..\..\..\..\..\Dropbox\desarrolloRapidNote\libs\AjaxControlToolkit.dll</HintPath>
     </Reference>
     <Reference Include="Common.Logging">
-      <HintPath>..\packages\Common.Logging.2.0.0\lib\2.0\Common.Logging.dll</HintPath>
+      <HintPath>..\..\..\..\..\Dropbox\desarrolloRapidNote\libs\Common.Logging.dll</HintPath>
     </Reference>
     <Reference Include="log4net, Version=1.2.11.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a">
       <SpecificVersion>False</SpecificVersion>
@@ -44,13 +44,16 @@
     </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="Spring.Rest">
-      <HintPath>..\packages\Spring.Rest.1.1.1\lib\net40-client\Spring.Rest.dll</HintPath>
+      <HintPath>..\..\..\..\..\Dropbox\desarrolloRapidNote\libs\Spring.Rest.dll</HintPath>
+    </Reference>
+    <Reference Include="Spring.Rest.Testing">
+      <HintPath>..\..\..\..\..\Dropbox\desarrolloRapidNote\libs\Spring.Rest.Testing.dll</HintPath>
     </Reference>
     <Reference Include="Spring.Social.Core">
-      <HintPath>..\packages\Spring.Social.Core.1.0.1\lib\net40-client\Spring.Social.Core.dll</HintPath>
+      <HintPath>..\..\..\..\..\Dropbox\desarrolloRapidNote\libs\Spring.Social.Core.dll</HintPath>
     </Reference>
     <Reference Include="Spring.Social.Dropbox">
-      <HintPath>..\packages\Spring.Social.Dropbox.1.2.0\lib\net40-client\Spring.Social.Dropbox.dll</HintPath>
+      <HintPath>..\..\..\..\..\Dropbox\desarrolloRapidNote\libs\Spring.Social.Dropbox.dll</HintPath>
     </Reference>
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
@@ -72,6 +75,9 @@
     <Content Include="App_Readme\Spring.Rest.txt" />
     <Content Include="App_Readme\Spring.Social.Core.txt" />
     <Content Include="App_Readme\Spring.Social.Dropbox.txt" />
+    <Content Include="Presentacion\Vista\AccesarLibreta.aspx" />
+    <Content Include="Presentacion\Vista\AccesarNotasLibreta.aspx" />
+    <Content Include="Presentacion\Vista\EditarLibreta.aspx" />
     <Content Include="Presentacion\Vista\index.aspx" />
     <Content Include="Presentacion\Vista\AccesarNota.aspx" />
     <Content Include="Presentacion\Vista\BuscarNota.aspx" />
@@ -131,11 +137,41 @@
     <Compile Include="Logica\Comandos\Dropbox\ComandoObtenerToken.cs" />
     <Compile Include="Logica\Comandos\Dropbox\ComandoSubirArchivoServidor.cs" />
     <Compile Include="Logica\Comandos\Libreta\ComandoAgregarLibreta.cs" />
+    <Compile Include="Logica\Comandos\Libreta\ComandoEditarLibreta.cs" />
+    <Compile Include="Logica\Comandos\Libreta\ComandoTraerLibreta.cs" />
     <Compile Include="Logica\Comandos\Libreta\ComandoVerificarLibreta.cs" />
+    <Compile Include="Logica\Comandos\Nota\ComandoListarNotasLibreta.cs" />
+    <Compile Include="Presentacion\Contrato\Libreta\IContratoAccesarLibreta.cs" />
     <Compile Include="Presentacion\Contrato\Libreta\IContratoAgregarLibreta.cs" />
+    <Compile Include="Presentacion\Contrato\Libreta\IContratoEditarLibreta.cs" />
+    <Compile Include="Presentacion\Contrato\Nota\IContratoAccesarNotaLibreta.cs" />
     <Compile Include="Presentacion\Contrato\Usuario\IcontratoTokenizerUser.cs" />
+    <Compile Include="Presentacion\Presentador\Libreta\PresentadorAccesarLibreta.cs" />
     <Compile Include="Presentacion\Presentador\Libreta\PresentadorAgregarLibreta.cs" />
+    <Compile Include="Presentacion\Presentador\Libreta\PresentadorEditarLibreta.cs" />
+    <Compile Include="Presentacion\Presentador\Nota\PresentadorAccesarNotasLibreta.cs" />
     <Compile Include="Presentacion\Presentador\Usuario\PresentadorTokenizerUser.cs" />
+    <Compile Include="Presentacion\Vista\AccesarLibreta.aspx.cs">
+      <DependentUpon>AccesarLibreta.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Presentacion\Vista\AccesarLibreta.aspx.designer.cs">
+      <DependentUpon>AccesarLibreta.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Presentacion\Vista\AccesarNotasLibreta.aspx.cs">
+      <DependentUpon>AccesarNotasLibreta.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Presentacion\Vista\AccesarNotasLibreta.aspx.designer.cs">
+      <DependentUpon>AccesarNotasLibreta.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Presentacion\Vista\EditarLibreta.aspx.cs">
+      <DependentUpon>EditarLibreta.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Presentacion\Vista\EditarLibreta.aspx.designer.cs">
+      <DependentUpon>EditarLibreta.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Presentacion\Vista\index.aspx.cs">
       <DependentUpon>index.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -152,7 +188,7 @@
     <Compile Include="Logica\Comandos\Nota\ComandoEditarNota.cs" />
     <Compile Include="Logica\Comandos\Nota\ComandoListarAdjuntosPorNota.cs" />
     <Compile Include="Logica\Comandos\Nota\ComandoListarEtiquetasPorNota.cs" />
-    <Compile Include="Logica\Comandos\Nota\ComandoListarLibretas.cs" />
+    <Compile Include="Logica\Comandos\Libreta\ComandoListarLibretas.cs" />
     <Compile Include="Logica\Comandos\Nota\ComandoListarNotas.cs" />
     <Compile Include="Logica\Comandos\Nota\ComandoMostrarNota.cs" />
     <Compile Include="Logica\Comandos\Nota\ComandoNuevaNota.cs" />
@@ -296,7 +332,7 @@
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />
   <ProjectExtensions>
     <VisualStudio>
-      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+      <FlavorProperties GUID="{349C5851-65DF-11DA-9384-00065B846F21}">
         <WebProjectProperties>
           <UseIIS>False</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>

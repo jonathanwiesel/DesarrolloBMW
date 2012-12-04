@@ -10,7 +10,7 @@
 namespace RapidNote.Presentacion.Vista {
     
     
-    public partial class AccesarNota {
+    public partial class AccesarNotasLibreta {
         
         /// <summary>
         /// TextBoxBuscadorSiteM control.

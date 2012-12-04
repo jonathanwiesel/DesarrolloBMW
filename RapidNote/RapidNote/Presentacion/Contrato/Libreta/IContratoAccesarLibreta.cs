@@ -6,16 +6,16 @@ using System.Web.SessionState;
 using System.Web.UI.WebControls;
 using RapidNote.Clases;
 
-namespace RapidNote.Presentacion.Contrato.Nota
+namespace RapidNote.Presentacion.Contrato.Libreta
 {
-    public interface IContratoAccesarNota
+    public interface IContratoAccesarLibreta
     {
-        List<Entidad> gridviewnota { set; }
+        List<Entidad> gridviewlibreta { set; }
 
         String contenidoBusqueda { get; }
 
         Label MensajeError { get; set; }
-        
+
         HttpSessionState Sesion { get; }
     }
 }
