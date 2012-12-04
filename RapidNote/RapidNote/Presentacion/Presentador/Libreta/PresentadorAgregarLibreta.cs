@@ -18,6 +18,7 @@ namespace RapidNote.Presentacion.Presentador.Libreta
         private string _mensajeErrorInsertar = "Error al insertar en base de datos";
         private string _mensajeErrorExiste = "Error, ya posee una libreta con ese nombre";
         private Entidad libreta;
+        private Entidad libretaExiste;
         private Boolean estado;
 
         public PresentadorAgregarLibreta(IContratoAgregarLibreta vista)
@@ -31,8 +32,9 @@ namespace RapidNote.Presentacion.Presentador.Libreta
             libreta = FabricaEntidad.CrearLibreta();
             (libreta as Clases.Libreta).NombreLibreta = _vista.getNombre();
             comando2 = FabricaComando.CrearComandoVerificarLibreta(libreta, usuario);
-            libreta = comando2.Ejecutar();
-            if ((libreta as Clases.Libreta).Idlibreta == 0)
+            libretaExiste = FabricaEntidad.CrearLibreta();
+            libretaExiste = comando2.Ejecutar();
+            if ((libretaExiste as Clases.Libreta).Idlibreta == 0)
             {
                 comando = FabricaComando.CrearComandoAgregarLibreta(libreta, usuario);
                 estado = comando.Ejecutar();
