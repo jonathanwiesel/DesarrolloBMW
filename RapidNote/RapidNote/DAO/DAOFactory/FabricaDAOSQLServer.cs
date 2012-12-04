@@ -37,5 +37,10 @@ namespace RapidNote.DAO.DAOFactory
         {
             return new DAOLibreta();
         }
+
+        public override IDAOAdjunto CrearDAOAdjunto()
+        {
+            return new DAOAdjunto();
+        }
     }
 }

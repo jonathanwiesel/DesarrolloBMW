@@ -32,5 +32,7 @@ namespace RapidNote.Presentacion.Contrato.Nota
 
         HttpFileCollection getHfc();
 
+        Label MensajeError { get; set; }
+
     }
 }

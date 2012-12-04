@@ -124,13 +124,17 @@
     <Compile Include="DAO\Conexion.cs" />
     <Compile Include="DAO\DAOFactory\FabricaDAO.cs" />
     <Compile Include="DAO\DAOFactory\FabricaDAOSQLServer.cs" />
+    <Compile Include="DAO\DAOSQL\DAOAdjunto.cs" />
     <Compile Include="DAO\DAOSQL\DAOLibreta.cs" />
     <Compile Include="DAO\DAOSQL\DAONota.cs" />
     <Compile Include="DAO\DAOSQL\DAOUsuario.cs" />
     <Compile Include="DAO\IDAOS\IDAO.cs" />
+    <Compile Include="DAO\IDAOS\IDAOAdjunto.cs" />
     <Compile Include="DAO\IDAOS\IDAOLibreta.cs" />
     <Compile Include="DAO\IDAOS\IDAONota.cs" />
     <Compile Include="DAO\IDAOS\IDAOUsuario.cs" />
+    <Compile Include="Logica\Comandos\Adjunto\ComandoAgregarAdjuntoBD.cs" />
+    <Compile Include="Logica\Comandos\Adjunto\ComandoAgregarAdjuntoConNota.cs" />
     <Compile Include="Logica\Comandos\Comandodrop.cs" />
     <Compile Include="Logica\Comandos\Dropbox\ComandoAdjuntarDropbox.cs" />
     <Compile Include="Logica\Comandos\Dropbox\ComandoAutentificarDropbox.cs" />
@@ -141,6 +145,7 @@
     <Compile Include="Logica\Comandos\Libreta\ComandoTraerLibreta.cs" />
     <Compile Include="Logica\Comandos\Libreta\ComandoVerificarLibreta.cs" />
     <Compile Include="Logica\Comandos\Nota\ComandoListarNotasLibreta.cs" />
+    <Compile Include="Logica\Comandos\Nota\ComandoVerificarNota.cs" />
     <Compile Include="Presentacion\Contrato\Libreta\IContratoAccesarLibreta.cs" />
     <Compile Include="Presentacion\Contrato\Libreta\IContratoAgregarLibreta.cs" />
     <Compile Include="Presentacion\Contrato\Libreta\IContratoEditarLibreta.cs" />

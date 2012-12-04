@@ -17,6 +17,7 @@ namespace RapidNote.Presentacion.Vista
         PresentadorNuevaNota presentador;
         string rutaArchivo="";
         string nombreArchivo = "";
+        bool estado = true;
         HttpFileCollection hffc;
 
         protected override void OnInit(EventArgs e)
@@ -54,6 +55,12 @@ namespace RapidNote.Presentacion.Vista
             (Sesion["usuario"] as Usuario).Estado = TextBoxBuscadorSiteM.Text;
             Response.Redirect("BuscarNota.aspx");
             //presentador.IniciarVista();
+        }
+
+        public Label MensajeError
+        {
+            get { return mensajeError; }
+            set { mensajeError = value; }
         }
 
         public System.Web.SessionState.HttpSessionState Sesion
@@ -120,7 +127,7 @@ namespace RapidNote.Presentacion.Vista
 
         protected void Button1_Click(object sender, EventArgs e)
         {
-            presentador.Ejecutar();
+            
             string directorio = @"C:\Users\victor\Documents\GitHub\DesarrolloBMW\RapidNote\RapidNote\Archivo\";
             hffc = Request.Files;
             for (int i = 0; i < hffc.Count; i++)
@@ -135,7 +142,12 @@ namespace RapidNote.Presentacion.Vista
             }
             if (rutaArchivo != "")
             {
-                presentador.Adjuntar();
+                estado = presentador.Adjuntar();
+            }
+
+            if (estado == true)
+            {
+                presentador.Ejecutar();
             }
             
             LabelResultado.Text="Almacenado";

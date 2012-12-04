@@ -31,16 +31,23 @@ namespace RapidNote.Logica.Comandos.Dropbox
         {
             try
             {
-                IDropbox dropbox = new DropboxTemplate(consumerKey, consumerSecret, (usuario as Clases.Usuario).AccesToken, (usuario as Clases.Usuario).AccesSecret, AccessLevel.AppFolder);
-                for (int i = 0; i < archivo.Count(); i++)
+                if (((usuario as Clases.Usuario).AccesToken != "") && ((usuario as Clases.Usuario).AccesSecret!=""))
                 {
-                    if (archivo[i] != "")
+                    IDropbox dropbox = new DropboxTemplate(consumerKey, consumerSecret, (usuario as Clases.Usuario).AccesToken, (usuario as Clases.Usuario).AccesSecret, AccessLevel.AppFolder);
+                    for (int i = 0; i < archivo.Count(); i++)
                     {
-                        dropbox.UploadFileAsync(new FileResource(archivo[i]), "/RapidNote/" + nombre[i]);
-                        estado = true;
+                        if (archivo[i] != "")
+                        {
+                            dropbox.UploadFileAsync(new FileResource(archivo[i]), "/RapidNote/" + nombre[i]);
+                            estado = true;
+                        }
                     }
+                    return estado;
                 }
-                return estado;
+                else
+                {
+                    return estado;
+                }
             }
             catch (AggregateException ae)
             {

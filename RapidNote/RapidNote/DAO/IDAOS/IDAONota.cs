@@ -33,5 +33,7 @@ namespace RapidNote.DAO.IDAOS
         Entidad BuscarNota(Entidad nota);
 
         List<Entidad> ListarNotasLibreta(Entidad libreta);
+
+        Entidad VerificarNota(Entidad nota, Entidad usuario);
     }
 }

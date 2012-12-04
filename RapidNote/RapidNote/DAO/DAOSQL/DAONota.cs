@@ -690,5 +690,49 @@ namespace RapidNote.DAO.DAOSQL
 
         }
 
+        public Entidad VerificarNota(Entidad nota, Entidad usuario)
+        {
+            Entidad notaExiste;
+            notaExiste = FabricaEntidad.CrearNota();
+            SqlCommand sqlcmd = new SqlCommand();
+            Conexion connexion = new Conexion();
+
+            try
+            {
+                connexion.AbrirConexionBd();
+                sqlcmd.Connection = connexion.ObjetoConexion();
+                sqlcmd.CommandType = CommandType.StoredProcedure;
+                sqlcmd.CommandText = "VerificarNota";
+                sqlcmd.CommandTimeout = 2;
+
+                SqlParameter parametroTitulo = new SqlParameter("@TITULO", (nota as Clases.Nota).Titulo);
+                sqlcmd.Parameters.Add(parametroTitulo);
+                SqlParameter parametroNombre = new SqlParameter("@NOMBRE", (nota as Clases.Nota).Libreta.NombreLibreta);
+                sqlcmd.Parameters.Add(parametroNombre);
+                SqlParameter parametroId = new SqlParameter("@CORREO", (usuario as Usuario).Correo);
+                sqlcmd.Parameters.Add(parametroId);
+                sqlcmd.ExecuteNonQuery();
+                SqlDataReader sqlrd;
+                sqlrd = sqlcmd.ExecuteReader();
+                while (sqlrd.Read())
+                {
+                    (notaExiste as Clases.Nota).Idnota = int.Parse(sqlrd["idNota"].ToString());
+                }
+                return notaExiste;
+
+            }
+            catch (Exception E)
+            {
+                Console.WriteLine(E.Message);
+                return notaExiste;
+
+            }
+
+            finally
+            {
+                connexion.CerrarConexionBd();
+            }
+        }
+
     }
 }

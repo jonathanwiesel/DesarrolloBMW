@@ -95,6 +95,15 @@
                 </tr>   
                 </ContentTemplate>
                 </cc1:semanticupdatepanel>
+                <tr>
+                        <td>
+                        
+                        </td>
+                        <td>
+                         <asp:Label  ID="mensajeError" runat="server" Text="Mensaje error"  Visible="false" 
+                     style="text-align: center; color: #CC0000; font-weight: 700; font-style: italic"></asp:Label>
+                        </td>
+                    </tr>
                 </table>  
                 <table align="center">
                     <tr>
