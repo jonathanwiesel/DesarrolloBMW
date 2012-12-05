@@ -12,7 +12,7 @@ namespace RapidNote.DAO.IDAOS
 
         Entidad MostrarNota(Entidad nota);
 
-        List<Entidad> ListarAjuntos(Entidad nota);
+        List<Entidad> ListarAjuntos(Entidad nota, Entidad usuario);
 
         List<Entidad> ListarEtiquetas(Entidad nota);
 

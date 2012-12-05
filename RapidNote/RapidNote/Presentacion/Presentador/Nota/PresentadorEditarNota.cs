@@ -16,11 +16,27 @@ namespace RapidNote.Presentacion.Presentador.Nota
 
         private Comando<Entidad> comando;
 
+        private Comando<bool> comando2;
+
+        private Comando<bool> comando3;
+
+        private Comando<bool> comando4;
+
+        private Comando<bool> comando5;
+
         //private Comando<int> comando1;
 
         private Comando<List<Entidad>> comandoLista;
 
+        private Comando<List<Entidad>> comandolistaadjunto;
+
         private Entidad nota;
+
+        private string _mensajeErrorInsertar = "Error, ya posee una nota igual en esta libreta";
+
+        private string _mensajeErrorServidor = "Error, No se pudo subir los archivos al servidor";
+
+        private string _mensajeErrorDropbox = "Error, No se pudo subir los archivos al Dropbox";
 
         //private int idNota;
 
@@ -64,7 +80,9 @@ namespace RapidNote.Presentacion.Presentador.Nota
             //busco las etiquetas de la nota
             comandoLista = FabricaComando.CrearComandoListarEtiquetasPorNota(nota);
             contrato.setListaEtiquetas(comandoLista.Ejecutar());
-            
+
+            comandolistaadjunto = FabricaComando.CrearComandoListarAdjuntosPorNota(nota,usuario);
+            contrato.setArchivoAdjunto(comandolistaadjunto.Ejecutar());
         }
 
         //actualizar
@@ -91,6 +109,45 @@ namespace RapidNote.Presentacion.Presentador.Nota
             comando = FabricaComando.CrearComandoBorrarNota(nota);
 
             nota = comando.Ejecutar();
+        }
+
+        public bool Adjuntar()
+        {
+            bool resultado = false;
+            Entidad usuario = (contrato.Sesion["usuario"] as Clases.Usuario);
+            comando2 = FabricaComando.CrearComandoSubirArchivoServidor(contrato.getHfc());
+            bool estado = comando2.Ejecutar();
+            if (estado == true)
+            {
+                comando3 = FabricaComando.CrearComandoAdjuntarDropbox(contrato.getRutas(), contrato.getNombrearchivo(), usuario);
+                estado = comando3.Ejecutar();
+                if (estado == true)
+                {
+                    comando4 = FabricaComando.CrearComandoAgregarAdjuntoBD(contrato.getRutas(), contrato.getNombrearchivo());
+                    comando4.Ejecutar();
+                    nota = FabricaEntidad.CrearNota();
+                    (nota as Clases.Nota).Idnota = int.Parse(contrato.getIdNota());
+                    comando = FabricaComando.CrearComandoBuscarNota(nota);
+                    nota = comando.Ejecutar();
+                    comando5 = FabricaComando.CrearComandoAgregarAdjuntoConNota(contrato.getRutas(), contrato.getNombrearchivo(), nota, usuario);
+                    resultado = comando5.Ejecutar();
+                    return resultado;
+                }
+                else
+                {
+
+                    contrato.MensajeError.Text = _mensajeErrorDropbox;
+                    contrato.MensajeError.Visible = true;
+                    return resultado;
+                }
+            }
+            else
+            {
+
+                contrato.MensajeError.Text = _mensajeErrorServidor;
+                contrato.MensajeError.Visible = true;
+                return resultado;
+            }
         }
     }
 }

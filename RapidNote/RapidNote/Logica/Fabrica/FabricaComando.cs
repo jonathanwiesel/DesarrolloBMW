@@ -31,9 +31,9 @@ namespace RapidNote.Logica.Fabrica
             return new ComandoMostrarNota(entidad);
         }
 
-        public static Comando<List<Entidad>> CrearComandoListarAdjuntosPorNota(Entidad entidad) 
+        public static Comando<List<Entidad>> CrearComandoListarAdjuntosPorNota(Entidad entidad, Entidad usuario) 
         {
-            return new ComandoListarAdjuntosPorNota(entidad);
+            return new ComandoListarAdjuntosPorNota(entidad,usuario);
         }
 
         public static Comando<List<Entidad>> CrearComandoListarEtiquetasPorNota(Entidad nota)

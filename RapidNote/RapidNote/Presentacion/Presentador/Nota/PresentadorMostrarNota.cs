@@ -32,6 +32,7 @@ namespace RapidNote.Presentacion.Presentador.Nota
 
         public void Ejecutar() 
         {
+            Entidad usuario = (contrato.Sesion["usuario"] as Clases.Usuario);
             Entidad nota = FabricaEntidad.CrearNota();
             (nota as Clases.Nota).Titulo = contrato.getTituloNota();
             comandoMuestra = FabricaComando.CrearComandoMostrarNota(nota);
@@ -49,7 +50,7 @@ namespace RapidNote.Presentacion.Presentador.Nota
                 contrato.setFechaModificacion((nota as Clases.Nota).Fechamodificacion.ToString());
             }
 
-            comando = FabricaComando.CrearComandoListarAdjuntosPorNota(nota);
+            comando = FabricaComando.CrearComandoListarAdjuntosPorNota(nota,usuario);
             contrato.setArchivoAdjunto(comando.Ejecutar());
 
             comando = FabricaComando.CrearComandoListarEtiquetasPorNota(nota);

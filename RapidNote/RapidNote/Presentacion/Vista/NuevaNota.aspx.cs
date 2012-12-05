@@ -14,11 +14,11 @@ namespace RapidNote.Presentacion.Vista
 {
     public partial class NuevaNota : System.Web.UI.Page, IContratoNuevaNota
     {
-        PresentadorNuevaNota presentador;
-        string rutaArchivo="";
-        string nombreArchivo = "";
-        bool estado = true;
-        HttpFileCollection hffc;
+        private PresentadorNuevaNota presentador;
+        private string rutaArchivo="";
+        private string nombreArchivo = "";
+        private bool estado = true;
+        private HttpFileCollection hffc;
 
         protected override void OnInit(EventArgs e)
         {

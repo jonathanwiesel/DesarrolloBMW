@@ -2,6 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Web;
+using System.Web.UI;
+using System.Web.UI.WebControls;
 using System.Web.SessionState;
 using RapidNote.Clases;
 
@@ -21,6 +24,8 @@ namespace RapidNote.Presentacion.Contrato.Nota
 
         void setListaLibretas(List<Entidad> listaLibretas);
 
+        void setArchivoAdjunto(List<Entidad> listaArchivos);
+
         void setNombreLibreta(String nombreLibreta);
 
         void setContenido(String contenido);
@@ -30,5 +35,13 @@ namespace RapidNote.Presentacion.Contrato.Nota
         String getIdNota();
 
         void setListaEtiquetas(List<Entidad> listaEtiquetas);
+
+        string[] getRutas();
+
+        string[] getNombrearchivo();
+
+        HttpFileCollection getHfc();
+
+        Label MensajeError { get; set; }
     }
 }

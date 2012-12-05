@@ -4,17 +4,23 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.IO;
 using RapidNote.Presentacion.Contrato.Nota;
 using RapidNote.Clases;
 using RapidNote.Presentacion.Presentador.Nota;
+using AjaxControlToolkit;
 
 namespace RapidNote.Presentacion.Vista
 {
     public partial class EditarNota : System.Web.UI.Page, IContratoEditarNota
     {
+        private PresentadorEditarNota presentador; 
         private string idNota;
-
-        PresentadorEditarNota presentador;
+        private string rutaArchivo = "";
+        private string nombreArchivo = "";
+        private bool estado = true;
+        private HttpFileCollection hffc;
+        
 
         protected override void OnInit(EventArgs e)
         {
@@ -40,6 +46,8 @@ namespace RapidNote.Presentacion.Vista
                     presentador.IniciarVista();
                 }
             }
+            ScriptManager scripManager = ScriptManager.GetCurrent(this.Page);
+            scripManager.RegisterPostBackControl(Button1);
         }
 
         public System.Web.SessionState.HttpSessionState Sesion
@@ -51,6 +59,21 @@ namespace RapidNote.Presentacion.Vista
         public string getContenido()
         {
             return TextBoxContenido.Text;
+        }
+
+        public string[] getRutas()
+        {
+            return rutaArchivo.Split(';');
+        }
+
+        public string[] getNombrearchivo()
+        {
+            return nombreArchivo.Split(';');
+        }
+
+        public HttpFileCollection getHfc()
+        {
+            return hffc;
         }
 
         public string getTitulo()
@@ -87,6 +110,12 @@ namespace RapidNote.Presentacion.Vista
             TextBoxTitulo.Text = titulo;
         }
 
+        public Label MensajeError
+        {
+            get { return LabelResultado; }
+            set { LabelResultado = value; }
+        }
+
         public List<Entidad> getEtiquetas(){
             List<Entidad> listaE = new List<Entidad>();
             foreach (ListItem item in ListBoxEtiquetas.Items) {
@@ -109,7 +138,26 @@ namespace RapidNote.Presentacion.Vista
         //actualizar
         protected void Button1_Click(object sender, EventArgs e)
         {
-            presentador.Ejecutar();
+            string directorio = @"C:\Users\victor\Documents\GitHub\DesarrolloBMW\RapidNote\RapidNote\Archivo\";
+            hffc = Request.Files;
+            for (int i = 0; i < hffc.Count; i++)
+            {
+                HttpPostedFile hpf = hffc[i];
+                if (hpf.ContentLength > 0)
+                {
+                    nombreArchivo += hpf.FileName + ";";
+                    rutaArchivo += directorio + hpf.FileName + ";";
+                }
+
+            }
+            if (rutaArchivo != "")
+            {
+                estado = presentador.Adjuntar();
+            }
+            if (estado == true)
+            {
+                presentador.Ejecutar();
+            }
             LabelResultado.Text="Actualizando";
             Response.Redirect("../Vista/index.aspx");
         }
@@ -140,6 +188,16 @@ namespace RapidNote.Presentacion.Vista
         {
             DropDownListLibretas.Items.Clear();
             DropDownListLibretas.Items.Add(nombreLibreta);
+        }
+
+
+        public void setArchivoAdjunto(List<Entidad> listaArchivos)
+        {
+            ListBoxArchivos.Items.Clear();
+            for (int i = 0; i < listaArchivos.Count; i++)
+            {
+                ListBoxArchivos.Items.Add((listaArchivos[i] as Adjunto).Titulo);
+            }
         }
     }
 }

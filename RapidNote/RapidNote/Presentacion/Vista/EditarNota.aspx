@@ -17,6 +17,7 @@
                 <cc1:semanticupdatepanel ID="SemanticUpdatePanel1" runat="server" 
                     RenderedElement="TBODY">
                 <ContentTemplate>
+                <script src="../../Scripts/jquery.MultiFile.js" type="text/javascript"></script>
                 <tr>
                     <td>
                         <asp:Label ID="nombreNota" runat="server" Text="Titulo de la Nota"></asp:Label>
@@ -71,10 +72,28 @@
                         <asp:DropDownList ID="DropDownListLibretas" runat="server" Width="430px" Enabled="false">
                         </asp:DropDownList>
                     </td>
-                </tr>     
+                </tr>
                 <tr>
                     <td>
-                        <asp:Label ID="LabelResultado" runat="server" Text=""></asp:Label>
+                        <asp:Label ID="Label3" runat="server" Text="Archivos Adjuntos"></asp:Label>
+                    </td>
+                    <td>
+                        <asp:FileUpload ID="FileUploadArchivo" class="multi" runat="server"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        
+                    </td>
+                    <td>
+                        <asp:ListBox ID="ListBoxArchivos" Height="80px" runat="server" Width="430px" ReadOnly="true"></asp:ListBox>
+                    </td>
+                </tr>  
+                 
+                <tr>
+                    <td>
+                        <asp:Label ID="LabelResultado" runat="server" Text="" Visible="false" 
+                     style="text-align: center; color: #CC0000; font-weight: 700; font-style: italic"></asp:Label>
                     </td>
                     <td>
                         <asp:Button ID="Button1" runat="server" Text="Guardar" 

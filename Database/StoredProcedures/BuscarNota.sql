@@ -14,7 +14,7 @@ CREATE PROCEDURE [dbo].[BuscarNota](@idNota integer)
 AS
 BEGIN
 
-	SELECT n.contenido, n.fechaCreacion, n.fechaModificacion, l.nombreLibreta FROM NOTA n, LIBRETA l
+	SELECT n.contenido, n.fechaCreacion, n.fechaModificacion, n.titulo, l.nombreLibreta FROM NOTA n, LIBRETA l
 	WHERE n.idNota = @idNota and n.fkidLibreta = l.idLibreta;	
 	
 END
