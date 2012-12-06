@@ -59,9 +59,14 @@ namespace RapidNote.Presentacion.Vista
 
         public Label MensajeError
         {
-            get { return mensajeError; }
-            set { mensajeError = value; }
+            get { return LabelResultado; }
+            set { LabelResultado = value; }
         }
+
+        public void Redireccionar(string _ruta)
+        {
+            Response.Redirect(_ruta);
+        } 
 
         public System.Web.SessionState.HttpSessionState Sesion
         {
@@ -127,31 +132,35 @@ namespace RapidNote.Presentacion.Vista
 
         protected void Button1_Click(object sender, EventArgs e)
         {
-            
-            string directorio = @"C:\Users\victor\Documents\GitHub\DesarrolloBMW\RapidNote\RapidNote\Archivo\";
-            hffc = Request.Files;
-            for (int i = 0; i < hffc.Count; i++)
+            bool resultado = presentador.VerificarNota();
+            if (resultado == true)
             {
-                HttpPostedFile hpf = hffc[i];
-                if (hpf.ContentLength > 0)
+                string directorio = @"C:\Users\victor\Documents\GitHub\DesarrolloBMW\RapidNote\RapidNote\Archivo\";
+                hffc = Request.Files;
+                for (int i = 0; i < hffc.Count; i++)
                 {
-                    nombreArchivo += hpf.FileName + ";";
-                    rutaArchivo += directorio + hpf.FileName + ";";
+                    HttpPostedFile hpf = hffc[i];
+                    if (hpf.ContentLength > 0)
+                    {
+                        nombreArchivo += hpf.FileName + ";";
+                        rutaArchivo += directorio + hpf.FileName + ";";
+                    }
+
+                }
+                if (rutaArchivo != "")
+                {
+                    estado = presentador.Adjuntar();
                 }
 
+                if (estado == true)
+                {
+                    presentador.Ejecutar();
+                }
             }
-            if (rutaArchivo != "")
+            else
             {
-                estado = presentador.Adjuntar();
+                LabelResultado.Text = "Error, ya posee una nota igual en esta libreta";
             }
-
-            if (estado == true)
-            {
-                presentador.Ejecutar();
-            }
-            
-            LabelResultado.Text="Almacenado";
-            Response.Redirect("../Vista/index.aspx");
         }
 
         //agregar etiqueta a lista

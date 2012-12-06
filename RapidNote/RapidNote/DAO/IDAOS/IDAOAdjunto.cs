@@ -11,5 +11,6 @@ namespace RapidNote.DAO.IDAOS
         bool AdjuntarBD(Entidad adjunto);
         Entidad VerificarAdjunto(Entidad adjunto);
         bool AgregarAdjunto_Nota(Entidad nota, Entidad adjunto);
+        Entidad BorrarAdjunto(Entidad nota);
     }
 }

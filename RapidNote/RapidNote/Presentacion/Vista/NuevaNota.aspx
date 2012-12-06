@@ -83,10 +83,19 @@
                     <td>
                         <asp:FileUpload ID="FileUploadArchivo" class="multi" runat="server"/>
                     </td>
-                </tr>     
+                </tr>    
+                <tr>
+                        <td>
+                        
+                        </td>
+                        <td>
+                         <asp:Label  ID="LabelResultado" runat="server" Text="Mensaje error"  Visible="false" 
+                     style="text-align: center; color: #CC0000; font-weight: 700; font-style: italic"></asp:Label>
+                        </td>
+                    </tr> 
                 <tr>
                     <td>
-                        <asp:Label ID="LabelResultado" runat="server" Text=""></asp:Label>
+                        
                     </td>
                     <td>
                         <asp:Button ID="Button1" runat="server" Text="Guardar" 
@@ -95,15 +104,7 @@
                 </tr>   
                 </ContentTemplate>
                 </cc1:semanticupdatepanel>
-                <tr>
-                        <td>
-                        
-                        </td>
-                        <td>
-                         <asp:Label  ID="mensajeError" runat="server" Text="Mensaje error"  Visible="false" 
-                     style="text-align: center; color: #CC0000; font-weight: 700; font-style: italic"></asp:Label>
-                        </td>
-                    </tr>
+                
                 </table>  
                 <table align="center">
                     <tr>

@@ -89,11 +89,17 @@
                         <asp:ListBox ID="ListBoxArchivos" Height="80px" runat="server" Width="430px" ReadOnly="true"></asp:ListBox>
                     </td>
                 </tr>  
-                 
+                 <tr>
+                    <td>
+                    </td>
+                    <td>
+                         <asp:Label ID="LabelResultado" runat="server" Text="" Visible="false" 
+                     style="text-align: center; color: #CC0000; font-weight: 700; font-style: italic"></asp:Label>
+                    </td>
+                 </tr>
                 <tr>
                     <td>
-                        <asp:Label ID="LabelResultado" runat="server" Text="" Visible="false" 
-                     style="text-align: center; color: #CC0000; font-weight: 700; font-style: italic"></asp:Label>
+                       
                     </td>
                     <td>
                         <asp:Button ID="Button1" runat="server" Text="Guardar" 

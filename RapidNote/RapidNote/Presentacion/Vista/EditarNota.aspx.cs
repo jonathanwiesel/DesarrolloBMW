@@ -55,6 +55,10 @@ namespace RapidNote.Presentacion.Vista
             get { return Session; }
         }
 
+        public void Redireccionar(string _ruta)
+        {
+            Response.Redirect(_ruta);
+        } 
 
         public string getContenido()
         {
@@ -138,28 +142,35 @@ namespace RapidNote.Presentacion.Vista
         //actualizar
         protected void Button1_Click(object sender, EventArgs e)
         {
-            string directorio = @"C:\Users\victor\Documents\GitHub\DesarrolloBMW\RapidNote\RapidNote\Archivo\";
-            hffc = Request.Files;
-            for (int i = 0; i < hffc.Count; i++)
+            bool resultado = presentador.VerificarNota();
+            if (resultado == true)
             {
-                HttpPostedFile hpf = hffc[i];
-                if (hpf.ContentLength > 0)
+                string directorio = @"C:\Users\victor\Documents\GitHub\DesarrolloBMW\RapidNote\RapidNote\Archivo\";
+                hffc = Request.Files;
+                for (int i = 0; i < hffc.Count; i++)
                 {
-                    nombreArchivo += hpf.FileName + ";";
-                    rutaArchivo += directorio + hpf.FileName + ";";
-                }
+                    HttpPostedFile hpf = hffc[i];
+                    if (hpf.ContentLength > 0)
+                    {
+                        nombreArchivo += hpf.FileName + ";";
+                        rutaArchivo += directorio + hpf.FileName + ";";
+                    }
 
+                }
+                if (rutaArchivo != "")
+                {
+                    estado = presentador.Adjuntar();
+                }
+                if (estado == true)
+                {
+                    presentador.Ejecutar();
+                }
             }
-            if (rutaArchivo != "")
-            {
-                estado = presentador.Adjuntar();
+            else
+            {   LabelResultado.Text="Error, ya posee una nota igual en esta libreta";
+                
             }
-            if (estado == true)
-            {
-                presentador.Ejecutar();
-            }
-            LabelResultado.Text="Actualizando";
-            Response.Redirect("../Vista/index.aspx");
+            
         }
 
         //eliminar

@@ -60,19 +60,37 @@ namespace RapidNote.Presentacion.Presentador.Nota
             notaExiste = FabricaEntidad.CrearNota();
             comando4 = FabricaComando.CrearComandoVerificarNota(nota, usuario);
             notaExiste = comando4.Ejecutar();
+            comando = FabricaComando.CrearComandoNuevaNota(nota);
+            nota = comando.Ejecutar();
+            comando6 = FabricaComando.CrearComandoAgregarAdjuntoConNota(contrato.getRutas(), contrato.getNombrearchivo(), nota, usuario);
+            comando6.Ejecutar();
+            contrato.Redireccionar("../Vista/Index.aspx");
+            
+        }
+
+        public bool VerificarNota()
+        {
+            Entidad usuario = (contrato.Sesion["usuario"] as Clases.Usuario);
+            bool resultado = false;
+            nota = FabricaEntidad.CrearNota();
+            (nota as Clases.Nota).Titulo = contrato.getTitulo();
+            (nota as Clases.Nota).Libreta.NombreLibreta = contrato.getNombreLibreta();
+            notaExiste = FabricaEntidad.CrearNota();
+            comando4 = FabricaComando.CrearComandoVerificarNota(nota, usuario);
+            notaExiste = comando4.Ejecutar();
             if ((notaExiste as Clases.Nota).Idnota == 0)
             {
-                comando = FabricaComando.CrearComandoNuevaNota(nota);
-                nota = comando.Ejecutar();
-                comando6 = FabricaComando.CrearComandoAgregarAdjuntoConNota(contrato.getRutas(), contrato.getNombrearchivo(), nota, usuario);
-                comando6.Ejecutar();
+                resultado = true;
+                return resultado;
             }
             else 
             {
                 contrato.MensajeError.Text = _mensajeErrorInsertar;
                 contrato.MensajeError.Visible = true;
+                return resultado;
             }
         }
+
 
         public bool Adjuntar()
         {

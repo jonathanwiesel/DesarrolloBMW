@@ -30,7 +30,11 @@ namespace RapidNote.Presentacion.Presentador.Nota
 
         private Comando<List<Entidad>> comandolistaadjunto;
 
+        private Comando<Entidad> comandoverificar;
+
         private Entidad nota;
+
+        private Entidad notaExiste;
 
         private string _mensajeErrorInsertar = "Error, ya posee una nota igual en esta libreta";
 
@@ -88,16 +92,41 @@ namespace RapidNote.Presentacion.Presentador.Nota
         //actualizar
         public void Ejecutar() 
         {
+            
             nota = FabricaEntidad.CrearNota();
             (nota as Clases.Nota).Titulo = contrato.getTitulo();
             (nota as Clases.Nota).Contenido = contrato.getContenido();
             (nota as Clases.Nota).Idnota = int.Parse(contrato.getIdNota());
             (nota as Clases.Nota).Libreta.NombreLibreta = contrato.getNombreLibreta();
             (nota as Clases.Nota).ListaEtiqueta = contrato.getEtiquetas().Cast<Etiqueta>().ToList();
-
             comando = FabricaComando.CrearComandoEditarNota(nota);
-
             nota = comando.Ejecutar();
+            contrato.Redireccionar("../Vista/Index.aspx");
+            
+        }
+
+        public bool VerificarNota()
+        {
+            Entidad usuario = (contrato.Sesion["usuario"] as Clases.Usuario);
+            bool estado = false;
+            nota = FabricaEntidad.CrearNota();
+            (nota as Clases.Nota).Titulo = contrato.getTitulo();
+            (nota as Clases.Nota).Idnota = int.Parse(contrato.getIdNota());
+            (nota as Clases.Nota).Libreta.NombreLibreta = contrato.getNombreLibreta();
+            notaExiste = FabricaEntidad.CrearNota();
+            comandoverificar = FabricaComando.CrearComandoVerificarNota(nota, usuario);
+            notaExiste = comandoverificar.Ejecutar();
+            if ((notaExiste as Clases.Nota).Idnota == 0 || (notaExiste as Clases.Nota).Idnota == (nota as Clases.Nota).Idnota)
+            {
+                estado = true;
+                return estado;
+            }
+            else
+            {
+                contrato.MensajeError.Text = _mensajeErrorInsertar;
+                contrato.MensajeError.Visible = true;
+                return estado;
+            }
         }
 
         //eliminar
@@ -109,6 +138,7 @@ namespace RapidNote.Presentacion.Presentador.Nota
             comando = FabricaComando.CrearComandoBorrarNota(nota);
 
             nota = comando.Ejecutar();
+            contrato.Redireccionar("../Vista/Index.aspx");
         }
 
         public bool Adjuntar()

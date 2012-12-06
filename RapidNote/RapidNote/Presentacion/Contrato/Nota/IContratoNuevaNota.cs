@@ -34,5 +34,6 @@ namespace RapidNote.Presentacion.Contrato.Nota
 
         Label MensajeError { get; set; }
 
+        void Redireccionar(string _ruta);
     }
 }

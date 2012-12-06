@@ -43,5 +43,7 @@ namespace RapidNote.Presentacion.Contrato.Nota
         HttpFileCollection getHfc();
 
         Label MensajeError { get; set; }
+
+        void Redireccionar(string _ruta);
     }
 }

@@ -126,5 +126,38 @@ namespace RapidNote.DAO.DAOSQL
                 connexion.CerrarConexionBd();
             }
         }
+
+        public Entidad BorrarAdjunto(Entidad nota)
+        {
+            SqlCommand sqlcmd = new SqlCommand();
+            Conexion connexion = new Conexion();
+            bool estado = false;
+            try
+            {
+                connexion.AbrirConexionBd();
+                sqlcmd.Connection = connexion.ObjetoConexion();
+                sqlcmd.CommandType = CommandType.StoredProcedure;
+                sqlcmd.CommandText = "BorrarAdjunto";
+                sqlcmd.CommandTimeout = 2;
+                SqlParameter parametroIdNota = new SqlParameter("@IDNOTA", (nota as Nota).Idnota);
+                sqlcmd.Parameters.Add(parametroIdNota);
+                sqlcmd.ExecuteNonQuery();
+                
+                return nota;
+
+
+            }
+            catch (Exception E)
+            {
+                Console.WriteLine(E.Message);
+                return nota;
+
+            }
+
+            finally
+            {
+                connexion.CerrarConexionBd();
+            }
+        }
     }
 }
