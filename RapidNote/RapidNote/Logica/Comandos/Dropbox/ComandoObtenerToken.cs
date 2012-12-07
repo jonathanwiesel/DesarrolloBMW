@@ -27,6 +27,7 @@ namespace RapidNote.Logica.Comandos.Dropbox
         private String correo;
         private Boolean estado = false;
         private OAuthToken oauthToken;
+        private static readonly log4net.ILog log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
 
 
         public ComandoObtenerToken(String correo)
@@ -49,6 +50,7 @@ namespace RapidNote.Logica.Comandos.Dropbox
                 (usuario as Clases.Usuario).AccesSecret = oauthAccessToken.Secret;
                 IDAOUsuario accion = FabricaDAO.CrearFabricaDeDAO(1).CrearDAOUsuario();
                 accion.InsertarToken(correo, usuario);
+                if (log.IsInfoEnabled) log.Info(correo.ToString());
                 estado = true;
                 return estado;
             }
@@ -59,7 +61,8 @@ namespace RapidNote.Logica.Comandos.Dropbox
                     if (ex is DropboxApiException)
                     {
                         Console.WriteLine(ex.Message);
-                        return estado = true;
+                        if (log.IsErrorEnabled) log.Error(ex.Message, ex);
+                        return estado = false;
                     }
                     return estado = false;
                 });

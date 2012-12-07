@@ -12,6 +12,8 @@ namespace RapidNote.DAO.DAOSQL
 {
     public class DAONota : IDAONota
     {
+        private static readonly log4net.ILog log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
+
         public List<Entidad> ListarNotas(Entidad usuario)
         {
             SqlCommand sqlcmd = new SqlCommand();
@@ -40,11 +42,13 @@ namespace RapidNote.DAO.DAOSQL
                     (nota as Nota).Fechacreacion = DateTime.Parse(sqlrd["fechaCreacion"].ToString());
                     listaNotas.Add(nota);
                 }
+                if (log.IsInfoEnabled) log.Info((usuario as Clases.Usuario).ToString());
                 return listaNotas;
             }
             catch (Exception E)
             {
                 Console.WriteLine(E.Message);
+                if (log.IsErrorEnabled) log.Error(E.Message, E);
                 return listaNotas;
             }
 
@@ -84,11 +88,13 @@ namespace RapidNote.DAO.DAOSQL
                     }
                     //(nota as Nota).Libreta.NombreLibreta = sqlrd["nombreLibreta"].ToString();                    
                 }
+                if (log.IsInfoEnabled) log.Info((nota as Clases.Nota).ToString());
                 return nota;
             }
             catch (Exception E)
             {
                 Console.WriteLine(E.Message);
+                if (log.IsErrorEnabled) log.Error(E.Message, E);
                 return nota;
             }
 
@@ -129,11 +135,14 @@ namespace RapidNote.DAO.DAOSQL
                     (adjunto as Adjunto).Titulo = sqlrd["TITULO"].ToString();
                     listaAdjuntos.Add(adjunto);
                 }
+                if (log.IsInfoEnabled) log.Info((nota as Clases.Nota).ToString());
+                if (log.IsInfoEnabled) log.Info((usuario as Clases.Usuario).ToString());
                 return listaAdjuntos;
             }
             catch (Exception E)
             {
                 Console.WriteLine(E.Message);
+                if (log.IsErrorEnabled) log.Error(E.Message, E);
                 return listaAdjuntos;
             }
 
@@ -170,11 +179,13 @@ namespace RapidNote.DAO.DAOSQL
                     (etiqueta as Etiqueta).Nombre = sqlrd["nombre"].ToString();
                     listaEtiquetas.Add(etiqueta);
                 }
+                if (log.IsInfoEnabled) log.Info((nota as Clases.Nota).ToString());
                 return listaEtiquetas;
             }
             catch (Exception E)
             {
                 Console.WriteLine(E.Message);
+                if (log.IsErrorEnabled) log.Error(E.Message, E);
                 return listaEtiquetas;
             }
 
@@ -223,12 +234,13 @@ namespace RapidNote.DAO.DAOSQL
                     int id = BuscarIdNota(nota);
                     AsignarEtiquetasNota(id, idEti);
                 }
-                
+                if (log.IsInfoEnabled) log.Info((nota as Clases.Nota).ToString());
                 return nota;
             }
             catch (Exception E)
             {
                 Console.WriteLine(E.Message);
+                if (log.IsErrorEnabled) log.Error(E.Message, E);
                 return nota;
             }
 
@@ -266,11 +278,13 @@ namespace RapidNote.DAO.DAOSQL
                     (libreta as Libreta).NombreLibreta = sqlrd["nombreLibreta"].ToString();
                     listaLibretas.Add(libreta);
                 }
+                if (log.IsInfoEnabled) log.Info((usuario as Clases.Usuario).ToString());
                 return listaLibretas;
             }
             catch (Exception E)
             {
                 Console.WriteLine(E.Message);
+                if (log.IsErrorEnabled) log.Error(E.Message, E);
                 return listaLibretas;
             }
 
@@ -312,11 +326,13 @@ namespace RapidNote.DAO.DAOSQL
                     (nota as Nota).Fechacreacion = DateTime.Parse(sqlrd["fechaCreacion"].ToString());
                     listaNotas.Add(nota);
                 }
+                if (log.IsInfoEnabled) log.Info((usuario as Clases.Usuario).ToString());
                 return listaNotas;
             }
             catch (Exception E)
             {
                 Console.WriteLine(E.Message);
+                if (log.IsErrorEnabled) log.Error(E.Message, E);
                 return listaNotas;
             }
 
@@ -358,11 +374,13 @@ namespace RapidNote.DAO.DAOSQL
                     (nota as Nota).Fechacreacion = DateTime.Parse(sqlrd["fechaCreacion"].ToString());
                     listaNotas.Add(nota);
                 }
+                if (log.IsInfoEnabled) log.Info((usuario as Clases.Usuario).ToString());
                 return listaNotas;
             }
             catch (Exception E)
             {
                 Console.WriteLine(E.Message);
+                if (log.IsErrorEnabled) log.Error(E.Message, E);
                 return listaNotas;
             }
 
@@ -398,12 +416,13 @@ namespace RapidNote.DAO.DAOSQL
                     aux = int.Parse(sqlrd["IDNOTA"].ToString());
 
                 }
-
+                if (log.IsInfoEnabled) log.Info((nota as Clases.Nota).ToString());
                 return aux;
             }
             catch (Exception E)
             {
                 Console.WriteLine(E.Message);
+                if (log.IsErrorEnabled) log.Error(E.Message, E);
                 return aux;
             }
 
@@ -446,12 +465,13 @@ namespace RapidNote.DAO.DAOSQL
                     }
 
                 }
-
+                if (log.IsInfoEnabled) log.Info((nota as Clases.Nota).ToString());
                 return nota;
             }
             catch (Exception E)
             {
                 Console.WriteLine(E.Message);
+                if (log.IsErrorEnabled) log.Error(E.Message, E);
                 return nota;
             }
 
@@ -502,12 +522,13 @@ namespace RapidNote.DAO.DAOSQL
                 {
                     AsignarEtiquetasNota((nota as Nota).Idnota, idEti);
                 }
-
+                if (log.IsInfoEnabled) log.Info((nota as Clases.Nota).ToString());
                 return nota;
             }
             catch (Exception E)
             {
                 Console.WriteLine(E.Message);
+                if (log.IsErrorEnabled) log.Error(E.Message, E);
                 return nota;
             }
 
@@ -541,12 +562,13 @@ namespace RapidNote.DAO.DAOSQL
                 {
                     idEtiqueta = Convert.ToInt32(sqlrd["idEtiqueta"]);
                 }
-
+                if (log.IsInfoEnabled) log.Info(nombreEtiqueta.ToString());
                 return idEtiqueta;
             }
             catch (Exception E)
             {
                 Console.WriteLine(E.Message);
+                if (log.IsErrorEnabled) log.Error(E.Message, E);
                 return idEtiqueta;
             }
 
@@ -573,11 +595,13 @@ namespace RapidNote.DAO.DAOSQL
                 sqlcmd.Parameters.Add(parametroIdNota);
 
                 sqlcmd.ExecuteNonQuery();
+                if (log.IsInfoEnabled) log.Info((nota as Clases.Nota).ToString());
 
             }
             catch (Exception E)
             {
                 Console.WriteLine(E.Message);
+                if (log.IsErrorEnabled) log.Error(E.Message, E);
             }
 
             finally
@@ -605,11 +629,14 @@ namespace RapidNote.DAO.DAOSQL
                 sqlcmd.Parameters.Add(parametroIdEtiqueta);
 
                 sqlcmd.ExecuteNonQuery();
+                if (log.IsInfoEnabled) log.Info(idNota);
+                if (log.IsInfoEnabled) log.Info(idEtiqueta);
 
             }
             catch (Exception E)
             {
                 Console.WriteLine(E.Message);
+                if (log.IsErrorEnabled) log.Error(E.Message, E);
             }
 
             finally
@@ -636,12 +663,13 @@ namespace RapidNote.DAO.DAOSQL
                 sqlcmd.Parameters.Add(parametroIdNota);
 
                 sqlcmd.ExecuteNonQuery();
-
+                if (log.IsInfoEnabled) log.Info((nota as Clases.Nota).ToString());
                 return nota;
             }
             catch (Exception E)
             {
                 Console.WriteLine(E.Message);
+                if (log.IsErrorEnabled) log.Error(E.Message, E);
                 return nota;
             }
 
@@ -679,11 +707,13 @@ namespace RapidNote.DAO.DAOSQL
                     (nota as Nota).Fechacreacion = DateTime.Parse(sqlrd["fechaCreacion"].ToString());
                     listaNotas.Add(nota);
                 }
+                if (log.IsInfoEnabled) log.Info((libreta as Clases.Libreta).ToString());
                 return listaNotas;
             }
             catch (Exception E)
             {
                 Console.WriteLine(E.Message);
+                if (log.IsErrorEnabled) log.Error(E.Message, E);
                 return listaNotas;
             }
 
@@ -722,12 +752,15 @@ namespace RapidNote.DAO.DAOSQL
                 {
                     (notaExiste as Clases.Nota).Idnota = int.Parse(sqlrd["idNota"].ToString());
                 }
+                if (log.IsInfoEnabled) log.Info((nota as Clases.Nota).ToString());
+                if (log.IsInfoEnabled) log.Info((usuario as Clases.Usuario).ToString());
                 return notaExiste;
 
             }
             catch (Exception E)
             {
                 Console.WriteLine(E.Message);
+                if (log.IsErrorEnabled) log.Error(E.Message, E);
                 return notaExiste;
 
             }

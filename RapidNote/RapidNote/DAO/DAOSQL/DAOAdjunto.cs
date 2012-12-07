@@ -12,6 +12,8 @@ namespace RapidNote.DAO.DAOSQL
 {
     public class DAOAdjunto:IDAOAdjunto
     {
+        private static readonly log4net.ILog log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
+
         public bool AdjuntarBD(Entidad adjunto)
         {
             SqlCommand sqlcmd = new SqlCommand();
@@ -30,6 +32,7 @@ namespace RapidNote.DAO.DAOSQL
                 SqlParameter parametroTitulo = new SqlParameter("@TITULO", (adjunto as Adjunto).Titulo);
                 sqlcmd.Parameters.Add(parametroTitulo);
                 sqlcmd.ExecuteNonQuery();
+                if (log.IsInfoEnabled) log.Info((adjunto as Clases.Adjunto).ToString());
                 estado = true;
                 return estado;
 
@@ -38,6 +41,7 @@ namespace RapidNote.DAO.DAOSQL
             catch (Exception E)
             {
                 Console.WriteLine(E.Message);
+                if (log.IsErrorEnabled) log.Error(E.Message, E);
                 return estado;
 
             }
@@ -75,12 +79,14 @@ namespace RapidNote.DAO.DAOSQL
                 {
                     (adjuntoExiste as Adjunto).Idadjunto = int.Parse(sqlrd["idAdjunto"].ToString());
                 }
+                if (log.IsInfoEnabled) log.Info((adjunto as Clases.Adjunto).ToString());
                 return adjuntoExiste;
 
             }
             catch (Exception E)
             {
                 Console.WriteLine(E.Message);
+                if (log.IsErrorEnabled) log.Error(E.Message, E);
                 return adjuntoExiste;
 
             }
@@ -109,6 +115,8 @@ namespace RapidNote.DAO.DAOSQL
                 SqlParameter parametroIdNota = new SqlParameter("@IDNOTA", (nota as Nota).Idnota);
                 sqlcmd.Parameters.Add(parametroIdNota);
                 sqlcmd.ExecuteNonQuery();
+                if (log.IsInfoEnabled) log.Info((adjunto as Clases.Adjunto).ToString());
+                if (log.IsInfoEnabled) log.Info((nota as Nota).ToString());
                 estado = true;
                 return estado;
 
@@ -117,6 +125,7 @@ namespace RapidNote.DAO.DAOSQL
             catch (Exception E)
             {
                 Console.WriteLine(E.Message);
+                if (log.IsErrorEnabled) log.Error(E.Message, E);
                 return estado;
 
             }
@@ -131,7 +140,7 @@ namespace RapidNote.DAO.DAOSQL
         {
             SqlCommand sqlcmd = new SqlCommand();
             Conexion connexion = new Conexion();
-            bool estado = false;
+            
             try
             {
                 connexion.AbrirConexionBd();
@@ -142,7 +151,7 @@ namespace RapidNote.DAO.DAOSQL
                 SqlParameter parametroIdNota = new SqlParameter("@IDNOTA", (nota as Nota).Idnota);
                 sqlcmd.Parameters.Add(parametroIdNota);
                 sqlcmd.ExecuteNonQuery();
-                
+                if (log.IsInfoEnabled) log.Info((nota as Nota).ToString());
                 return nota;
 
 
@@ -150,6 +159,7 @@ namespace RapidNote.DAO.DAOSQL
             catch (Exception E)
             {
                 Console.WriteLine(E.Message);
+                if (log.IsErrorEnabled) log.Error(E.Message, E);
                 return nota;
 
             }

@@ -18,7 +18,7 @@ namespace RapidNote.Logica.Comandos.Nota
             this.nota = nota;
             this.usuario = usuario;
         }
-
+       
         public override Entidad Ejecutar()
         {
             IDAONota accion = FabricaDAO.CrearFabricaDeDAO(1).CrearDAONota();

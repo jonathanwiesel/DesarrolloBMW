@@ -19,6 +19,7 @@ namespace RapidNote.Logica.Comandos.Dropbox
         private bool estado = false;
         private string consumerKey = "dbhvzaf6ugr4k6q";
         private string consumerSecret = "q35bdvwgrut9bq4";
+        private static readonly log4net.ILog log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
 
         public ComandoAdjuntarDropbox(string[] archivo, string[] nombre, Entidad usuario)
         {
@@ -42,6 +43,7 @@ namespace RapidNote.Logica.Comandos.Dropbox
                             estado = true;
                         }
                     }
+                    if (log.IsInfoEnabled) log.Info((usuario as Clases.Usuario).ToString());
                     return estado;
                 }
                 else
@@ -56,7 +58,8 @@ namespace RapidNote.Logica.Comandos.Dropbox
                     if (ex is DropboxApiException)
                     {
                         Console.WriteLine(ex.Message);
-                        return true;
+                        if (log.IsErrorEnabled) log.Error(ex.Message, ex);
+                        return false;
                     }
                     return false;
                 });

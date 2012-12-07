@@ -24,6 +24,7 @@ namespace RapidNote.Logica.Comandos.Dropbox
         private string ruta = null;
         private bool estado;
         private String puerto;
+        private static readonly log4net.ILog log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
 
 
         public ComandoAutentificarDropbox(String puerto)
@@ -37,18 +38,14 @@ namespace RapidNote.Logica.Comandos.Dropbox
         {
             try
             {
-
                 DropboxServiceProvider dropbocServiceProvider = new DropboxServiceProvider(DropboxAppKey, DropboxAppSecret, AccessLevel.Full);
                 OAuthToken oauthToken = dropbocServiceProvider.OAuthOperations.FetchRequestTokenAsync(null, null).Result;
                 Comandodrop.Token = oauthToken;
-                //Token = oauthToken;
                 OAuth1Parameters parameters = new OAuth1Parameters();
                 parameters.CallbackUrl = puerto + "/Presentacion/Vista/TokenizeUser.aspx";
                 string authenticateUrl = dropbocServiceProvider.OAuthOperations.BuildAuthorizeUrl(oauthToken.Value, parameters);
-                //Process.Start(authenticateUrl);
-                //AuthorizedRequestToken requestToken = new AuthorizedRequestToken(oauthToken, null);
-                //OAuthToken oauthAccessToken = dropbocServiceProvider.OAuthOperations.ExchangeForAccessTokenAsync(requestToken, null).Result;
                 ruta = authenticateUrl;
+                if (log.IsInfoEnabled) log.Info(puerto.ToString());
                 return ruta;
             }
             catch (AggregateException ae)
@@ -58,7 +55,8 @@ namespace RapidNote.Logica.Comandos.Dropbox
                     if (ex is DropboxApiException)
                     {
                         Console.WriteLine(ex.Message);
-                        return estado = true;
+                        if (log.IsErrorEnabled) log.Error(ex.Message, ex);
+                        return estado = false;
                     }
                     return estado = false;
                 });

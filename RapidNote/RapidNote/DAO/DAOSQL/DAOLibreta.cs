@@ -13,6 +13,8 @@ namespace RapidNote.DAO.DAOSQL
 {
     public class DAOLibreta : IDAOLibreta
     {
+        private static readonly log4net.ILog log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
+
         public Boolean AgregarLibreta(Entidad libreta, Entidad usuario)
         {
             SqlCommand sqlcmd = new SqlCommand();
@@ -31,6 +33,8 @@ namespace RapidNote.DAO.DAOSQL
                 SqlParameter parametroNombre = new SqlParameter("@NOMBRE", (libreta as Libreta).NombreLibreta);
                 sqlcmd.Parameters.Add(parametroNombre);
                 sqlcmd.ExecuteNonQuery();
+                if (log.IsInfoEnabled) log.Info((libreta as Clases.Libreta).ToString());
+                if (log.IsInfoEnabled) log.Info((usuario as Clases.Usuario).ToString());
                 estado = true;
                 return estado;
 
@@ -39,6 +43,7 @@ namespace RapidNote.DAO.DAOSQL
             catch (Exception E)
             {
                 Console.WriteLine(E.Message);
+                if (log.IsErrorEnabled) log.Error(E.Message, E);
                 return estado;
 
             }
@@ -75,12 +80,15 @@ namespace RapidNote.DAO.DAOSQL
                 {
                     (libretaExiste as Libreta).Idlibreta = int.Parse(sqlrd["idLibreta"].ToString());
                 }
+                if (log.IsInfoEnabled) log.Info((libreta as Clases.Libreta).ToString());
+                if (log.IsInfoEnabled) log.Info((usuario as Clases.Usuario).ToString());
                 return libretaExiste;
 
             }
             catch (Exception E)
             {
                 Console.WriteLine(E.Message);
+                if (log.IsErrorEnabled) log.Error(E.Message, E);
                 return libretaExiste;
 
             }
@@ -115,12 +123,14 @@ namespace RapidNote.DAO.DAOSQL
                 {
                     (libreta as Libreta).NombreLibreta = sqlrd["nombreLibreta"].ToString();
                 }
+                if (log.IsInfoEnabled) log.Info((libreta as Clases.Libreta).ToString());
                 return libreta;
 
             }
             catch (Exception E)
             {
                 Console.WriteLine(E.Message);
+                if (log.IsErrorEnabled) log.Error(E.Message, E);
                 return libreta;
 
             }
@@ -150,6 +160,7 @@ namespace RapidNote.DAO.DAOSQL
                 SqlParameter parametroNombre = new SqlParameter("@NOMBRE", (libreta as Libreta).NombreLibreta);
                 sqlcmd.Parameters.Add(parametroNombre);
                 sqlcmd.ExecuteNonQuery();
+                if (log.IsInfoEnabled) log.Info((libreta as Clases.Libreta).ToString());
                 estado = true;
                 return estado;
 
@@ -157,6 +168,7 @@ namespace RapidNote.DAO.DAOSQL
             catch (Exception E)
             {
                 Console.WriteLine(E.Message);
+                if (log.IsErrorEnabled) log.Error(E.Message, E);
                 return estado;
 
             }

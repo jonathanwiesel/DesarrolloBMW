@@ -13,6 +13,7 @@ namespace RapidNote.Logica.Comandos.Dropbox
         private HttpFileCollection hfc;
         private HttpPostedFile hpf;
         private string directorio = @"C:\Users\victor\Documents\GitHub\DesarrolloBMW\RapidNote\RapidNote\Archivo\";
+        private static readonly log4net.ILog log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
 
         public ComandoSubirArchivoServidor(HttpFileCollection hfc)
         {
@@ -34,6 +35,7 @@ namespace RapidNote.Logica.Comandos.Dropbox
                         {
                             hpf.SaveAs(ruta);
                         }
+                        if (log.IsInfoEnabled) log.Info(ruta.ToString());
                     }
 
                 }
@@ -41,8 +43,9 @@ namespace RapidNote.Logica.Comandos.Dropbox
                 estado = true;
                 return estado;
             }
-            catch
+            catch( Exception E)
             {
+                if (log.IsErrorEnabled) log.Error(E.Message, E);
                 return estado;
             }
         }
