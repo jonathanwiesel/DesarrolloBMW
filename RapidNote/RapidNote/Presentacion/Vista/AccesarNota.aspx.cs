@@ -7,6 +7,7 @@ using System.Web.UI.WebControls;
 using RapidNote.Presentacion.Contrato.Nota;
 using RapidNote.Presentacion.Presentador.Nota;
 using RapidNote.Clases;
+using System.Data;
 
 namespace RapidNote.Presentacion.Vista
 {
@@ -80,6 +81,45 @@ namespace RapidNote.Presentacion.Vista
                 e.Row.Attributes.Add("style", "cursor:pointer;");
                 e.Row.Attributes.Add("onclick", "location='EditarNota.aspx?id=" + e.Row.Cells[0].Text + "'");
             }
+        }
+
+        protected void GridViewNotas_PageIndexChanging(object sender, GridViewPageEventArgs e)
+        {
+            presentador.IniciarVista();
+            GridViewNotas.PageIndex = e.NewPageIndex;
+            GridViewNotas.DataBind();
+        }
+
+        protected void GridViewNotas_Sorting(object sender, GridViewSortEventArgs e)
+        {
+            DataTable dataTable = GridViewNotas.DataSource as DataTable;
+
+            if (dataTable != null)
+            {
+                DataView dataView = new DataView(dataTable);
+                dataView.Sort = e.SortExpression + " " + ConvertSortDirectionToSql(e.SortDirection);
+
+                GridViewNotas.DataSource = dataView;
+                GridViewNotas.DataBind();
+            }
+        }
+
+        private string ConvertSortDirectionToSql(SortDirection sortDirection)
+        {
+            string newSortDirection = String.Empty;
+
+            switch (sortDirection)
+            {
+                case SortDirection.Ascending:
+                    newSortDirection = "ASC";
+                    break;
+
+                case SortDirection.Descending:
+                    newSortDirection = "DESC";
+                    break;
+            }
+
+            return newSortDirection;
         }
     }
 }

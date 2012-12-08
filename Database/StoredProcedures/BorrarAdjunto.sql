@@ -13,7 +13,7 @@ create procedure [dbo].[BorrarAdjunto](
 )
 as
 begin
-delete from ADJUNTO_NOTA where fkidNota = 2
+delete from ADJUNTO_NOTA where fkidNota = @idNota
 end
 GO
 

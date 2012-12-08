@@ -33,27 +33,27 @@
   <ItemGroup>
     <Reference Include="AjaxControlToolkit, Version=4.1.51116.0, Culture=neutral, PublicKeyToken=28f01b0e84b6d53e, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\..\Dropbox\desarrolloRapidNote\libs\AjaxControlToolkit.dll</HintPath>
+      <HintPath>bin\AjaxControlToolkit.dll</HintPath>
     </Reference>
     <Reference Include="Common.Logging">
-      <HintPath>..\..\..\..\..\Dropbox\desarrolloRapidNote\libs\Common.Logging.dll</HintPath>
+      <HintPath>bin\Common.Logging.dll</HintPath>
     </Reference>
     <Reference Include="log4net, Version=1.2.11.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\..\Dropbox\desarrolloRapidNote\libs\log4net.dll</HintPath>
+      <HintPath>bin\log4net.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="Spring.Rest">
-      <HintPath>..\..\..\..\..\Dropbox\desarrolloRapidNote\libs\Spring.Rest.dll</HintPath>
+      <HintPath>bin\Spring.Rest.dll</HintPath>
     </Reference>
     <Reference Include="Spring.Rest.Testing">
-      <HintPath>..\..\..\..\..\Dropbox\desarrolloRapidNote\libs\Spring.Rest.Testing.dll</HintPath>
+      <HintPath>bin\Spring.Rest.Testing.dll</HintPath>
     </Reference>
     <Reference Include="Spring.Social.Core">
-      <HintPath>..\..\..\..\..\Dropbox\desarrolloRapidNote\libs\Spring.Social.Core.dll</HintPath>
+      <HintPath>bin\Spring.Social.Core.dll</HintPath>
     </Reference>
     <Reference Include="Spring.Social.Dropbox">
-      <HintPath>..\..\..\..\..\Dropbox\desarrolloRapidNote\libs\Spring.Social.Dropbox.dll</HintPath>
+      <HintPath>bin\Spring.Social.Dropbox.dll</HintPath>
     </Reference>
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />

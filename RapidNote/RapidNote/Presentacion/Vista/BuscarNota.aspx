@@ -31,7 +31,7 @@ Buscar Nota
                                 <asp:GridView ID="GridViewNotas" runat="server" CellPadding="4" ForeColor="#333333"
                                     AutoGenerateColumns="False" GridLines="None" Width="450px" HorizontalAlign="Center"
                                     Style="text-align: center" AllowPaging="True" CssClass="leftCol" ondatabound="Gridview1_DataBound"
-                                     OnRowDataBound="GridViewRowEventHandler">
+                                     OnRowDataBound="GridViewRowEventHandler" OnPageIndexChanging="GridViewNotas_PageIndexChanging" OnSorting="GridViewNotas_Sorting">
                                     <HeaderStyle BackColor="#AA2828" ForeColor="White" />
                                     <FooterStyle BackColor="#AA2828" ForeColor="White" />
                                     <PagerStyle BackColor="#AA2828" ForeColor="White" HorizontalAlign="Center"/>
