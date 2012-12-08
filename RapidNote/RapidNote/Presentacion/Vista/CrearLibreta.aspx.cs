@@ -6,6 +6,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using RapidNote.Presentacion.Contrato.Libreta;
 using RapidNote.Presentacion.Presentador.Libreta;
+using RapidNote.Clases;
 
 
 
@@ -48,6 +49,12 @@ namespace RapidNote.Presentacion.Vista
         protected void Cancelar_Click(object sender, EventArgs e)
         {
             Response.Redirect("../Vista/index.aspx");
+        }
+
+        protected void ClickBuscarNota(object sender, EventArgs e)
+        {
+            (Sesion["usuario"] as Usuario).Estado = TextBoxBuscadorSiteM.Text;
+            Response.Redirect("BuscarNota.aspx");
         }
     }
 }

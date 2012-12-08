@@ -1,5 +1,10 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="CrearLibreta.aspx.cs" Inherits="RapidNote.Presentacion.Vista.CrearLibreta" MasterPageFile="~/SiteMaster/Site.Master" %>
   
+  <asp:Content ID="Content3" ContentPlaceHolderID="BuscadorMain" runat="server"> 
+    <asp:TextBox ID="TextBoxBuscadorSiteM" runat="server" Width="250px"></asp:TextBox>
+    <asp:Button ID="ButtonBuscadorSiteM" runat="server" Text="Buscar" OnClick="ClickBuscarNota"/>
+</asp:Content>
+
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
 <style type="text/css">
         #error

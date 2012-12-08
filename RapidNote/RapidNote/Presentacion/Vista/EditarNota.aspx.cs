@@ -210,5 +210,11 @@ namespace RapidNote.Presentacion.Vista
                 ListBoxArchivos.Items.Add((listaArchivos[i] as Adjunto).Titulo);
             }
         }
+
+        protected void ClickBuscarNota(object sender, EventArgs e)
+        {
+            (Sesion["usuario"] as Usuario).Estado = TextBoxBuscadorSiteM.Text;
+            Response.Redirect("BuscarNota.aspx");
+        }
     }
 }
