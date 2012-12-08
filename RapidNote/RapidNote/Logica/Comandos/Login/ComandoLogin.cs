@@ -25,7 +25,7 @@ namespace RapidNote.Logica.Comandos.Login
 
             usuario = accion.ConsultarLogin(usuario);
 
-            if (log.IsInfoEnabled) log.Info((usuario as Clases.Usuario).ToString());
+            if (log.IsInfoEnabled) log.Info("Clase: " + System.Reflection.MethodBase.GetCurrentMethod().DeclaringType + " usuario:" + (usuario as Clases.Usuario).ToString());
 
             return usuario;
         }

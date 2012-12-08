@@ -11,7 +11,7 @@ namespace RapidNote.Logica.Comandos.usuario
     public class ComandoAgregarUsuario : Comando<Entidad>
     {
         private Entidad usuario;
-        
+        private static readonly log4net.ILog log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
 
         public ComandoAgregarUsuario(Entidad _usuario)
         {
@@ -21,6 +21,8 @@ namespace RapidNote.Logica.Comandos.usuario
         public override Entidad Ejecutar()
         {
             IDAOUsuario accion = FabricaDAO.CrearFabricaDeDAO(1).CrearDAOUsuario();
+
+            if (log.IsInfoEnabled) log.Info("Clase: " + System.Reflection.MethodBase.GetCurrentMethod().DeclaringType + " usuario: " + (usuario as Clases.Usuario).ToString());
 
             accion.AgregarUsuario(usuario);
 

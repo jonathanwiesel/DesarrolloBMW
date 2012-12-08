@@ -38,5 +38,16 @@ namespace RapidNote.Clases
             get { return usuario; }
             set { usuario = value; }
         }
+
+        public override String ToString()
+        {
+            String resultado = "";
+
+            resultado += "Idlibreta: " + this.idlibreta + " ";
+            resultado += "nombreLibreta: " + this.nombreLibreta + " ";
+            resultado += "correo: " + this.usuario.Correo + " ";
+
+            return resultado;
+        }
     }
 }

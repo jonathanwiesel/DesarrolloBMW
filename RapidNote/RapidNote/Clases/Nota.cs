@@ -76,5 +76,19 @@ namespace RapidNote.Clases
             get { return idnota; }
             set { idnota = value; }
         }
+
+        public override String ToString()
+        {
+            String resultado = "";
+
+            resultado += "Id: " + this.idnota + " ";
+            resultado += "contenido: " + this.contenido + " ";
+            resultado += "fechacreacion: " + this.fechacreacion + " ";
+            resultado += "fechamodificacion: " + this.fechamodificacion + " ";
+            resultado += "titulo: " + this.titulo + " ";
+            resultado += "libreta: " + this.libreta.NombreLibreta + " ";
+
+            return resultado;
+        }
     }
 }

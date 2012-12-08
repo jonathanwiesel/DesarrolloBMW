@@ -12,6 +12,7 @@ namespace RapidNote.Logica.Comandos.Libreta
     {
         private Entidad libreta;
         private bool estado = false;
+        private static readonly log4net.ILog log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
 
         public ComandoEditarLibreta(Entidad libreta)
         {
@@ -21,6 +22,9 @@ namespace RapidNote.Logica.Comandos.Libreta
         public override bool Ejecutar()
         {
             IDAOLibreta accion = FabricaDAOSQLServer.CrearFabricaDeDAO(1).CrearDAOLibreta();
+
+            if (log.IsInfoEnabled) log.Info("Clase: " + System.Reflection.MethodBase.GetCurrentMethod().DeclaringType + " libreta: " + (libreta as Clases.Libreta).ToString());
+
             estado = accion.EditarLibreta(libreta);
             return estado;
         }

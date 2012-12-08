@@ -12,6 +12,7 @@ namespace RapidNote.Logica.Comandos.Nota
     {
         private Entidad libreta;
         private List<Entidad> nota;
+        private static readonly log4net.ILog log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
 
         public ComandoListarNotasLibreta(Entidad libreta)
         {
@@ -21,6 +22,9 @@ namespace RapidNote.Logica.Comandos.Nota
         public override List<Entidad> Ejecutar()
         {
             IDAONota accion = FabricaDAO.CrearFabricaDeDAO(1).CrearDAONota();
+
+            if (log.IsInfoEnabled) log.Info("Clase: " + System.Reflection.MethodBase.GetCurrentMethod().DeclaringType + " libreta: " + (libreta as Clases.Libreta).ToString());
+
             nota = accion.ListarNotasLibreta(libreta);
             return nota;
         }

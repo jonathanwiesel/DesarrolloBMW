@@ -14,6 +14,7 @@ namespace RapidNote.Logica.Comandos.Usuario
     {
         private String clave;
         public String text;
+        private static readonly log4net.ILog log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
 
         public ComandoSha512(string _clave)
         {
@@ -29,12 +30,17 @@ namespace RapidNote.Logica.Comandos.Usuario
 
             SHA512Managed hashString = new SHA512Managed();
 
+            if (log.IsInfoEnabled) log.Info("Clase: " + System.Reflection.MethodBase.GetCurrentMethod().DeclaringType + " clave: " + clave);
+
             text = "";
             hashValue = hashString.ComputeHash(message);
             foreach (byte x in hashValue)
             {
-            text += String.Format("{0:x2}", x);
+                text += String.Format("{0:x2}", x);
             }
+
+            if (log.IsInfoEnabled) log.Info("Clase: " + System.Reflection.MethodBase.GetCurrentMethod().DeclaringType + " clave Encriptada: " + text);
+
             return text;
         }
 

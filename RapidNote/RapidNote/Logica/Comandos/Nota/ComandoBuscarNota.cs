@@ -11,6 +11,7 @@ namespace RapidNote.Logica.Comandos.Nota
     public class ComandoBuscarNota : Comando<Entidad>
     {
         private Entidad nota;
+        private static readonly log4net.ILog log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
 
         public ComandoBuscarNota(Entidad _nota)
         {
@@ -20,6 +21,8 @@ namespace RapidNote.Logica.Comandos.Nota
         public override Entidad Ejecutar()
         {
             IDAONota accion = FabricaDAO.CrearFabricaDeDAO(1).CrearDAONota();
+
+            if (log.IsInfoEnabled) log.Info("Clase: " + System.Reflection.MethodBase.GetCurrentMethod().DeclaringType + " nota: " + (nota as Clases.Nota).ToString());
 
             return accion.BuscarNota(nota);
         }
