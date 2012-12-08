@@ -45,7 +45,6 @@ namespace RapidNote.Clases
 
             resultado += "Idlibreta: " + this.idlibreta + " ";
             resultado += "nombreLibreta: " + this.nombreLibreta + " ";
-            resultado += "correo: " + this.usuario.Correo + " ";
 
             return resultado;
         }
