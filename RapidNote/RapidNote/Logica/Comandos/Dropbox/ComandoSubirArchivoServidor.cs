@@ -12,7 +12,7 @@ namespace RapidNote.Logica.Comandos.Dropbox
         private bool estado = false;
         private HttpFileCollection hfc;
         private HttpPostedFile hpf;
-        private string directorio = @"C:\Users\victor\Documents\GitHub\DesarrolloBMW\RapidNote\RapidNote\Archivo\";
+        private static String url = AppDomain.CurrentDomain.BaseDirectory+"Archivo\\";
         private static readonly log4net.ILog log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
 
         public ComandoSubirArchivoServidor(HttpFileCollection hfc)
@@ -29,7 +29,7 @@ namespace RapidNote.Logica.Comandos.Dropbox
                     HttpPostedFile hpf = hfc[i];
                     if (hpf.ContentLength > 0)
                     {
-                        ruta = directorio + hpf.FileName;
+                        ruta = url + hpf.FileName;
 
                         if (!File.Exists(ruta))
                         {

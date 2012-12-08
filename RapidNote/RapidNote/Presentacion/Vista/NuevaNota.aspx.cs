@@ -9,6 +9,7 @@ using RapidNote.Presentacion.Contrato.Nota;
 using RapidNote.Clases;
 using RapidNote.Presentacion.Presentador.Nota;
 using AjaxControlToolkit;
+using System.Reflection;
 
 namespace RapidNote.Presentacion.Vista
 {
@@ -135,7 +136,7 @@ namespace RapidNote.Presentacion.Vista
             bool resultado = presentador.VerificarNota();
             if (resultado == true)
             {
-                string directorio = @"C:\Users\victor\Documents\GitHub\DesarrolloBMW\RapidNote\RapidNote\Archivo\";
+                String url = AppDomain.CurrentDomain.BaseDirectory+"Archivo\\";
                 hffc = Request.Files;
                 for (int i = 0; i < hffc.Count; i++)
                 {
@@ -143,7 +144,7 @@ namespace RapidNote.Presentacion.Vista
                     if (hpf.ContentLength > 0)
                     {
                         nombreArchivo += hpf.FileName + ";";
-                        rutaArchivo += directorio + hpf.FileName + ";";
+                        rutaArchivo += url + hpf.FileName + ";";
                     }
 
                 }

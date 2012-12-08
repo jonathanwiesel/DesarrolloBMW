@@ -45,11 +45,11 @@
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="nunit.framework, Version=2.6.0.12051, Culture=neutral, PublicKeyToken=96d09a1eb7f44a77, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>bin\nunit.framework.dll</HintPath>
+      <HintPath>..\..\..\..\..\Dropbox\desarrolloRapidNote\libs\nunit.framework.dll</HintPath>
     </Reference>
     <Reference Include="nunit.mocks, Version=2.6.0.12051, Culture=neutral, PublicKeyToken=96d09a1eb7f44a77, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>bin\nunit.mocks.dll</HintPath>
+      <HintPath>..\..\..\..\..\Dropbox\desarrolloRapidNote\libs\nunit.mocks.dll</HintPath>
     </Reference>
     <Reference Include="Spring.Rest">
       <HintPath>..\..\..\..\..\Dropbox\desarrolloRapidNote\libs\Spring.Rest.dll</HintPath>
