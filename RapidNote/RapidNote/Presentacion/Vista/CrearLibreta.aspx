@@ -41,7 +41,7 @@
                     </td>
                     <td>
                         <asp:TextBox ID="nombre" runat="server" Width="208px"></asp:TextBox>
-                        <asp:requiredfieldvalidator id="Requiredfieldvalidator1" runat="server" Display="Dynamic" ControlToValidate="nombre" ErrorMessage="Falta Ingreso de Email" class="style1" >*</asp:requiredfieldvalidator>
+                        <asp:requiredfieldvalidator id="Requiredfieldvalidator1" runat="server" ValidationGroup="LibretaGroup" Display="Dynamic" ControlToValidate="nombre" ErrorMessage="Falta Ingreso de Email" class="style1" >*</asp:requiredfieldvalidator>
                     </td>
                 </tr>
                 
@@ -58,7 +58,7 @@
                     <td colspan="2" align="right">
                     <asp:Button ID="Cancelar" runat="server" Text="Cancelar" onclick="Cancelar_Click" />
                     &nbsp;
-                        <asp:Button ID="registrar" runat="server" Text="Registrar" onclick="registrar_Click"/>
+                        <asp:Button ID="registrar" runat="server" Text="Registrar" onclick="registrar_Click" ValidationGroup="LibretaGroup"/>
                     </td>
                 </tr>
             </table>

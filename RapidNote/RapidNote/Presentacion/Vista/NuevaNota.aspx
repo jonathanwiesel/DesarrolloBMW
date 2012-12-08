@@ -29,7 +29,7 @@
                     <td>
                          <asp:TextBox ID="TextBoxTitulo" runat="server" 
                             Width="430px"></asp:TextBox>
-                            <asp:requiredfieldvalidator id="rfvEmail" runat="server" 
+                            <asp:requiredfieldvalidator id="rfvEmail" runat="server" ValidationGroup="grupoNota"
                             Display="Dynamic" ControlToValidate="TextBoxTitulo" ErrorMessage="falta titulo">*</asp:requiredfieldvalidator>
                     </td>
                 </tr>                  
@@ -41,7 +41,7 @@
                     <td>                        
                         <asp:TextBox ID="TextBoxContenido" runat="server" rows="20" TextMode="multiline" Width="430px" Height="240px" >
                         </asp:TextBox>
-                        <asp:requiredfieldvalidator id="Requiredfieldvalidator1" runat="server" 
+                        <asp:requiredfieldvalidator id="Requiredfieldvalidator1" runat="server" ValidationGroup="grupoNota"
                             Display="Dynamic" ControlToValidate="TextBoxContenido" ErrorMessage="falta contenido">*</asp:requiredfieldvalidator>
                     </td>
                 </tr>
@@ -98,7 +98,7 @@
                         
                     </td>
                     <td>
-                        <asp:Button ID="Button1" runat="server" Text="Guardar" 
+                        <asp:Button ID="Button1" runat="server" Text="Guardar" ValidationGroup="grupoNota"
                                 onclick="Button1_Click" />
                     </td>
                 </tr>   
