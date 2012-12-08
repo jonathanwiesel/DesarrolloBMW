@@ -121,7 +121,11 @@ namespace RapidNote.DAO.DAOSQL
                 sqlcmd.CommandTimeout = 2;
 
                 SqlParameter parametroCorreo = new SqlParameter("@tituloNota", (nota as Nota).Titulo);
-                sqlcmd.Parameters.Add(parametroCorreo);                
+                sqlcmd.Parameters.Add(parametroCorreo);
+                SqlParameter parametroLibreta = new SqlParameter("@libreta", (nota as Nota).Libreta.NombreLibreta);
+                sqlcmd.Parameters.Add(parametroLibreta);
+                SqlParameter parametroId = new SqlParameter("@id", (usuario as Usuario).Id);
+                sqlcmd.Parameters.Add(parametroId);         
                 sqlcmd.ExecuteNonQuery();
                 SqlDataReader sqlrd;
                 sqlrd = sqlcmd.ExecuteReader();
