@@ -31,5 +31,7 @@ namespace RapidNote.DAO.DAOFactory
         public abstract IDAOLibreta CrearDAOLibreta();
 
         public abstract IDAOAdjunto CrearDAOAdjunto();
+
+        public abstract IDAOEtiqueta CrearDAOEtiqueta();
     }
 }

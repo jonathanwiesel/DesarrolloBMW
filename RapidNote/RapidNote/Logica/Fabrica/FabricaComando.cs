@@ -11,6 +11,7 @@ using RapidNote.Logica.Comandos.Usuario;
 using RapidNote.Logica.Comandos.Dropbox;
 using RapidNote.Logica.Comandos.Libreta;
 using RapidNote.Logica.Comandos.Adjunto;
+using RapidNote.Logica.Comandos.Etiqueta;
 
 namespace RapidNote.Logica.Fabrica
 {
@@ -150,6 +151,11 @@ namespace RapidNote.Logica.Fabrica
         public static Comando<bool> CrearComandoAgregarAdjuntoConNota(string[] archivo, string[] nombre, Entidad nota, Entidad usuario)
         {
             return new ComandoAgregarAdjuntoConNota(archivo, nombre, nota, usuario);
+        }
+
+        public static Comando<List<Entidad>> CrearComandoListarEtiquetas(Entidad usuario)
+        {
+            return new ComandoListarEtiquetas(usuario);
         }
 
     }

@@ -98,7 +98,7 @@ namespace RapidNote.Presentacion.Presentador.Nota
             (nota as Clases.Nota).Contenido = contrato.getContenido();
             (nota as Clases.Nota).Idnota = int.Parse(contrato.getIdNota());
             (nota as Clases.Nota).Libreta.NombreLibreta = contrato.getNombreLibreta();
-            (nota as Clases.Nota).ListaEtiqueta = contrato.getEtiquetas().Cast<Etiqueta>().ToList();
+            (nota as Clases.Nota).ListaEtiqueta = contrato.getEtiquetas().Cast<Clases.Etiqueta>().ToList();
             comando = FabricaComando.CrearComandoEditarNota(nota);
             nota = comando.Ejecutar();
             contrato.Redireccionar("../Vista/Index.aspx");

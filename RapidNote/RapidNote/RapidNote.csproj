@@ -33,27 +33,27 @@
   <ItemGroup>
     <Reference Include="AjaxControlToolkit, Version=4.1.51116.0, Culture=neutral, PublicKeyToken=28f01b0e84b6d53e, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>bin\AjaxControlToolkit.dll</HintPath>
+      <HintPath>..\..\..\..\..\Dropbox\desarrolloRapidNote\libs\AjaxControlToolkit.dll</HintPath>
     </Reference>
     <Reference Include="Common.Logging">
-      <HintPath>bin\Common.Logging.dll</HintPath>
+      <HintPath>..\..\..\..\..\Dropbox\desarrolloRapidNote\libs\Common.Logging.dll</HintPath>
     </Reference>
     <Reference Include="log4net, Version=1.2.11.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>bin\log4net.dll</HintPath>
+      <HintPath>..\..\..\..\..\Dropbox\desarrolloRapidNote\libs\log4net.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="Spring.Rest">
-      <HintPath>bin\Spring.Rest.dll</HintPath>
+      <HintPath>..\..\..\..\..\Dropbox\desarrolloRapidNote\libs\Spring.Rest.dll</HintPath>
     </Reference>
     <Reference Include="Spring.Rest.Testing">
-      <HintPath>bin\Spring.Rest.Testing.dll</HintPath>
+      <HintPath>..\..\..\..\..\Dropbox\desarrolloRapidNote\libs\Spring.Rest.Testing.dll</HintPath>
     </Reference>
     <Reference Include="Spring.Social.Core">
-      <HintPath>bin\Spring.Social.Core.dll</HintPath>
+      <HintPath>..\..\..\..\..\Dropbox\desarrolloRapidNote\libs\Spring.Social.Core.dll</HintPath>
     </Reference>
     <Reference Include="Spring.Social.Dropbox">
-      <HintPath>bin\Spring.Social.Dropbox.dll</HintPath>
+      <HintPath>..\..\..\..\..\Dropbox\desarrolloRapidNote\libs\Spring.Social.Dropbox.dll</HintPath>
     </Reference>
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
@@ -75,6 +75,7 @@
     <Content Include="App_Readme\Spring.Rest.txt" />
     <Content Include="App_Readme\Spring.Social.Core.txt" />
     <Content Include="App_Readme\Spring.Social.Dropbox.txt" />
+    <Content Include="Presentacion\Vista\AccesarEtiqueta.aspx" />
     <Content Include="Presentacion\Vista\AccesarLibreta.aspx" />
     <Content Include="Presentacion\Vista\AccesarNotasLibreta.aspx" />
     <Content Include="Presentacion\Vista\EditarLibreta.aspx" />
@@ -127,11 +128,13 @@
     <Compile Include="DAO\DAOFactory\FabricaDAO.cs" />
     <Compile Include="DAO\DAOFactory\FabricaDAOSQLServer.cs" />
     <Compile Include="DAO\DAOSQL\DAOAdjunto.cs" />
+    <Compile Include="DAO\DAOSQL\DAOEtiqueta.cs" />
     <Compile Include="DAO\DAOSQL\DAOLibreta.cs" />
     <Compile Include="DAO\DAOSQL\DAONota.cs" />
     <Compile Include="DAO\DAOSQL\DAOUsuario.cs" />
     <Compile Include="DAO\IDAOS\IDAO.cs" />
     <Compile Include="DAO\IDAOS\IDAOAdjunto.cs" />
+    <Compile Include="DAO\IDAOS\IDAOEtiqueta.cs" />
     <Compile Include="DAO\IDAOS\IDAOLibreta.cs" />
     <Compile Include="DAO\IDAOS\IDAONota.cs" />
     <Compile Include="DAO\IDAOS\IDAOUsuario.cs" />
@@ -142,22 +145,32 @@
     <Compile Include="Logica\Comandos\Dropbox\ComandoAutentificarDropbox.cs" />
     <Compile Include="Logica\Comandos\Dropbox\ComandoObtenerToken.cs" />
     <Compile Include="Logica\Comandos\Dropbox\ComandoSubirArchivoServidor.cs" />
+    <Compile Include="Logica\Comandos\Etiqueta\ComandoListarEtiquetas.cs" />
     <Compile Include="Logica\Comandos\Libreta\ComandoAgregarLibreta.cs" />
     <Compile Include="Logica\Comandos\Libreta\ComandoEditarLibreta.cs" />
     <Compile Include="Logica\Comandos\Libreta\ComandoTraerLibreta.cs" />
     <Compile Include="Logica\Comandos\Libreta\ComandoVerificarLibreta.cs" />
     <Compile Include="Logica\Comandos\Nota\ComandoListarNotasLibreta.cs" />
     <Compile Include="Logica\Comandos\Nota\ComandoVerificarNota.cs" />
+    <Compile Include="Presentacion\Contrato\Etiqueta\IContratoAccesarEtiqueta.cs" />
     <Compile Include="Presentacion\Contrato\Libreta\IContratoAccesarLibreta.cs" />
     <Compile Include="Presentacion\Contrato\Libreta\IContratoAgregarLibreta.cs" />
     <Compile Include="Presentacion\Contrato\Libreta\IContratoEditarLibreta.cs" />
     <Compile Include="Presentacion\Contrato\Nota\IContratoAccesarNotaLibreta.cs" />
     <Compile Include="Presentacion\Contrato\Usuario\IcontratoTokenizerUser.cs" />
+    <Compile Include="Presentacion\Presentador\Etiqueta\PresentadorAccesarEtiqueta.cs" />
     <Compile Include="Presentacion\Presentador\Libreta\PresentadorAccesarLibreta.cs" />
     <Compile Include="Presentacion\Presentador\Libreta\PresentadorAgregarLibreta.cs" />
     <Compile Include="Presentacion\Presentador\Libreta\PresentadorEditarLibreta.cs" />
     <Compile Include="Presentacion\Presentador\Nota\PresentadorAccesarNotasLibreta.cs" />
     <Compile Include="Presentacion\Presentador\Usuario\PresentadorTokenizerUser.cs" />
+    <Compile Include="Presentacion\Vista\AccesarEtiqueta.aspx.cs">
+      <DependentUpon>AccesarEtiqueta.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Presentacion\Vista\AccesarEtiqueta.aspx.designer.cs">
+      <DependentUpon>AccesarEtiqueta.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Presentacion\Vista\AccesarLibreta.aspx.cs">
       <DependentUpon>AccesarLibreta.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

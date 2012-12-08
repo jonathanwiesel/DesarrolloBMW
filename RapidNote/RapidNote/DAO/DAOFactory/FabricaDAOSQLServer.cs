@@ -42,5 +42,10 @@ namespace RapidNote.DAO.DAOFactory
         {
             return new DAOAdjunto();
         }
+
+        public override IDAOEtiqueta CrearDAOEtiqueta()
+        {
+            return new DAOEtiqueta();
+        }
     }
 }

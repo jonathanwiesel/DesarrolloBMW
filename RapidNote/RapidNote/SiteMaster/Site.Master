@@ -65,10 +65,7 @@
                                 </li>
                                 <li>Etiqueta<span class="down-arrow"></span>
                                     <ul>
-                                        <li><a href="#">Agregar Etiqueta</a></li>
-                                        <li><a href="#">Modificar Etiqueta</a></li>
-                                        <li><a href="#">Consultar Etiqueta</a></li>
-                                        <li><a href="#">Eliminar Etiqueta</a></li>
+                                        <li><a href="../../Presentacion/Vista/AccesarEtiqueta.aspx">Accesar Etiqueta</a></li>
                                     </ul>
                                 </li>
                                 <li>Configuracion<span class="down-arrow"></span>
