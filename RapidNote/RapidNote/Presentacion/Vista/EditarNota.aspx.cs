@@ -48,6 +48,12 @@ namespace RapidNote.Presentacion.Vista
             }
             ScriptManager scripManager = ScriptManager.GetCurrent(this.Page);
             scripManager.RegisterPostBackControl(Button1);
+
+            ScriptManager scripManager2 = ScriptManager.GetCurrent(this.Page);
+            scripManager2.RegisterPostBackControl(Button2);
+
+            ScriptManager scripManager4 = ScriptManager.GetCurrent(this.Page);
+            scripManager4.RegisterPostBackControl(Button4);
         }
 
         public System.Web.SessionState.HttpSessionState Sesion
@@ -145,7 +151,7 @@ namespace RapidNote.Presentacion.Vista
             bool resultado = presentador.VerificarNota();
             if (resultado == true)
             {
-                string directorio = @"C:\Users\victor\Documents\GitHub\DesarrolloBMW\RapidNote\RapidNote\Archivo\";
+                String url = AppDomain.CurrentDomain.BaseDirectory + "Archivo\\";
                 hffc = Request.Files;
                 for (int i = 0; i < hffc.Count; i++)
                 {
@@ -153,7 +159,7 @@ namespace RapidNote.Presentacion.Vista
                     if (hpf.ContentLength > 0)
                     {
                         nombreArchivo += hpf.FileName + ";";
-                        rutaArchivo += directorio + hpf.FileName + ";";
+                        rutaArchivo += url + hpf.FileName + ";";
                     }
 
                 }

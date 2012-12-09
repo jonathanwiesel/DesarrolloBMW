@@ -19,7 +19,8 @@
             <legend>Crear Nota</legend>
             <table align="center">                
                 <cc1:semanticupdatepanel ID="SemanticUpdatePanel1" runat="server" 
-                    RenderedElement="TBODY">
+                    RenderedElement="TBODY" >
+                   
                 <ContentTemplate>
                 <script src="../../Scripts/jquery.MultiFile.js" type="text/javascript"></script>
                 <tr>
@@ -103,6 +104,7 @@
                     </td>
                 </tr>   
                 </ContentTemplate>
+                
                 </cc1:semanticupdatepanel>
                 
                 </table>  

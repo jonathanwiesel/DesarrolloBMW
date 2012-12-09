@@ -49,6 +49,12 @@ namespace RapidNote.Presentacion.Vista
             ScriptManager scripManager = ScriptManager.GetCurrent(this.Page);
             scripManager.RegisterPostBackControl(Button1);
 
+            ScriptManager scripManager2 = ScriptManager.GetCurrent(this.Page);
+            scripManager2.RegisterPostBackControl(Button2);
+
+            ScriptManager scripManager4 = ScriptManager.GetCurrent(this.Page);
+            scripManager4.RegisterPostBackControl(Button4);
+
         }
 
         protected void ClickBuscarNota(object sender, EventArgs e)
@@ -169,6 +175,7 @@ namespace RapidNote.Presentacion.Vista
         {
             ListBoxEtiquetas.Items.Add(TextBoxEtiqueta.Text);
             TextBoxEtiqueta.Text = "";
+
         }
 
 
