@@ -8,6 +8,11 @@ namespace RapidNote.DAO.IDAOS
 {
     public interface IDAOEtiqueta
     {
+        /// <summary>
+        /// Trae las etiquetas de un usuario
+        /// </summary>
+        /// <param name="usuario">variable usuario</param>
+        /// <returns>Devuelde una lista de etiquetas</returns>
         List<Entidad> ListarEtiquetas(Entidad usuario);
         
     }

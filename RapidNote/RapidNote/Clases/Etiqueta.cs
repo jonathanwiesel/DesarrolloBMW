@@ -30,5 +30,15 @@ namespace RapidNote.Clases
             get { return listaNota; }
             set { listaNota = value; }
         }
+
+        public override String ToString()
+        {
+            String resultado = "";
+
+            resultado += "Idetiqueta: " + this.idetiqueta + " ";
+            resultado += "nombre: " + this.nombre + " ";
+
+            return resultado;
+        }
     }
 }

@@ -39,6 +39,7 @@ namespace RapidNote.DAO.DAOSQL
                     (etiqueta as Etiqueta).Idetiqueta = int.Parse(sqlrd["idEtiqueta"].ToString());
                     (etiqueta as Etiqueta).Nombre = sqlrd["nombre"].ToString();
                     lista.Add(etiqueta);
+                    if (log.IsInfoEnabled) log.Info("Clase: " + System.Reflection.MethodBase.GetCurrentMethod().DeclaringType + " etiqueta: " + (etiqueta as Clases.Etiqueta).ToString());
                 }
 
                 return lista;
@@ -47,7 +48,7 @@ namespace RapidNote.DAO.DAOSQL
             catch (Exception E)
             {
                 Console.WriteLine(E.Message);
-                if (log.IsErrorEnabled) log.Error(E.Message, E);
+                if (log.IsErrorEnabled) log.Error("Clase: " + System.Reflection.MethodBase.GetCurrentMethod().DeclaringType + " mensaje: " + E.Message, E);
                 return lista;
 
             }

@@ -699,6 +699,9 @@ namespace RapidNote.DAO.DAOSQL
                 sqlcmd.ExecuteNonQuery();
                 SqlDataReader sqlrd;
                 sqlrd = sqlcmd.ExecuteReader();
+
+                if (log.IsInfoEnabled) log.Info("Clase: " + System.Reflection.MethodBase.GetCurrentMethod().DeclaringType + " libreta: " + (libreta as Clases.Libreta).ToString());
+
                 while (sqlrd.Read())
                 {
                     nota = FabricaEntidad.CrearNota();
@@ -706,8 +709,9 @@ namespace RapidNote.DAO.DAOSQL
                     (nota as Nota).Titulo = sqlrd["titulo"].ToString();
                     (nota as Nota).Fechacreacion = DateTime.Parse(sqlrd["fechaCreacion"].ToString());
                     listaNotas.Add(nota);
+                    if (log.IsInfoEnabled) log.Info("Clase: " + System.Reflection.MethodBase.GetCurrentMethod().DeclaringType + " nota: " + (nota as Clases.Nota).ToString());
                 }
-                if (log.IsInfoEnabled) log.Info("Clase: " + System.Reflection.MethodBase.GetCurrentMethod().DeclaringType + " libreta: " + (libreta as Clases.Libreta).ToString());
+                
                 return listaNotas;
             }
             catch (Exception E)
@@ -748,12 +752,16 @@ namespace RapidNote.DAO.DAOSQL
                 sqlcmd.ExecuteNonQuery();
                 SqlDataReader sqlrd;
                 sqlrd = sqlcmd.ExecuteReader();
+
+                if (log.IsInfoEnabled) log.Info("Clase: " + System.Reflection.MethodBase.GetCurrentMethod().DeclaringType + " nota: " + (nota as Clases.Nota).ToString());
+                if (log.IsInfoEnabled) log.Info("Clase: " + System.Reflection.MethodBase.GetCurrentMethod().DeclaringType + " usuario: " + (usuario as Clases.Usuario).ToString());
+
                 while (sqlrd.Read())
                 {
                     (notaExiste as Clases.Nota).Idnota = int.Parse(sqlrd["idNota"].ToString());
+                    if (log.IsInfoEnabled) log.Info("Clase: " + System.Reflection.MethodBase.GetCurrentMethod().DeclaringType + " nota: " + (nota as Clases.Nota).ToString());
                 }
-                if (log.IsInfoEnabled) log.Info("Clase: " + System.Reflection.MethodBase.GetCurrentMethod().DeclaringType + " nota: " + (nota as Clases.Nota).ToString());
-                if (log.IsInfoEnabled) log.Info("Clase: " + System.Reflection.MethodBase.GetCurrentMethod().DeclaringType + " usuario: " + (usuario as Clases.Usuario).ToString());
+                
                 return notaExiste;
 
             }

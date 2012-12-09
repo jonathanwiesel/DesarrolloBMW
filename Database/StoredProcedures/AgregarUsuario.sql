@@ -21,7 +21,6 @@ begin
 insert into USUARIO (CORREO,CLAVE,NOMBRE,APELLIDO)values (@CORREO,@CLAVE,@NOMBRE,@APELLIDO);
 insert into LIBRETA (nombreLibreta, fkidUsuario) values ('Libreta por defecto de '+@NOMBRE+' '+@APELLIDO,
 (select MAX(idusuario) from USUARIO));
-commit;
 
 end
 GO

@@ -38,5 +38,16 @@ namespace RapidNote.Clases
             get { return urlarchivo; }
             set { urlarchivo = value; }
         }
+
+        public override String ToString()
+        {
+            String resultado = "";
+
+            resultado += "Idadjunto: " + this.idadjunto + " ";
+            resultado += "titulo: " + this.titulo + " ";
+            resultado += "urlArchivo: " + this.urlarchivo + " ";
+
+            return resultado;
+        }
     }
 }
