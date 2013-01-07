@@ -56,7 +56,9 @@
                     <td colspan="2" align="right">
                     <asp:Button ID="Cancelar" runat="server" Text="Cancelar" onclick="Cancelar_Click" />
                     &nbsp;
-                        <asp:Button ID="registrar" runat="server" Text="Registrar" onclick="registrar_Click" ValidationGroup="LibretaGroup"/>
+                        <asp:Button ID="registrar" runat="server" Text="Cambiar Nombre" onclick="registrar_Click" ValidationGroup="LibretaGroup"/>
+                        &nbsp;
+                        <asp:Button ID="Eliminar" runat="server" Text="Eliminar Libreta" onclick="Eliminar_Click" />
                     </td>
                 </tr>
             </table>

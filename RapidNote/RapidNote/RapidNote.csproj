@@ -158,6 +158,7 @@
     <Compile Include="Logica\Comandos\Libreta\ComandoEditarLibreta.cs" />
     <Compile Include="Logica\Comandos\Libreta\ComandoTraerLibreta.cs" />
     <Compile Include="Logica\Comandos\Libreta\ComandoVerificarLibreta.cs" />
+    <Compile Include="Logica\Comandos\Libreta\ComandoEliminarLibreta.cs" />
     <Compile Include="Logica\Comandos\Nota\ComandoListarNotasLibreta.cs" />
     <Compile Include="Logica\Comandos\Nota\ComandoVerificarNota.cs" />
     <Compile Include="Presentacion\Contrato\Etiqueta\IContratoAccesarEtiqueta.cs" />

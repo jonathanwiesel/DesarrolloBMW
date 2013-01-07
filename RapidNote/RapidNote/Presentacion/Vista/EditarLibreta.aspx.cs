@@ -82,6 +82,11 @@ namespace RapidNote.Presentacion.Vista
             presentador.Ejecutar();
         }
 
+        protected void Eliminar_Click(object sender, EventArgs e)
+        {
+            presentador.Eliminar();
+        }
+
         protected void ClickBuscarNota(object sender, EventArgs e)
         {
             (Sesion["usuario"] as Usuario).Estado = TextBoxBuscadorSiteM.Text;

@@ -37,5 +37,12 @@ namespace RapidNote.DAO.IDAOS
         /// <param name="libreta">Entidad de tipo libreta que contiene el nombre de la libreta y el id de la libreta de la libreta</param>
         /// <returns>Retorna true si se realizo el update correctamente o false si ocurrio algun error</returns>
         Boolean EditarLibreta(Entidad libreta);
+
+        /// <summary>
+        /// Funcion que borra la libreta de la base de datos
+        /// </summary>
+        /// <param name="libreta">Entidad de tipo libreta que contiene el id de la libreta</param>
+        /// <returns>Retorna true si se realizo el update correctamente o false si ocurrio algun error</returns>
+        Boolean EliminarLibreta(Entidad libreta);
     }
 }

@@ -17,7 +17,9 @@ namespace RapidNote.Presentacion.Presentador.Libreta
         private Comando<Entidad> comando;
         private Comando<Entidad> comando2;
         private Comando<Boolean> comando3;
+        private Comando<Boolean> comando4;
         private string _mensajeErrorInsertar = "Error al modificar en base de datos";
+        private string _mensajeErrorEliminar = "Error al eliminar en base de datos";
         private string _mensajeErrorExiste = "Error, ya posee una libreta con ese nombre";
         private Entidad libreta;
         private Entidad libretaExiste;
@@ -69,6 +71,22 @@ namespace RapidNote.Presentacion.Presentador.Libreta
                 _vista.MensajeError.Visible = true;
             }
 
+        }
+
+        public void Eliminar() {
+            libreta = FabricaEntidad.CrearLibreta();
+            (libreta as Clases.Libreta).Idlibreta = int.Parse(_vista.getIdLibreta().ToString());
+            comando4 = FabricaComando.CrearComandoEditarLibreta(libreta);
+            estado = comando4.Ejecutar();
+            if (estado == true)
+            {
+                _vista.Redireccionar("../Vista/AccesarLibreta.aspx");
+            }
+            else
+            {
+                _vista.MensajeError.Text = _mensajeErrorEliminar;
+                _vista.MensajeError.Visible = true;
+            }
         }
     }
 }

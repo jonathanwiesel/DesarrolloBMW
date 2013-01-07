@@ -133,6 +133,11 @@ namespace RapidNote.Logica.Fabrica
             return new ComandoEditarLibreta(libreta);
         }
 
+        public static Comando<Boolean> CrearComandoEliminarLibreta(Entidad libreta)
+        {
+            return new ComandoEliminarLibreta(libreta);
+        }
+
         public static Comando<List<Entidad>> CrearComandoListarNotasLibreta(Entidad libreta)
         {
             return new ComandoListarNotasLibreta(libreta);
