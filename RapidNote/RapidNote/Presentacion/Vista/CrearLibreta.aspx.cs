@@ -15,9 +15,31 @@ namespace RapidNote.Presentacion.Vista
     public partial class CrearLibreta : System.Web.UI.Page, IContratoAgregarLibreta
     {
         private PresentadorAgregarLibreta presentador;
-        protected void Page_Load(object sender, EventArgs e)
+
+        protected override void OnInit(EventArgs e)
+        {
+            base.OnInit(e);
+            presentador = new PresentadorAgregarLibreta(this);
+
+        }
+
+        protected void Page_PreRender(object sender, EventArgs e)
         {
             presentador = new PresentadorAgregarLibreta(this);
+        }
+
+        protected void Page_Load(object sender, EventArgs e)
+        {            
+
+            if (Sesion["usuario"] == null)
+                Response.Redirect("login.aspx");
+            else
+            {
+                if (!IsPostBack)
+                {
+                    
+                }
+            }
         }
 
         public string getNombre()

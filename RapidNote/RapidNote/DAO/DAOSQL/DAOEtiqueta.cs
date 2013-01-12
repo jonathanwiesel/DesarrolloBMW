@@ -60,6 +60,49 @@ namespace RapidNote.DAO.DAOSQL
         }
 
 
-        
+
+
+
+        public List<Etiqueta> ListarEtiquetasDeNota(Entidad nota)
+        {
+            SqlCommand sqlcmd = new SqlCommand();
+            Conexion connexion = new Conexion();
+            List<Etiqueta> listaEtiquetas = new List<Etiqueta>();
+            Entidad etiqueta = null;
+
+            try
+            {
+                connexion.AbrirConexionBd();
+                sqlcmd.Connection = connexion.ObjetoConexion();
+                sqlcmd.CommandType = CommandType.StoredProcedure;
+                sqlcmd.CommandText = "listarEtiquetasPorNota";
+                sqlcmd.CommandTimeout = 2;
+
+                SqlParameter parametroCorreo = new SqlParameter("@tituloNota", (nota as Nota).Titulo);
+                sqlcmd.Parameters.Add(parametroCorreo);
+                sqlcmd.ExecuteNonQuery();
+                SqlDataReader sqlrd;
+                sqlrd = sqlcmd.ExecuteReader();
+                while (sqlrd.Read())
+                {
+                    etiqueta = FabricaEntidad.CrearEtiqueta();
+                    (etiqueta as Etiqueta).Nombre = sqlrd["nombre"].ToString();
+                    listaEtiquetas.Add((etiqueta as Etiqueta));
+                }
+                if (log.IsInfoEnabled) log.Info("Clase: " + System.Reflection.MethodBase.GetCurrentMethod().DeclaringType + " nota: " + (nota as Clases.Nota).ToString());
+                return listaEtiquetas;
+            }
+            catch (Exception E)
+            {
+                Console.WriteLine(E.Message);
+                if (log.IsErrorEnabled) log.Error("Clase: " + System.Reflection.MethodBase.GetCurrentMethod().DeclaringType + " mensaje: " + E.Message, E);
+                return listaEtiquetas;
+            }
+
+            finally
+            {
+                connexion.CerrarConexionBd();
+            }
+        }
     }
 }

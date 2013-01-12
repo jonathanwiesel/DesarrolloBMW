@@ -169,5 +169,53 @@ namespace RapidNote.DAO.DAOSQL
                 connexion.CerrarConexionBd();
             }
         }
+
+
+        public List<Adjunto> ListarAjuntos(Entidad nota, Entidad usuario)
+        {
+            SqlCommand sqlcmd = new SqlCommand();
+            Conexion connexion = new Conexion();
+            List<Adjunto> listaAdjuntos = new List<Adjunto>();
+            Entidad adjunto = null;
+
+            try
+            {
+                connexion.AbrirConexionBd();
+                sqlcmd.Connection = connexion.ObjetoConexion();
+                sqlcmd.CommandType = CommandType.StoredProcedure;
+                sqlcmd.CommandText = "listarAdjuntosPorNota";
+                sqlcmd.CommandTimeout = 2;
+
+                SqlParameter parametroCorreo = new SqlParameter("@tituloNota", (nota as Nota).Titulo);
+                sqlcmd.Parameters.Add(parametroCorreo);
+                SqlParameter parametroLibreta = new SqlParameter("@libreta", (nota as Nota).Libreta.NombreLibreta);
+                sqlcmd.Parameters.Add(parametroLibreta);
+                SqlParameter parametroId = new SqlParameter("@id", (usuario as Usuario).Id);
+                sqlcmd.Parameters.Add(parametroId);
+                sqlcmd.ExecuteNonQuery();
+                SqlDataReader sqlrd;
+                sqlrd = sqlcmd.ExecuteReader();
+                while (sqlrd.Read())
+                {
+                    adjunto = FabricaEntidad.CrearAdjunto();
+                    (adjunto as Adjunto).Titulo = sqlrd["TITULO"].ToString();
+                    listaAdjuntos.Add((adjunto as Adjunto));
+                }
+                if (log.IsInfoEnabled) log.Info("Clase: " + System.Reflection.MethodBase.GetCurrentMethod().DeclaringType + " nota: " + (nota as Clases.Nota).ToString());
+                if (log.IsInfoEnabled) log.Info("Clase: " + System.Reflection.MethodBase.GetCurrentMethod().DeclaringType + " usuario: " + (usuario as Clases.Usuario).ToString());
+                return listaAdjuntos;
+            }
+            catch (Exception E)
+            {
+                Console.WriteLine(E.Message);
+                if (log.IsErrorEnabled) log.Error("Clase: " + System.Reflection.MethodBase.GetCurrentMethod().DeclaringType + " mensaje: " + E.Message, E);
+                return listaAdjuntos;
+            }
+
+            finally
+            {
+                connexion.CerrarConexionBd();
+            }
+        }
     }
 }

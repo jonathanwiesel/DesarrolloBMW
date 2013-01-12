@@ -779,5 +779,60 @@ namespace RapidNote.DAO.DAOSQL
             }
         }
 
+
+
+        public List<Nota> ListarNotasLibretaTypeNota(Entidad libreta)
+        {
+            SqlCommand sqlcmd = new SqlCommand();
+            Conexion connexion = new Conexion();
+            List<Nota> listaNotas = new List<Nota>();
+            Entidad nota = null;
+
+            try
+            {
+                connexion.AbrirConexionBd();
+                sqlcmd.Connection = connexion.ObjetoConexion();
+                sqlcmd.CommandType = CommandType.StoredProcedure;
+                sqlcmd.CommandText = "ListarNotasLibretaExport";
+                sqlcmd.CommandTimeout = 2;
+
+                SqlParameter parametroId = new SqlParameter("@ID", (libreta as Libreta).Idlibreta);
+                sqlcmd.Parameters.Add(parametroId);
+                sqlcmd.ExecuteNonQuery();
+                SqlDataReader sqlrd;
+                sqlrd = sqlcmd.ExecuteReader();
+
+                if (log.IsInfoEnabled) log.Info("Clase: " + System.Reflection.MethodBase.GetCurrentMethod().DeclaringType + " libreta: " + (libreta as Clases.Libreta).ToString());
+
+                while (sqlrd.Read())
+                {
+                    nota = FabricaEntidad.CrearNota();
+                    (nota as Nota).Idnota = int.Parse(sqlrd["idNota"].ToString());
+                    (nota as Nota).Titulo = sqlrd["titulo"].ToString();
+                    (nota as Nota).Contenido = sqlrd["contenido"].ToString();
+                    (nota as Nota).Fechacreacion = DateTime.Parse(sqlrd["fechaCreacion"].ToString());
+                    if (!DBNull.Value.Equals(sqlrd["fechaModificacion"]))
+                    {
+                        (nota as Nota).Fechamodificacion = DateTime.Parse(sqlrd["fechaModificacion"].ToString());
+                    }
+                    (nota as Nota).Libreta.NombreLibreta = (libreta as Libreta).NombreLibreta;
+                    listaNotas.Add((nota as Nota));
+                    if (log.IsInfoEnabled) log.Info("Clase: " + System.Reflection.MethodBase.GetCurrentMethod().DeclaringType + " nota: " + (nota as Clases.Nota).ToString());
+                }
+
+                return listaNotas;
+            }
+            catch (Exception E)
+            {
+                Console.WriteLine(E.Message);
+                if (log.IsErrorEnabled) log.Error("Clase: " + System.Reflection.MethodBase.GetCurrentMethod().DeclaringType + " mensaje: " + E.Message, E);
+                return listaNotas;
+            }
+
+            finally
+            {
+                connexion.CerrarConexionBd();
+            }
+        }
     }
 }

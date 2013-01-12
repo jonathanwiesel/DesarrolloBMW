@@ -35,5 +35,18 @@ namespace RapidNote.DAO.IDAOS
         /// <param name="usuario">Entidad de tipo usuario que contiene el accesstoken y el accesssecret</param>
         /// <returns>Restorna true si se guardo correctamente o false si ocurrio algun error</returns>
         Boolean InsertarToken(String correo, Entidad usuario);
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="usuario"></param>
+        Entidad ExportarConfiguracion(Entidad usuario);
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="usuario"></param>
+        /// <returns></returns>
+        Entidad ImportarConfiguracion(Entidad usuario);
     }
 }

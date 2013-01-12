@@ -23,6 +23,8 @@ namespace RapidNote.Clases
 
         private String accesSecret;
 
+        private List<Libreta> listaLibretas;
+        
         public int Id
         {
             get { return id; }
@@ -70,6 +72,13 @@ namespace RapidNote.Clases
         {
             get { return accesSecret; }
             set { accesSecret = value; }
+        }
+
+
+        public List<Libreta> ListaLibretas
+        {
+            get { return listaLibretas; }
+            set { listaLibretas = value; }
         }
 
         public override String ToString() 

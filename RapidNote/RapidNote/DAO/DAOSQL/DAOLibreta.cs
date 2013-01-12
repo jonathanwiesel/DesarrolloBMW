@@ -179,34 +179,42 @@ namespace RapidNote.DAO.DAOSQL
             }
         }
 
-        public Boolean EliminarLibreta(Entidad libreta)
+
+        public List<Libreta> ListarLibretas(Entidad usuario)
         {
-            Boolean estado = false;
             SqlCommand sqlcmd = new SqlCommand();
             Conexion connexion = new Conexion();
+            List<Libreta> listaLibretas = new List<Libreta>();
+            Entidad libreta = null;
 
             try
             {
                 connexion.AbrirConexionBd();
                 sqlcmd.Connection = connexion.ObjetoConexion();
                 sqlcmd.CommandType = CommandType.StoredProcedure;
-                sqlcmd.CommandText = "BorrarLibreta";
+                sqlcmd.CommandText = "ConsultarLibretas";
                 sqlcmd.CommandTimeout = 2;
 
-                SqlParameter parametroId = new SqlParameter("@idLibreta", (libreta as Libreta).Idlibreta);
-                sqlcmd.Parameters.Add(parametroId);
+                SqlParameter parametroCorreo = new SqlParameter("@correoUsuario", (usuario as Usuario).Correo);
+                sqlcmd.Parameters.Add(parametroCorreo);
                 sqlcmd.ExecuteNonQuery();
-                if (log.IsInfoEnabled) log.Info((libreta as Clases.Libreta).ToString());
-                estado = true;
-                return estado;
-
+                SqlDataReader sqlrd;
+                sqlrd = sqlcmd.ExecuteReader();
+                while (sqlrd.Read())
+                {
+                    libreta = FabricaEntidad.CrearLibreta();
+                    (libreta as Libreta).Idlibreta = int.Parse(sqlrd["idLibreta"].ToString());
+                    (libreta as Libreta).NombreLibreta = sqlrd["nombreLibreta"].ToString();
+                    listaLibretas.Add((libreta as Libreta));
+                }
+                if (log.IsInfoEnabled) log.Info("Clase: " + System.Reflection.MethodBase.GetCurrentMethod().DeclaringType + " nota: " + (usuario as Clases.Usuario).ToString());
+                return listaLibretas;
             }
             catch (Exception E)
             {
                 Console.WriteLine(E.Message);
-                if (log.IsErrorEnabled) log.Error(E.Message, E);
-                return estado;
-
+                if (log.IsErrorEnabled) log.Error("Clase: " + System.Reflection.MethodBase.GetCurrentMethod().DeclaringType + " mensaje: " + E.Message, E);
+                return listaLibretas;
             }
 
             finally

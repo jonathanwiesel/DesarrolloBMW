@@ -18,7 +18,7 @@ namespace RapidNote.DAO.DAOFactory
                 case 1:
                     return FabricaDAOSQLServer.getInstacia();
                 case 2:
-                //return FabricaDAOOracle.getInstancia();
+                    return FabricaDAOXML.getInstancia();
                 default:
                     return null;
             }

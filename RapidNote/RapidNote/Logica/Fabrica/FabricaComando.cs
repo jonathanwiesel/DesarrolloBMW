@@ -163,5 +163,10 @@ namespace RapidNote.Logica.Fabrica
             return new ComandoListarEtiquetas(usuario);
         }
 
+        public static Comando<Entidad> CrearComandoExportarConfiguracion(Entidad usuario) 
+        {
+            return new ComandoExportarConfiguracion(usuario);
+        }
+
     }
 }

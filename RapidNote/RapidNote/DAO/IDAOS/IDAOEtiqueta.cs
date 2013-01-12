@@ -14,6 +14,13 @@ namespace RapidNote.DAO.IDAOS
         /// <param name="usuario">variable usuario</param>
         /// <returns>Devuelde una lista de etiquetas</returns>
         List<Entidad> ListarEtiquetas(Entidad usuario);
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="nota"></param>
+        /// <returns></returns>
+        List<Etiqueta> ListarEtiquetasDeNota(Entidad nota);
         
     }
 }

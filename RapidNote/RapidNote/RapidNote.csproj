@@ -87,6 +87,7 @@
     <Content Include="Presentacion\Vista\AccesarLibreta.aspx" />
     <Content Include="Presentacion\Vista\AccesarNotasLibreta.aspx" />
     <Content Include="Presentacion\Vista\EditarLibreta.aspx" />
+    <Content Include="Presentacion\Vista\ExportarConfiguracion.aspx" />
     <Content Include="Presentacion\Vista\index.aspx" />
     <Content Include="Presentacion\Vista\AccesarNota.aspx" />
     <Content Include="Presentacion\Vista\BuscarNota.aspx" />
@@ -135,6 +136,8 @@
     <Compile Include="DAO\Conexion.cs" />
     <Compile Include="DAO\DAOFactory\FabricaDAO.cs" />
     <Compile Include="DAO\DAOFactory\FabricaDAOSQLServer.cs" />
+    <Compile Include="DAO\DAOFactory\FabricaDAOXML.cs" />
+    <Compile Include="DAO\DAOFILE\DAOUsuario.cs" />
     <Compile Include="DAO\DAOSQL\DAOAdjunto.cs" />
     <Compile Include="DAO\DAOSQL\DAOEtiqueta.cs" />
     <Compile Include="DAO\DAOSQL\DAOLibreta.cs" />
@@ -146,6 +149,7 @@
     <Compile Include="DAO\IDAOS\IDAOLibreta.cs" />
     <Compile Include="DAO\IDAOS\IDAONota.cs" />
     <Compile Include="DAO\IDAOS\IDAOUsuario.cs" />
+    <Compile Include="DAO\XmlFile.cs" />
     <Compile Include="Logica\Comandos\Adjunto\ComandoAgregarAdjuntoBD.cs" />
     <Compile Include="Logica\Comandos\Adjunto\ComandoAgregarAdjuntoConNota.cs" />
     <Compile Include="Logica\Comandos\Comandodrop.cs" />
@@ -161,17 +165,20 @@
     <Compile Include="Logica\Comandos\Libreta\ComandoEliminarLibreta.cs" />
     <Compile Include="Logica\Comandos\Nota\ComandoListarNotasLibreta.cs" />
     <Compile Include="Logica\Comandos\Nota\ComandoVerificarNota.cs" />
+    <Compile Include="Logica\Comandos\Usuario\ComandoExportarConfiguracion.cs" />
     <Compile Include="Presentacion\Contrato\Etiqueta\IContratoAccesarEtiqueta.cs" />
     <Compile Include="Presentacion\Contrato\Libreta\IContratoAccesarLibreta.cs" />
     <Compile Include="Presentacion\Contrato\Libreta\IContratoAgregarLibreta.cs" />
     <Compile Include="Presentacion\Contrato\Libreta\IContratoEditarLibreta.cs" />
     <Compile Include="Presentacion\Contrato\Nota\IContratoAccesarNotaLibreta.cs" />
     <Compile Include="Presentacion\Contrato\Usuario\IcontratoTokenizerUser.cs" />
+    <Compile Include="Presentacion\Contrato\Usuario\IExportarConfiguracion.cs" />
     <Compile Include="Presentacion\Presentador\Etiqueta\PresentadorAccesarEtiqueta.cs" />
     <Compile Include="Presentacion\Presentador\Libreta\PresentadorAccesarLibreta.cs" />
     <Compile Include="Presentacion\Presentador\Libreta\PresentadorAgregarLibreta.cs" />
     <Compile Include="Presentacion\Presentador\Libreta\PresentadorEditarLibreta.cs" />
     <Compile Include="Presentacion\Presentador\Nota\PresentadorAccesarNotasLibreta.cs" />
+    <Compile Include="Presentacion\Presentador\Usuario\PresentadorExportarConfiguracion.cs" />
     <Compile Include="Presentacion\Presentador\Usuario\PresentadorTokenizerUser.cs" />
     <Compile Include="Presentacion\Vista\AccesarEtiqueta.aspx.cs">
       <DependentUpon>AccesarEtiqueta.aspx</DependentUpon>
@@ -200,6 +207,13 @@
     </Compile>
     <Compile Include="Presentacion\Vista\EditarLibreta.aspx.designer.cs">
       <DependentUpon>EditarLibreta.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Presentacion\Vista\ExportarConfiguracion.aspx.cs">
+      <DependentUpon>ExportarConfiguracion.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Presentacion\Vista\ExportarConfiguracion.aspx.designer.cs">
+      <DependentUpon>ExportarConfiguracion.aspx</DependentUpon>
     </Compile>
     <Compile Include="Presentacion\Vista\index.aspx.cs">
       <DependentUpon>index.aspx</DependentUpon>
@@ -343,7 +357,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Archivo\" />
-    <Folder Include="DAO\DAOFILE\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="SiteMaster\Site.Master" />

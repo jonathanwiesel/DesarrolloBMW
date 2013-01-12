@@ -30,7 +30,9 @@
                 <table width='800' border='0' align='center'>
                     <tr>
                         <td width="40">
-                            <img src="../../Styles/Images/Logo.png" width="37,16" height="40" />
+                            <a href="../../Presentacion/Vista/index.aspx">
+                                <img src="../../Styles/Images/Logo.png" width="37,16" height="40" />
+                            </a>
                         </td>
                         <td>
                             <h1>RapidNote</h1>
@@ -72,7 +74,7 @@
                                     <ul>
                                         <li><a href="#">Editar Usuario</a></li>
                                         <li><a href="#">Dropbox Autorizar/Desautorizar</a></li>
-                                        <li><a href="#">Exportar XML</a></li>
+                                        <li><a href="../../Presentacion/Vista/ExportarConfiguracion.aspx">Exportar XML</a></li>
                                         <li><a href="#">Importar XML</a></li>
                                     </ul>
                                 </li>

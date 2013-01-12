@@ -37,5 +37,13 @@ namespace RapidNote.DAO.IDAOS
         /// <param name="nota">Parametro de tipo entidad que contiene el id de la nota en base de datos</param>
         /// <returns>Retorna una entidad</returns>
         Entidad BorrarAdjunto(Entidad nota);
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="nota"></param>
+        /// <param name="usuario"></param>
+        /// <returns></returns>
+        List<Adjunto> ListarAjuntos(Entidad nota, Entidad usuario);
     }
 }

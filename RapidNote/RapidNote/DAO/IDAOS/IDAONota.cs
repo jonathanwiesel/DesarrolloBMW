@@ -107,5 +107,12 @@ namespace RapidNote.DAO.IDAOS
         /// <param name="usuario">variable usuario</param>
         /// <returns>Devuelve la nota a verificar</returns>
         Entidad VerificarNota(Entidad nota, Entidad usuario);
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="libreta"></param>
+        /// <returns></returns>
+        List<Nota> ListarNotasLibretaTypeNota(Entidad libreta);
     }
 }
