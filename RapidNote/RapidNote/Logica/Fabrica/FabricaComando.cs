@@ -168,5 +168,25 @@ namespace RapidNote.Logica.Fabrica
             return new ComandoExportarConfiguracion(usuario);
         }
 
+        public static Comando<bool> CrearComandoDescargarDropbox(Entidad usuario, string nombre)
+        {
+            return new ComandoDercargarDropbox(usuario, nombre);
+        }
+
+        public static Comando<bool> CrearComandoEliminarAdjuntoDropbox(Entidad usuario, string nombre)
+        {
+            return new ComandoEliminarAdjuntoDropbox(usuario, nombre);
+        }
+
+        public static Comando<bool> CrearComandoVisualizarAdjunto(Entidad usuario, string nombre)
+        {
+            return new ComandoVisualizarAdjunto(usuario, nombre);
+        }
+
+        public static Comando<int> CrearComandoBorrarAdjunto(Entidad nota, string titulo, Entidad usuario)
+        {
+            return new ComandoBorrarAdjunto(nota, titulo, usuario);
+        }
+
     }
 }

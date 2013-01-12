@@ -36,7 +36,15 @@ namespace RapidNote.DAO.IDAOS
         /// </summary>
         /// <param name="nota">Parametro de tipo entidad que contiene el id de la nota en base de datos</param>
         /// <returns>Retorna una entidad</returns>
-        Entidad BorrarAdjunto(Entidad nota);
+        Entidad BorrarAdjunto(Entidad nota, string titulo);
+
+        /// <summary>
+        /// Funcion que verifica si hay mas de una nota con el mismo adjunto para poder elminar el archivo en dropbox
+        /// </summary>
+        /// <param name="usuario">Parametro de tipo entidad que contiene los datos del usuario que esta logeado</param>
+        /// <param name="titulo">Parametro que contiene el nombre del archivo que se esta verificando</param>
+        /// <returns>Retorna un entero con el numero de  notas q posee ese adjunto</returns>
+        int VerificarAdjuntoEliminar(Entidad usuario, string titulo);
 
         /// <summary>
         /// 

@@ -16,6 +16,7 @@ namespace RapidNote.Presentacion.Vista
     {
         private PresentadorEditarNota presentador; 
         private string idNota;
+        private string arch = null;
         private string rutaArchivo = "";
         private string nombreArchivo = "";
         private bool estado = true;
@@ -86,6 +87,12 @@ namespace RapidNote.Presentacion.Vista
             return hffc;
         }
 
+        public void Redireccionar2(string _ruta)
+        {
+            ScriptManager.RegisterStartupScript(Page, this.GetType(), "myScript", "alert('El archivo a sido eliminado con éxito');", true);
+            Response.Redirect(_ruta);
+        }
+
         public string getTitulo()
         {
             return TextBoxTitulo.Text;
@@ -108,6 +115,15 @@ namespace RapidNote.Presentacion.Vista
         public String getIdNota() {
             idNota = Request.QueryString["id"].ToString();
             return idNota;
+        }
+
+        public String archivo()
+        {
+            if (ListBoxArchivos.SelectedIndex >= 0)
+            {
+                arch = ListBoxArchivos.SelectedItem.Value;
+            }
+            return arch;
         }
 
         public void setContenido(String contenido)
@@ -222,5 +238,34 @@ namespace RapidNote.Presentacion.Vista
             (Sesion["usuario"] as Usuario).Estado = TextBoxBuscadorSiteM.Text;
             Response.Redirect("BuscarNota.aspx");
         }
+
+        protected void Button5_Click(object sender, EventArgs e)
+        {
+            bool resultado = presentador.DescargarAdjunto();
+            if (resultado == true)
+            {
+                ScriptManager.RegisterStartupScript(Page, this.GetType(), "myScript", "alert('El archivo a sido descargado con éxito');", true);
+            }
+        }
+
+        protected void Button6_Click(object sender, EventArgs e)
+        {
+            bool resultado = presentador.EliminarAdjunto();
+            if (resultado == true)
+            {
+
+
+            }
+        }
+
+        protected void Button7_Click(object sender, EventArgs e)
+        {
+            bool resultado = presentador.visualizarAdjunto();
+            if (resultado == true)
+            {
+
+            }
+        }
+        
     }
 }

@@ -31,6 +31,13 @@ namespace RapidNote.Presentacion.Presentador.Nota
         private Comando<List<Entidad>> comandolistaadjunto;
 
         private Comando<Entidad> comandoverificar;
+        private Comando<bool> comandodescargar;
+
+        private Comando<bool> comandoeliminardropbox;
+
+        private Comando<bool> comandovisualizar;
+
+        private Comando<int> comandoverificareliminar;
 
         private Entidad nota;
 
@@ -41,6 +48,10 @@ namespace RapidNote.Presentacion.Presentador.Nota
         private string _mensajeErrorServidor = "Error, No se pudo subir los archivos al servidor";
 
         private string _mensajeErrorDropbox = "Error, No se pudo subir los archivos al Dropbox";
+
+        private string _mensajeErrorDescarga = "Debe seleccionar uno de los archivos de la lista para poder descargarlo";
+
+        private string _mensajeErrorDropEliminar = "Dese seleccionar uno de los archivos de la lista para poder eliminarlo";
 
         //private int idNota;
 
@@ -175,6 +186,77 @@ namespace RapidNote.Presentacion.Presentador.Nota
             {
 
                 contrato.MensajeError.Text = _mensajeErrorServidor;
+                contrato.MensajeError.Visible = true;
+                return resultado;
+            }
+        }
+
+        public bool DescargarAdjunto()
+        {
+            bool resultado = false;
+            Entidad usuario = (contrato.Sesion["usuario"] as Clases.Usuario);
+            if (contrato.archivo() != null)
+            {
+                comandodescargar = FabricaComando.CrearComandoDescargarDropbox(usuario, contrato.archivo());
+                resultado = comandodescargar.Ejecutar();
+                return resultado;
+            }
+            else
+            {
+                contrato.MensajeError.Text = _mensajeErrorDescarga;
+                contrato.MensajeError.Visible = true;
+                return resultado;
+            }
+
+
+        }
+
+        public bool EliminarAdjunto()
+        {
+            bool resultado = false;
+            nota = FabricaEntidad.CrearNota();
+            (nota as Clases.Nota).Titulo = contrato.getTitulo();
+            (nota as Clases.Nota).Idnota = int.Parse(contrato.getIdNota());
+            Entidad usuario = (contrato.Sesion["usuario"] as Clases.Usuario);
+            if (contrato.archivo() != null)
+            {
+                comandoverificareliminar = FabricaComando.CrearComandoBorrarAdjunto(nota, contrato.archivo(), usuario);
+                int result = comandoverificareliminar.Ejecutar();
+                if (result == 0)
+                {
+                    comandoeliminardropbox = FabricaComando.CrearComandoEliminarAdjuntoDropbox(usuario, contrato.archivo());
+                    resultado = comandoeliminardropbox.Ejecutar();
+                    contrato.Redireccionar2("../Vista/EditarNota.aspx?id=" + contrato.getIdNota());
+                    return resultado;
+                }
+                else
+                {
+                    contrato.Redireccionar2("../Vista/EditarNota.aspx?id=" + contrato.getIdNota());
+                    resultado = true;
+                    return resultado;
+                }
+            }
+            else
+            {
+                contrato.MensajeError.Text = _mensajeErrorDropEliminar;
+                contrato.MensajeError.Visible = true;
+                return resultado;
+            }
+        }
+
+        public bool visualizarAdjunto()
+        {
+            bool resultado = false;
+            Entidad usuario = (contrato.Sesion["usuario"] as Clases.Usuario);
+            if (contrato.archivo() != null)
+            {
+                comandovisualizar = FabricaComando.CrearComandoVisualizarAdjunto(usuario, contrato.archivo());
+                resultado = comandovisualizar.Ejecutar();
+                return resultado;
+            }
+            else
+            {
+                contrato.MensajeError.Text = _mensajeErrorDropEliminar;
                 contrato.MensajeError.Visible = true;
                 return resultado;
             }

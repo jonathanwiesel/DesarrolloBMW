@@ -97,6 +97,50 @@ namespace RapidNote.DAO.DAOSQL
             }
         }
 
+        public int VerificarAdjuntoEliminar(Entidad usuario, string titulo)
+        {
+
+            int valor = 0;
+            SqlCommand sqlcmd = new SqlCommand();
+            Conexion connexion = new Conexion();
+
+            try
+            {
+                connexion.AbrirConexionBd();
+                sqlcmd.Connection = connexion.ObjetoConexion();
+                sqlcmd.CommandType = CommandType.StoredProcedure;
+                sqlcmd.CommandText = "VerificarAdjuntoEliminar";
+                sqlcmd.CommandTimeout = 2;
+
+                SqlParameter parametroId = new SqlParameter("@ID", (usuario as Usuario).Id);
+                sqlcmd.Parameters.Add(parametroId);
+                SqlParameter parametroTitulo = new SqlParameter("@TITULO", titulo);
+                sqlcmd.Parameters.Add(parametroTitulo);
+                sqlcmd.ExecuteNonQuery();
+                SqlDataReader sqlrd;
+                sqlrd = sqlcmd.ExecuteReader();
+                while (sqlrd.Read())
+                {
+                    valor = int.Parse(sqlrd["idnota"].ToString());
+                }
+                if (log.IsInfoEnabled) log.Info((usuario as Clases.Usuario).ToString());
+                return valor;
+
+            }
+            catch (Exception E)
+            {
+                Console.WriteLine(E.Message);
+                if (log.IsErrorEnabled) log.Error(E.Message, E);
+                return valor;
+
+            }
+
+            finally
+            {
+                connexion.CerrarConexionBd();
+            }
+        }
+
         public bool AgregarAdjunto_Nota(Entidad nota, Entidad adjunto)
         {
             SqlCommand sqlcmd = new SqlCommand();
@@ -136,11 +180,11 @@ namespace RapidNote.DAO.DAOSQL
             }
         }
 
-        public Entidad BorrarAdjunto(Entidad nota)
+        public Entidad BorrarAdjunto(Entidad nota, string titulo)
         {
             SqlCommand sqlcmd = new SqlCommand();
             Conexion connexion = new Conexion();
-            
+
             try
             {
                 connexion.AbrirConexionBd();
@@ -150,6 +194,8 @@ namespace RapidNote.DAO.DAOSQL
                 sqlcmd.CommandTimeout = 2;
                 SqlParameter parametroIdNota = new SqlParameter("@IDNOTA", (nota as Nota).Idnota);
                 sqlcmd.Parameters.Add(parametroIdNota);
+                SqlParameter parametroTitulo = new SqlParameter("@TITULO", titulo);
+                sqlcmd.Parameters.Add(parametroTitulo);
                 sqlcmd.ExecuteNonQuery();
                 if (log.IsInfoEnabled) log.Info((nota as Nota).ToString());
                 return nota;

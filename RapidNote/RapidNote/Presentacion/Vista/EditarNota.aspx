@@ -92,6 +92,26 @@
                     <td>
                         <asp:ListBox ID="ListBoxArchivos" Height="80px" runat="server" Width="430px" ReadOnly="true"></asp:ListBox>
                     </td>
+                    <td>
+                    <table>
+                        <tr>
+                                <td>
+                                    <asp:Button ID="Button7" runat="server" Text="Visualizar" Width=88 onclick="Button7_Click"/>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <asp:Button ID="Button5" runat="server" Text="Descargar" onclick="Button5_Click"/>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <asp:Button ID="Button6" runat="server" Text="Eliminar" Width=88 onclick="Button6_Click"/>
+                                </td>
+                            </tr>
+                            
+                        </table>
+                    </td>
                 </tr>  
                  <tr>
                     <td>

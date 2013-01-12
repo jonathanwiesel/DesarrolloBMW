@@ -1,0 +1,412 @@
+<?xml version="1.0"?>
+<!--Configuracion de usuario-->
+<Usuario>
+    <Correo>victorinox88@gmail.com</Correo>
+    <Clave>e1223d9bbcd82236f9f09ae1f5578e3cbbd4e8f48954cead3003be60ac85629726dc04b1f875353459f97ba4a4283a1a6adb89d3524bb4816c7125964097106c</Clave>
+    <Nombre>victor</Nombre>
+    <Apellido>bereciartu</Apellido>
+    <AccesSecret>94czdg6medwa07p</AccesSecret>
+    <AccesToken>id4n74zeeflxk1x</AccesToken>
+    <Libretas>
+        <NombreLibreta>primera libreta modificada 2</NombreLibreta>
+        <Nota>
+            <Titulo>bolas</Titulo>
+            <Contenido>bolas y culo</Contenido>
+            <Fechacreacion>22/11/2012 0:00:00</Fechacreacion>
+            <Fechamodificacion>No ha sido modificada</Fechamodificacion>
+            <Etiquetas />
+            <Adjuntos />
+        </Nota>
+        <Nota>
+            <Titulo>dasasda</Titulo>
+            <Contenido>dadsadsasa</Contenido>
+            <Fechacreacion>27/11/2012 0:00:00</Fechacreacion>
+            <Fechamodificacion>No ha sido modificada</Fechamodificacion>
+            <Etiquetas />
+            <Adjuntos />
+        </Nota>
+        <Nota>
+            <Titulo>ewt</Titulo>
+            <Contenido>wet</Contenido>
+            <Fechacreacion>27/11/2012 0:00:00</Fechacreacion>
+            <Fechamodificacion>No ha sido modificada</Fechamodificacion>
+            <Etiquetas />
+            <Adjuntos />
+        </Nota>
+        <Nota>
+            <Titulo>bolas</Titulo>
+            <Contenido>bolas y culo</Contenido>
+            <Fechacreacion>27/11/2012 0:00:00</Fechacreacion>
+            <Fechamodificacion>No ha sido modificada</Fechamodificacion>
+            <Etiquetas />
+            <Adjuntos />
+        </Nota>
+        <Nota>
+            <Titulo>sasd</Titulo>
+            <Contenido>sdasas</Contenido>
+            <Fechacreacion>27/11/2012 0:00:00</Fechacreacion>
+            <Fechamodificacion>05/12/2012 0:00:00</Fechamodificacion>
+            <Etiquetas />
+            <Adjuntos />
+        </Nota>
+        <Nota>
+            <Titulo>dsdsf</Titulo>
+            <Contenido>sdfsdsdsdf</Contenido>
+            <Fechacreacion>27/11/2012 0:00:00</Fechacreacion>
+            <Fechamodificacion>No ha sido modificada</Fechamodificacion>
+            <Etiquetas />
+            <Adjuntos />
+        </Nota>
+        <Nota>
+            <Titulo>xc</Titulo>
+            <Contenido>xc</Contenido>
+            <Fechacreacion>27/11/2012 0:00:00</Fechacreacion>
+            <Fechamodificacion>No ha sido modificada</Fechamodificacion>
+            <Etiquetas />
+            <Adjuntos />
+        </Nota>
+        <Nota>
+            <Titulo>bn</Titulo>
+            <Contenido>bn</Contenido>
+            <Fechacreacion>27/11/2012 0:00:00</Fechacreacion>
+            <Fechamodificacion>No ha sido modificada</Fechamodificacion>
+            <Etiquetas />
+            <Adjuntos />
+        </Nota>
+        <Nota>
+            <Titulo>lñ</Titulo>
+            <Contenido>lñ</Contenido>
+            <Fechacreacion>27/11/2012 0:00:00</Fechacreacion>
+            <Fechamodificacion>No ha sido modificada</Fechamodificacion>
+            <Etiquetas />
+            <Adjuntos />
+        </Nota>
+        <Nota>
+            <Titulo>aw</Titulo>
+            <Contenido>aw</Contenido>
+            <Fechacreacion>27/11/2012 0:00:00</Fechacreacion>
+            <Fechamodificacion>No ha sido modificada</Fechamodificacion>
+            <Etiquetas />
+            <Adjuntos />
+        </Nota>
+        <Nota>
+            <Titulo>cv</Titulo>
+            <Contenido>cv</Contenido>
+            <Fechacreacion>28/11/2012 0:00:00</Fechacreacion>
+            <Fechamodificacion>No ha sido modificada</Fechamodificacion>
+            <Etiquetas />
+            <Adjuntos />
+        </Nota>
+        <Nota>
+            <Titulo>sdsd</Titulo>
+            <Contenido>sdasasfvcc</Contenido>
+            <Fechacreacion>28/11/2012 0:00:00</Fechacreacion>
+            <Fechamodificacion>No ha sido modificada</Fechamodificacion>
+            <Etiquetas />
+            <Adjuntos />
+        </Nota>
+        <Nota>
+            <Titulo>asdsdfsav</Titulo>
+            <Contenido>asdfccavgravg</Contenido>
+            <Fechacreacion>28/11/2012 0:00:00</Fechacreacion>
+            <Fechamodificacion>No ha sido modificada</Fechamodificacion>
+            <Etiquetas />
+            <Adjuntos />
+        </Nota>
+        <Nota>
+            <Titulo>dsdsf</Titulo>
+            <Contenido>dsfsdfsdf</Contenido>
+            <Fechacreacion>28/11/2012 0:00:00</Fechacreacion>
+            <Fechamodificacion>No ha sido modificada</Fechamodificacion>
+            <Etiquetas />
+            <Adjuntos />
+        </Nota>
+        <Nota>
+            <Titulo>fsadfsdfad</Titulo>
+            <Contenido>fdsfsdvsdvsdgdsgsagsadg</Contenido>
+            <Fechacreacion>28/11/2012 0:00:00</Fechacreacion>
+            <Fechamodificacion>No ha sido modificada</Fechamodificacion>
+            <Etiquetas />
+            <Adjuntos />
+        </Nota>
+        <Nota>
+            <Titulo>asdsad</Titulo>
+            <Contenido>sdasfsgADGGDG</Contenido>
+            <Fechacreacion>28/11/2012 0:00:00</Fechacreacion>
+            <Fechamodificacion>No ha sido modificada</Fechamodificacion>
+            <Etiquetas />
+            <Adjuntos />
+        </Nota>
+        <Nota>
+            <Titulo>sdgasga</Titulo>
+            <Contenido>gsadgasdgdafhdafh</Contenido>
+            <Fechacreacion>28/11/2012 0:00:00</Fechacreacion>
+            <Fechamodificacion>No ha sido modificada</Fechamodificacion>
+            <Etiquetas />
+            <Adjuntos />
+        </Nota>
+        <Nota>
+            <Titulo>ñl</Titulo>
+            <Contenido>lñ</Contenido>
+            <Fechacreacion>04/12/2012 0:00:00</Fechacreacion>
+            <Fechamodificacion>No ha sido modificada</Fechamodificacion>
+            <Etiquetas />
+            <Adjuntos />
+        </Nota>
+        <Nota>
+            <Titulo>dfñ</Titulo>
+            <Contenido>dfñ</Contenido>
+            <Fechacreacion>04/12/2012 0:00:00</Fechacreacion>
+            <Fechamodificacion>No ha sido modificada</Fechamodificacion>
+            <Etiquetas />
+            <Adjuntos />
+        </Nota>
+        <Nota>
+            <Titulo>sdñ</Titulo>
+            <Contenido>sdñ</Contenido>
+            <Fechacreacion>04/12/2012 0:00:00</Fechacreacion>
+            <Fechamodificacion>No ha sido modificada</Fechamodificacion>
+            <Etiquetas />
+            <Adjuntos />
+        </Nota>
+        <Nota>
+            <Titulo>we23</Titulo>
+            <Contenido>sdasd</Contenido>
+            <Fechacreacion>04/12/2012 0:00:00</Fechacreacion>
+            <Fechamodificacion>No ha sido modificada</Fechamodificacion>
+            <Etiquetas />
+            <Adjuntos />
+        </Nota>
+        <Nota>
+            <Titulo>123244</Titulo>
+            <Contenido>sadasdsad</Contenido>
+            <Fechacreacion>04/12/2012 0:00:00</Fechacreacion>
+            <Fechamodificacion>No ha sido modificada</Fechamodificacion>
+            <Etiquetas />
+            <Adjuntos />
+        </Nota>
+        <Nota>
+            <Titulo>9999</Titulo>
+            <Contenido>xfdgdf999</Contenido>
+            <Fechacreacion>04/12/2012 0:00:00</Fechacreacion>
+            <Fechamodificacion>No ha sido modificada</Fechamodificacion>
+            <Etiquetas />
+            <Adjuntos />
+        </Nota>
+        <Nota>
+            <Titulo>5445etdffsgsfth</Titulo>
+            <Contenido>ssfbsfgsf</Contenido>
+            <Fechacreacion>04/12/2012 0:00:00</Fechacreacion>
+            <Fechamodificacion>No ha sido modificada</Fechamodificacion>
+            <Etiquetas />
+            <Adjuntos />
+        </Nota>
+        <Nota>
+            <Titulo>asfvasv56734567</Titulo>
+            <Contenido>afgfgfd</Contenido>
+            <Fechacreacion>04/12/2012 0:00:00</Fechacreacion>
+            <Fechamodificacion>No ha sido modificada</Fechamodificacion>
+            <Etiquetas />
+            <Adjuntos>
+                <NombreArchivo>ERSCU.png</NombreArchivo>
+                <Urlarchivo />
+            </Adjuntos>
+        </Nota>
+        <Nota>
+            <Titulo>pupu</Titulo>
+            <Contenido>pupu</Contenido>
+            <Fechacreacion>04/12/2012 0:00:00</Fechacreacion>
+            <Fechamodificacion>No ha sido modificada</Fechamodificacion>
+            <Etiquetas />
+            <Adjuntos>
+                <NombreArchivo>verga.png</NombreArchivo>
+                <Urlarchivo />
+            </Adjuntos>
+        </Nota>
+        <Nota>
+            <Titulo>nojoda</Titulo>
+            <Contenido>nojoda</Contenido>
+            <Fechacreacion>05/12/2012 0:00:00</Fechacreacion>
+            <Fechamodificacion>No ha sido modificada</Fechamodificacion>
+            <Etiquetas />
+            <Adjuntos>
+                <NombreArchivo>verga.png</NombreArchivo>
+                <Urlarchivo />
+            </Adjuntos>
+        </Nota>
+        <Nota>
+            <Titulo>pupu y pipi</Titulo>
+            <Contenido>sadasdasd</Contenido>
+            <Fechacreacion>06/12/2012 0:00:00</Fechacreacion>
+            <Fechamodificacion>No ha sido modificada</Fechamodificacion>
+            <Etiquetas />
+            <Adjuntos />
+        </Nota>
+        <Nota>
+            <Titulo>sdasd</Titulo>
+            <Contenido>sadasd</Contenido>
+            <Fechacreacion>08/12/2012 0:00:00</Fechacreacion>
+            <Fechamodificacion>No ha sido modificada</Fechamodificacion>
+            <Etiquetas />
+            <Adjuntos>
+                <NombreArchivo>Penguins.jpg</NombreArchivo>
+                <Urlarchivo />
+            </Adjuntos>
+        </Nota>
+        <Nota>
+            <Titulo>dfdssdf</Titulo>
+            <Contenido>sdfsdsdf</Contenido>
+            <Fechacreacion>08/12/2012 0:00:00</Fechacreacion>
+            <Fechamodificacion>No ha sido modificada</Fechamodificacion>
+            <Etiquetas />
+            <Adjuntos>
+                <NombreArchivo>vaina.png</NombreArchivo>
+                <Urlarchivo />
+                <NombreArchivo>verga.png</NombreArchivo>
+                <Urlarchivo />
+            </Adjuntos>
+        </Nota>
+        <Nota>
+            <Titulo>ewrwer</Titulo>
+            <Contenido>werwer</Contenido>
+            <Fechacreacion>08/12/2012 0:00:00</Fechacreacion>
+            <Fechamodificacion>No ha sido modificada</Fechamodificacion>
+            <Etiquetas />
+            <Adjuntos />
+        </Nota>
+        <Nota>
+            <Titulo>sadas</Titulo>
+            <Contenido>sadasd</Contenido>
+            <Fechacreacion>08/12/2012 0:00:00</Fechacreacion>
+            <Fechamodificacion>No ha sido modificada</Fechamodificacion>
+            <Etiquetas />
+            <Adjuntos />
+        </Nota>
+        <Nota>
+            <Titulo>sdafasfas</Titulo>
+            <Contenido>asfassfasfas</Contenido>
+            <Fechacreacion>12/01/2013 0:00:00</Fechacreacion>
+            <Fechamodificacion>No ha sido modificada</Fechamodificacion>
+            <Etiquetas />
+            <Adjuntos>
+                <NombreArchivo>documento-visión-víctor-bereciartu-modificado.docx</NombreArchivo>
+                <Urlarchivo />
+            </Adjuntos>
+        </Nota>
+        <NombreLibreta>bolas</NombreLibreta>
+        <NombreLibreta>hola</NombreLibreta>
+        <Nota>
+            <Titulo>dfsdcvcfs</Titulo>
+            <Contenido>wqqwwqrqrqr</Contenido>
+            <Fechacreacion>30/11/2012 0:00:00</Fechacreacion>
+            <Fechamodificacion>05/12/2012 0:00:00</Fechamodificacion>
+            <Etiquetas />
+            <Adjuntos />
+        </Nota>
+        <Nota>
+            <Titulo>cbgndfg</Titulo>
+            <Contenido>vcvvsvsd</Contenido>
+            <Fechacreacion>05/12/2012 0:00:00</Fechacreacion>
+            <Fechamodificacion>05/12/2012 0:00:00</Fechamodificacion>
+            <Etiquetas />
+            <Adjuntos>
+                <NombreArchivo>ERSCU.png</NombreArchivo>
+                <Urlarchivo />
+                <NombreArchivo>vaina.png</NombreArchivo>
+                <Urlarchivo />
+            </Adjuntos>
+        </Nota>
+        <Nota>
+            <Titulo>nojoda2</Titulo>
+            <Contenido>nojoda2</Contenido>
+            <Fechacreacion>05/12/2012 0:00:00</Fechacreacion>
+            <Fechamodificacion>12/01/2013 0:00:00</Fechamodificacion>
+            <Etiquetas />
+            <Adjuntos />
+        </Nota>
+        <Nota>
+            <Titulo>pupu y pipi</Titulo>
+            <Contenido>sdasdasd</Contenido>
+            <Fechacreacion>06/12/2012 0:00:00</Fechacreacion>
+            <Fechamodificacion>12/01/2013 0:00:00</Fechamodificacion>
+            <Etiquetas />
+            <Adjuntos />
+        </Nota>
+        <Nota>
+            <Titulo>padrino</Titulo>
+            <Contenido>safasfsaf</Contenido>
+            <Fechacreacion>06/12/2012 0:00:00</Fechacreacion>
+            <Fechamodificacion>No ha sido modificada</Fechamodificacion>
+            <Etiquetas />
+            <Adjuntos>
+                <NombreArchivo>Tulips.jpg</NombreArchivo>
+                <Urlarchivo />
+            </Adjuntos>
+        </Nota>
+        <Nota>
+            <Titulo>vdcxxcv</Titulo>
+            <Contenido>xcvxcvxc</Contenido>
+            <Fechacreacion>08/12/2012 0:00:00</Fechacreacion>
+            <Fechamodificacion>No ha sido modificada</Fechamodificacion>
+            <Etiquetas />
+            <Adjuntos>
+                <NombreArchivo>Jellyfish.jpg</NombreArchivo>
+                <Urlarchivo />
+                <NombreArchivo>Tulips.jpg</NombreArchivo>
+                <Urlarchivo />
+            </Adjuntos>
+        </Nota>
+        <Nota>
+            <Titulo>dfsdf</Titulo>
+            <Contenido>sdfsdfsd</Contenido>
+            <Fechacreacion>08/12/2012 0:00:00</Fechacreacion>
+            <Fechamodificacion>No ha sido modificada</Fechamodificacion>
+            <Etiquetas />
+            <Adjuntos />
+        </Nota>
+        <Nota>
+            <Titulo>dvcxvcxv</Titulo>
+            <Contenido>xcvxcvxc</Contenido>
+            <Fechacreacion>08/12/2012 0:00:00</Fechacreacion>
+            <Fechamodificacion>No ha sido modificada</Fechamodificacion>
+            <Etiquetas />
+            <Adjuntos>
+                <NombreArchivo>Jellyfish.jpg</NombreArchivo>
+                <Urlarchivo />
+            </Adjuntos>
+        </Nota>
+        <Nota>
+            <Titulo>dsdfsd</Titulo>
+            <Contenido>sdfsdfsd</Contenido>
+            <Fechacreacion>08/12/2012 0:00:00</Fechacreacion>
+            <Fechamodificacion>No ha sido modificada</Fechamodificacion>
+            <Etiquetas />
+            <Adjuntos>
+                <NombreArchivo>Penguins.jpg</NombreArchivo>
+                <Urlarchivo />
+            </Adjuntos>
+        </Nota>
+        <Nota>
+            <Titulo>sdfsdf</Titulo>
+            <Contenido>dasfsdfsdafsd</Contenido>
+            <Fechacreacion>08/12/2012 0:00:00</Fechacreacion>
+            <Fechamodificacion>No ha sido modificada</Fechamodificacion>
+            <Etiquetas />
+            <Adjuntos>
+                <NombreArchivo>vaina.png</NombreArchivo>
+                <Urlarchivo />
+                <NombreArchivo>verga.png</NombreArchivo>
+                <Urlarchivo />
+            </Adjuntos>
+        </Nota>
+        <Nota>
+            <Titulo>dffsdf</Titulo>
+            <Contenido>dsfsdfsdf</Contenido>
+            <Fechacreacion>08/12/2012 0:00:00</Fechacreacion>
+            <Fechamodificacion>No ha sido modificada</Fechamodificacion>
+            <Etiquetas />
+            <Adjuntos />
+        </Nota>
+        <NombreLibreta>bolas y mas</NombreLibreta>
+    </Libretas>
+</Usuario>
