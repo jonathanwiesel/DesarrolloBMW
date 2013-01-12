@@ -13,6 +13,7 @@ using Spring.Social.Dropbox.Api;
 using Spring.Social.Dropbox.Connect;
 using RapidNote.DAO.IDAOS;
 using RapidNote.DAO.DAOFactory;
+using System.IO;
 
 namespace RapidNote.Pruebas
 {
@@ -205,5 +206,33 @@ namespace RapidNote.Pruebas
 
         }
 
+        [Test]
+        public void PruebaExportarXML() {
+
+            //setteo el usuario
+            (usuario as Clases.Usuario).Nombre = "elbano";
+            (usuario as Clases.Usuario).Apellido = "marquez";
+            (usuario as Clases.Usuario).Correo = "elbano28@gmail.com";
+            (usuario as Clases.Usuario).Clave = "e1223d9bbcd82236f9f09ae1f5578e3cbbd4e8f48954cead3003be60ac85629726dc04b1f875353459f97ba4a4283a1a6adb89d3524bb4816c7125964097106c";
+            (usuario as Clases.Usuario).AccesSecret = "meteinmqlaznshx";
+            (usuario as Clases.Usuario).AccesToken = "v8t8xvv80h9dzqs";
+
+            Comando<Entidad> comando = FabricaComando.CrearComandoExportarConfiguracion(usuario);
+            usuario = comando.Ejecutar();
+
+            Assert.IsNotNull(usuario);
+            String ruta = AppDomain.CurrentDomain.BaseDirectory;
+
+            ruta = ruta + "xml\\"; 
+            string configuracionPrefix = "Configuracion";
+            string archivo = ruta + configuracionPrefix + (usuario as Clases.Usuario).Correo + ".xml";
+
+            Assert.IsTrue(System.IO.File.Exists(archivo));
+            
+            FileInfo file = new FileInfo(archivo);
+            long fileSize = file.Length;
+            
+            Assert.IsTrue(fileSize > 0);
+        }
     }
 }
