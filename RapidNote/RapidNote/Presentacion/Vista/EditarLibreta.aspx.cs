@@ -84,6 +84,7 @@ namespace RapidNote.Presentacion.Vista
 
         protected void Eliminar_Click(object sender, EventArgs e)
         {
+            presentador.EliminarTodosAdjuntos();
             presentador.Eliminar();
         }
 

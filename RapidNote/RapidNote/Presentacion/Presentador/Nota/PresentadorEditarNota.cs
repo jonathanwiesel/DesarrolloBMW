@@ -244,6 +244,33 @@ namespace RapidNote.Presentacion.Presentador.Nota
             }
         }
 
+        public void EliminarTodosAdjuntos()
+        {
+            bool resultado = false;
+            nota = FabricaEntidad.CrearNota();
+            (nota as Clases.Nota).Titulo = contrato.getTitulo();
+            (nota as Clases.Nota).Idnota = int.Parse(contrato.getIdNota());
+            Entidad usuario = (contrato.Sesion["usuario"] as Clases.Usuario);
+
+            List<Entidad> adjuntos = contrato.getAdjuntos();
+            foreach (Entidad adjunto in adjuntos)
+            {
+
+                if ((adjunto as Clases.Adjunto).Titulo != null)
+                {
+                    comandoverificareliminar = FabricaComando.CrearComandoBorrarAdjunto(nota, (adjunto as Clases.Adjunto).Titulo, usuario);
+                    int result = comandoverificareliminar.Ejecutar();
+                    if (result == 0)
+                    {
+                        comandoeliminardropbox = FabricaComando.CrearComandoEliminarAdjuntoDropbox(usuario, (adjunto as Clases.Adjunto).Titulo);
+                        resultado = comandoeliminardropbox.Ejecutar();
+                        //contrato.Redireccionar2("../Vista/EditarNota.aspx?id=" + contrato.getIdNota());
+                        //return resultado;
+                    }
+                }
+            }
+        }
+
         public bool visualizarAdjunto()
         {
             bool resultado = false;

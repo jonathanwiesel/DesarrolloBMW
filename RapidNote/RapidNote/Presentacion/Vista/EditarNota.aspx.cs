@@ -152,6 +152,18 @@ namespace RapidNote.Presentacion.Vista
             return listaE;
         }
 
+        public List<Entidad> getAdjuntos()
+        {
+            List<Entidad> listaA = new List<Entidad>();
+            foreach (ListItem item in ListBoxArchivos.Items)
+            {
+                Adjunto a = new Adjunto();
+                a.Titulo = item.Text;
+                listaA.Add(a);
+            }
+            return listaA;
+        }
+
         public void setListaEtiquetas(List<Entidad> listaEtiquetas)
         {
             ListBoxEtiquetas.Items.Clear();
@@ -198,6 +210,8 @@ namespace RapidNote.Presentacion.Vista
         //eliminar
         protected void Button2_Click(object sender, EventArgs e)
         {
+
+            presentador.EliminarTodosAdjuntos();
             presentador.EjecutarDel();
             LabelResultado.Text = "Eliminando";
             Response.Redirect("../Vista/index.aspx");

@@ -222,5 +222,41 @@ namespace RapidNote.DAO.DAOSQL
                 connexion.CerrarConexionBd();
             }
         }
+
+        public Boolean EliminarLibreta(Entidad libreta)
+        {
+            Boolean estado = false;
+            SqlCommand sqlcmd = new SqlCommand();
+            Conexion connexion = new Conexion();
+
+            try
+            {
+                connexion.AbrirConexionBd();
+                sqlcmd.Connection = connexion.ObjetoConexion();
+                sqlcmd.CommandType = CommandType.StoredProcedure;
+                sqlcmd.CommandText = "BorrarLibreta";
+                sqlcmd.CommandTimeout = 2;
+
+                SqlParameter parametroId = new SqlParameter("@idLibreta", (libreta as Libreta).Idlibreta);
+                sqlcmd.Parameters.Add(parametroId);
+                sqlcmd.ExecuteNonQuery();
+                if (log.IsInfoEnabled) log.Info((libreta as Clases.Libreta).ToString());
+                estado = true;
+                return estado;
+
+            }
+            catch (Exception E)
+            {
+                Console.WriteLine(E.Message);
+                if (log.IsErrorEnabled) log.Error(E.Message, E);
+                return estado;
+
+            }
+
+            finally
+            {
+                connexion.CerrarConexionBd();
+            }
+        }
     }
 }

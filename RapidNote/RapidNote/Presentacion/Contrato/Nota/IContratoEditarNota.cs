@@ -22,6 +22,8 @@ namespace RapidNote.Presentacion.Contrato.Nota
 
         List<Entidad> getEtiquetas();
 
+        List<Entidad> getAdjuntos();
+
         void setListaLibretas(List<Entidad> listaLibretas);
 
         void setArchivoAdjunto(List<Entidad> listaArchivos);

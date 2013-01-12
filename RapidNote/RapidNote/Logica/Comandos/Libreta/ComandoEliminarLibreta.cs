@@ -25,7 +25,7 @@ namespace RapidNote.Logica.Comandos.Libreta
 
             if (log.IsInfoEnabled) log.Info("Clase: " + System.Reflection.MethodBase.GetCurrentMethod().DeclaringType + " libreta: " + (libreta as Clases.Libreta).ToString());
 
-            estado = accion.EditarLibreta(libreta);
+            estado = accion.EliminarLibreta(libreta);
             return estado;
         }
     }

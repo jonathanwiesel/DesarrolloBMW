@@ -76,7 +76,7 @@ namespace RapidNote.Presentacion.Presentador.Libreta
         public void Eliminar() {
             libreta = FabricaEntidad.CrearLibreta();
             (libreta as Clases.Libreta).Idlibreta = int.Parse(_vista.getIdLibreta().ToString());
-            comando4 = FabricaComando.CrearComandoEditarLibreta(libreta);
+            comando4 = FabricaComando.CrearComandoEliminarLibreta(libreta);
             estado = comando4.Ejecutar();
             if (estado == true)
             {
@@ -87,6 +87,31 @@ namespace RapidNote.Presentacion.Presentador.Libreta
                 _vista.MensajeError.Text = _mensajeErrorEliminar;
                 _vista.MensajeError.Visible = true;
             }
+        }
+
+        public void EliminarTodosAdjuntos()
+        {
+            libreta = FabricaEntidad.CrearLibreta();
+            (libreta as Clases.Libreta).Idlibreta = int.Parse(_vista.getIdLibreta().ToString());
+            //Entidad usuario = (contrato.Sesion["usuario"] as Clases.Usuario);
+
+            //List<Entidad> adjuntos = contrato.getAdjuntos();
+            //foreach (Entidad adjunto in adjuntos)
+            //{
+
+            //    if ((adjunto as Clases.Adjunto).Titulo != null)
+            //    {
+            //        comandoverificareliminar = FabricaComando.CrearComandoBorrarAdjunto(nota, (adjunto as Clases.Adjunto).Titulo, usuario);
+            //        int result = comandoverificareliminar.Ejecutar();
+            //        if (result == 0)
+            //        {
+            //            comandoeliminardropbox = FabricaComando.CrearComandoEliminarAdjuntoDropbox(usuario, (adjunto as Clases.Adjunto).Titulo);
+            //            resultado = comandoeliminardropbox.Ejecutar();
+            //            //contrato.Redireccionar2("../Vista/EditarNota.aspx?id=" + contrato.getIdNota());
+            //            //return resultado;
+            //        }
+            //    }
+            //}
         }
     }
 }
