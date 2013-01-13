@@ -834,5 +834,63 @@ namespace RapidNote.DAO.DAOSQL
                 connexion.CerrarConexionBd();
             }
         }
+		
+		public Entidad ImportarNota(Entidad nota)
+        {
+            SqlCommand sqlcmd = new SqlCommand();
+            Conexion connexion = new Conexion();
+
+            try
+            {
+                connexion.AbrirConexionBd();
+                sqlcmd.Connection = connexion.ObjetoConexion();
+                sqlcmd.CommandType = CommandType.StoredProcedure;
+                sqlcmd.CommandText = "ImportarNota";
+                sqlcmd.CommandTimeout = 2;
+
+                SqlParameter parametroTitulo = new SqlParameter("@tituloNota", (nota as Nota).Titulo);
+                sqlcmd.Parameters.Add(parametroTitulo);
+                SqlParameter parametroContenido = new SqlParameter("@contenidoNota", (nota as Nota).Contenido);
+                sqlcmd.Parameters.Add(parametroContenido);                
+                SqlParameter parametroFechaC = new SqlParameter("@FechaC", (nota as Nota).Fechacreacion);
+                sqlcmd.Parameters.Add(parametroFechaC);
+                SqlParameter parametroFechaM = new SqlParameter("@FechaM", (nota as Nota).Fechacreacion);
+                sqlcmd.Parameters.Add(parametroFechaM);
+                SqlParameter parametroNombreL = new SqlParameter("@nombreLibreta", (nota as Nota).Libreta.NombreLibreta);
+                sqlcmd.Parameters.Add(parametroNombreL);
+
+                sqlcmd.ExecuteNonQuery();
+
+                //meto en base de datos las etiquetas que no existen y obtengo los 
+                //ids de todas las etiquetas de la nota a editar
+                List<int> idEtiquetas = new List<int>();
+                foreach (Etiqueta etiqueta in (nota as Clases.Nota).ListaEtiqueta)
+                {
+                    int id = Agregar_Consultar_Etiqueta(etiqueta.Nombre);
+                    idEtiquetas.Add(id);
+                }
+
+
+                //le asigno las etiquetas
+                foreach (int idEti in idEtiquetas)
+                {
+                    int id = BuscarIdNota(nota);
+                    AsignarEtiquetasNota(id, idEti);
+                }
+                if (log.IsInfoEnabled) log.Info("Clase: " + System.Reflection.MethodBase.GetCurrentMethod().DeclaringType + " nota: " + (nota as Clases.Nota).ToString());
+                return nota;
+            }
+            catch (Exception E)
+            {
+                Console.WriteLine(E.Message);
+                if (log.IsErrorEnabled) log.Error("Clase: " + System.Reflection.MethodBase.GetCurrentMethod().DeclaringType + " mensaje: " + E.Message, E);
+                return nota;
+            }
+
+            finally
+            {
+                connexion.CerrarConexionBd();
+            }
+        }
     }
 }

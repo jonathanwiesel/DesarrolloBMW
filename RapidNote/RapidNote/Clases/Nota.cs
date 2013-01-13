@@ -21,6 +21,8 @@ namespace RapidNote.Clases
         {
             //libreta = (FabricaEntidad.CrearLibreta() as Libreta);
             libreta = FabricaEntidad.CrearLibretaNew();
+            listaAdjunto = new List<Adjunto>();
+            listaEtiqueta = new List<Etiqueta>();
         }
 
         public string Contenido

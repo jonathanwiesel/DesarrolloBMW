@@ -114,5 +114,12 @@ namespace RapidNote.DAO.IDAOS
         /// <param name="libreta"></param>
         /// <returns></returns>
         List<Nota> ListarNotasLibretaTypeNota(Entidad libreta);
+		
+		/// <summary>
+        /// 
+        /// </summary>
+        /// <param name="nota"></param>
+        /// <returns></returns>
+        Entidad ImportarNota(Entidad nota);
     }
 }

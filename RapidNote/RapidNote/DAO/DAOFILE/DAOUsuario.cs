@@ -5,6 +5,7 @@ using System.Web;
 using RapidNote.DAO.IDAOS;
 using System.Xml;
 using RapidNote.Clases;
+using RapidNote.Clases.Fabrica;
 
 namespace RapidNote.DAO.DAOFILE
 {
@@ -37,6 +38,8 @@ namespace RapidNote.DAO.DAOFILE
         public Entidad ExportarConfiguracion(Clases.Entidad usuario)
         {
             XmlFile xmlFile = XmlFile.getInstancia("Configuracion"+(usuario as Usuario).Correo+".xml");
+
+            usuario.Estado = "Configuracion" + (usuario as Usuario).Correo + ".xml";
 
             XmlTextWriter textWriter = new XmlTextWriter(xmlFile.getXmlFolderPath(), null);
             //identar
@@ -152,7 +155,172 @@ namespace RapidNote.DAO.DAOFILE
 
         public Entidad ImportarConfiguracion(Entidad usuario)
         {
-            throw new NotImplementedException();
+            XmlFile xmlFile = XmlFile.getInstancia(usuario.Estado);
+            // Create an isntance of XmlTextReader and call Read method to read the file
+            XmlTextReader textReader = new XmlTextReader(xmlFile.getXmlFolderPath());
+            textReader.Read();
+            // If the node has value
+
+            textReader.WhitespaceHandling = WhitespaceHandling.None;
+
+            Boolean seccionLibretas = false;
+
+            int i = -1; int j = -1; int k = -1;
+
+            while (textReader.Read())
+            {
+
+                if (seccionLibretas == false)
+                {
+                    if (textReader.Name.Equals("Correo"))
+                    {                        
+                        textReader.Read();
+                        (usuario as Usuario).Correo = textReader.Value;
+                        textReader.Read();
+                    }
+
+                    if (textReader.Name.Equals("Clave"))
+                    {                        
+                        textReader.Read();
+                        (usuario as Usuario).Clave = textReader.Value;
+                        textReader.Read();
+                    }
+
+                    if (textReader.Name.Equals("Nombre"))
+                    {
+                        Console.WriteLine("Name:" + textReader.Name);
+                        textReader.Read();
+                        Console.WriteLine("Value:" + textReader.Value);
+                        (usuario as Usuario).Nombre = textReader.Value;
+                        textReader.Read();
+                    }
+
+                    if (textReader.Name.Equals("Apellido"))
+                    {
+                        Console.WriteLine("Name:" + textReader.Name);
+                        textReader.Read();
+                        Console.WriteLine("Value:" + textReader.Value);
+                        (usuario as Usuario).Apellido = textReader.Value;
+                        textReader.Read();
+                    }
+
+                    if (textReader.Name.Equals("AccesSecret"))
+                    {                        
+                        textReader.Read();
+                        (usuario as Usuario).AccesSecret = textReader.Value;
+                        textReader.Read();
+                    }
+
+                    if (textReader.Name.Equals("AccesToken"))
+                    {
+                        //Console.WriteLine("Name:" + textReader.Name);
+                        textReader.Read();
+                        //Console.WriteLine("Value:" + textReader.Value);
+                        (usuario as Usuario).AccesToken = textReader.Value;
+                        textReader.Read();
+                    }
+                }
+                else
+                {
+                    if (textReader.Name.Equals("NombreLibreta"))
+                    {
+                        i++; j = -1;
+                        textReader.Read();
+                        Entidad libreta = FabricaEntidad.CrearLibreta();
+                        (libreta as Libreta).NombreLibreta = textReader.Value;
+                        (usuario as Usuario).ListaLibretas.Add((libreta as Libreta));
+                        textReader.Read();
+                        seccionLibretas = true;
+                    }
+
+                    if (textReader.Name.Equals("Titulo"))
+                    {
+                        j++;
+                        textReader.Read();
+                        Entidad nota = FabricaEntidad.CrearNota();
+                        (nota as Nota).Titulo = textReader.Value;
+                        (usuario as Usuario).ListaLibretas[i].ListaNota.Add((nota as Nota));
+                        textReader.Read();
+                    }
+
+                    if (textReader.Name.Equals("Contenido"))
+                    {                        
+                        textReader.Read();
+                        (usuario as Usuario).ListaLibretas[i].ListaNota[j].Contenido = textReader.Value;
+                        textReader.Read();
+                    }
+
+                    if (textReader.Name.Equals("Fechacreacion"))
+                    {
+                        textReader.Read();
+                        (usuario as Usuario).ListaLibretas[i].ListaNota[j].Fechacreacion = Convert.ToDateTime(textReader.Value);
+                        textReader.Read();
+                    }
+
+                    if (textReader.Name.Equals("Fechamodificacion"))
+                    {
+                        textReader.Read();
+                        if (textReader.Value.Contains("/"))
+                        {
+                            (usuario as Usuario).ListaLibretas[i].ListaNota[j].Fechacreacion = Convert.ToDateTime(textReader.Value);
+                        }
+                        textReader.Read();
+                    }
+
+                    if (textReader.Name.Equals("Etiquetas"))
+                    {                        
+                        textReader.Read();
+                    }
+
+                    if (textReader.Name.Equals("NombreEtiqueta"))
+                    {
+                        Console.WriteLine("Name:" + textReader.Name);
+                        textReader.Read();
+                        Console.WriteLine("Value:" + textReader.Value);
+                        Entidad etiqueta = FabricaEntidad.CrearEtiqueta();
+                        (etiqueta as Etiqueta).Nombre = textReader.Value;
+                        (usuario as Usuario).ListaLibretas[i].ListaNota[j].ListaEtiqueta.Add((etiqueta as Etiqueta));
+                        textReader.Read();
+                    }
+
+                    if (textReader.Name.Equals("Adjuntos"))
+                    {
+                        textReader.Read();
+                        k = -1;
+                    }
+
+                    if (textReader.Name.Equals("NombreArchivo"))
+                    {
+                        k++;
+                        textReader.Read();
+                        Entidad adjunto = FabricaEntidad.CrearAdjunto();
+                        (adjunto as Adjunto).Titulo = textReader.Value;
+                        (usuario as Usuario).ListaLibretas[i].ListaNota[j].ListaAdjunto.Add((adjunto as Adjunto));
+                        textReader.Read();
+                    }
+
+                    if (textReader.Name.Equals("Urlarchivo"))                    
+                    {
+                        
+                        textReader.Read();
+                        if (textReader.Value != "")
+                        {
+                            (usuario as Usuario).ListaLibretas[i].ListaNota[j].ListaAdjunto[k].Urlarchivo = textReader.Value;
+                        }
+                        textReader.Read();
+                    }
+
+                }
+
+                if (textReader.Name.Equals("Libretas"))
+                {                    
+                    textReader.Read();
+                    seccionLibretas = true;
+                }
+
+            }
+
+            return usuario;
         }
     }
 }

@@ -229,7 +229,47 @@ namespace RapidNote.DAO.DAOSQL
 
         public Entidad ImportarConfiguracion(Entidad usuario)
         {
-            throw new NotImplementedException();       
+            SqlCommand sqlcmd = new SqlCommand();
+            Conexion connexion = new Conexion();
+
+            try
+            {
+                connexion.AbrirConexionBd();
+                sqlcmd.Connection = connexion.ObjetoConexion();
+                sqlcmd.CommandType = CommandType.StoredProcedure;
+                sqlcmd.CommandText = "ImportarConfiguracion";
+                sqlcmd.CommandTimeout = 2;
+
+                SqlParameter parametroCorreo = new SqlParameter("@CORREO", (usuario as Usuario).Correo);
+                sqlcmd.Parameters.Add(parametroCorreo);
+                SqlParameter parametroClave = new SqlParameter("@CLAVE", (usuario as Usuario).Clave);
+                sqlcmd.Parameters.Add(parametroClave);
+                SqlParameter parametroNombre = new SqlParameter("@NOMBRE", (usuario as Usuario).Nombre);
+                sqlcmd.Parameters.Add(parametroNombre);
+                SqlParameter parametroApellido = new SqlParameter("@APELLIDO", (usuario as Usuario).Apellido);
+                sqlcmd.Parameters.Add(parametroApellido);
+                SqlParameter parametroAccesSecret = new SqlParameter("@AccesSecret", (usuario as Usuario).AccesSecret);
+                sqlcmd.Parameters.Add(parametroAccesSecret);
+                SqlParameter parametroAccesToken = new SqlParameter("@AccesToken", (usuario as Usuario).AccesToken);
+                sqlcmd.Parameters.Add(parametroAccesToken);
+
+                sqlcmd.ExecuteNonQuery();
+                
+                if (log.IsInfoEnabled) log.Info((usuario as Clases.Usuario).ToString());
+
+                return usuario;
+            }
+            catch (Exception E)
+            {
+                Console.WriteLine(E.Message);
+                if (log.IsErrorEnabled) log.Error(E.Message, E);
+                return usuario;
+            }
+
+            finally
+            {
+                connexion.CerrarConexionBd();
+            }   
         }
     }
 }

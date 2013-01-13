@@ -11,20 +11,22 @@ namespace RapidNote.Presentacion.Presentador.Usuario
 {
     public class PresentadorExportarConfiguracion
     {
-        private IExportarConfiguracion contrato;
+        private IContratoExportarConfiguracion contrato;
         private Comando<Entidad> comando;
 
-        public PresentadorExportarConfiguracion(IExportarConfiguracion _contrato) 
+        public PresentadorExportarConfiguracion(IContratoExportarConfiguracion _contrato) 
         {
             contrato = _contrato;
         }
 
-        public void Ejecutar() 
+        public Entidad Ejecutar() 
         {
             Entidad usuario = (contrato.Sesion["usuario"] as Clases.Usuario);
 
             comando = FabricaComando.CrearComandoExportarConfiguracion(usuario);
             usuario = comando.Ejecutar();
+
+            return usuario;
         }
     }
 }

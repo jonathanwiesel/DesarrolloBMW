@@ -12,6 +12,11 @@ namespace RapidNote.Clases
         private List<Nota> listaNota;
         private Usuario usuario;
 
+        public Libreta()
+        {
+            listaNota = new List<Nota>();
+        }
+
         public int Idlibreta
         {
             get { return idlibreta; }

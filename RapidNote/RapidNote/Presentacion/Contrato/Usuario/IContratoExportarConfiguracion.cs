@@ -7,7 +7,7 @@ using System.Web.SessionState;
 
 namespace RapidNote.Presentacion.Contrato.Usuario
 {
-    public interface IExportarConfiguracion
+    public interface IContratoExportarConfiguracion
     {
         Label MensajeError { get; set; }
 

@@ -1,6 +1,6 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/SiteMaster/Site.Master" AutoEventWireup="true" CodeBehind="ExportarConfiguracion.aspx.cs" Inherits="RapidNote.Presentacion.Vista.ExportarConfiguracion" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/SiteMaster/Site.Master" AutoEventWireup="true" CodeBehind="ImportarConfiguracion.aspx.cs" Inherits="RapidNote.Presentacion.Vista.ImportarConfiguracion" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="TitleContent" runat="server">
-    Exportar Configuracon
+Importar Configuracion
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="BuscadorMain" runat="server">
     <asp:TextBox ID="TextBoxBuscadorSiteM" runat="server" Width="250px"></asp:TextBox>
@@ -34,17 +34,32 @@
         <br />
        
         <fieldset>
-            <legend>Exportar Configuracion</legend>
+            <legend>Importar Configuracion</legend>
             <table align="center">                
                 <tr>
+                    <td></td>
                     <td colspan="2" align="center">
                     <asp:Label  ID="mensajeError" runat="server" Text="Mensaje error"  Visible="false" 
                      style="text-align: center; color: #CC0000; font-weight: 700; font-style: italic"></asp:Label>
                     </td>
-                    <td colspan="2" align="center">
-                        <asp:HyperLink ID="HyperLink1" runat="server">Ver XML</asp:HyperLink>
+                </tr>
+                <tr>
+                    <td>
+                        <asp:Label ID="Label3" runat="server" Text="Archivo Adjunto"></asp:Label>
                     </td>
-                </tr>            
+                    <td>
+                        <asp:FileUpload ID="FileUploadArchivo" class="multi" runat="server"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        
+                    </td>
+                    <td>
+                        <asp:Button ID="Button1" runat="server" Text="Guardar" 
+                                onclick="Button1_Click" />
+                    </td>
+                </tr>                
             </table>
         </fieldset>
         <br />

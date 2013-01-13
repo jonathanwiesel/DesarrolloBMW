@@ -24,7 +24,12 @@ namespace RapidNote.Clases
         private String accesSecret;
 
         private List<Libreta> listaLibretas;
-        
+
+        public Usuario()
+        {
+            listaLibretas = new List<Libreta>();
+        }
+
         public int Id
         {
             get { return id; }

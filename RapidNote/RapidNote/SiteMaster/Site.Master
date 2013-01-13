@@ -71,11 +71,9 @@
                                     </ul>
                                 </li>
                                 <li>Configuracion<span class="down-arrow"></span>
-                                    <ul>
-                                        <li><a href="#">Editar Usuario</a></li>
-                                        <li><a href="#">Dropbox Autorizar/Desautorizar</a></li>
+                                    <ul>                                        
                                         <li><a href="../../Presentacion/Vista/ExportarConfiguracion.aspx">Exportar XML</a></li>
-                                        <li><a href="#">Importar XML</a></li>
+                                        <li><a href="../../Presentacion/Vista/ImportarConfiguracion.aspx">Importar XML</a></li>
                                     </ul>
                                 </li>
                                 <li><a href="../../Presentacion/Vista/CerrarSession.aspx">Salir</a></li>

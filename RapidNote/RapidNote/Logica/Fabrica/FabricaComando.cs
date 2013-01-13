@@ -12,6 +12,7 @@ using RapidNote.Logica.Comandos.Dropbox;
 using RapidNote.Logica.Comandos.Libreta;
 using RapidNote.Logica.Comandos.Adjunto;
 using RapidNote.Logica.Comandos.Etiqueta;
+using System.Web.UI.WebControls;
 
 namespace RapidNote.Logica.Fabrica
 {
@@ -166,6 +167,16 @@ namespace RapidNote.Logica.Fabrica
         public static Comando<Entidad> CrearComandoExportarConfiguracion(Entidad usuario) 
         {
             return new ComandoExportarConfiguracion(usuario);
+        }
+		
+		public static Comando<Entidad> CrearComandoImportarConfiguracion(Entidad usuario) 
+        {
+            return new ComandoImportarConfiguracion(usuario);
+        }
+
+        public static Comando<Entidad> CrearComandoSubirArchivo(FileUpload fileUpload) 
+        {
+            return new ComandoSubirArchivo(fileUpload);
         }
 
         public static Comando<bool> CrearComandoDescargarDropbox(Entidad usuario, string nombre)

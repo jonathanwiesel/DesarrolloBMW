@@ -5,25 +5,25 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using RapidNote.Presentacion.Contrato.Usuario;
-using RapidNote.Clases;
 using RapidNote.Presentacion.Presentador.Usuario;
+using RapidNote.Clases;
 
 namespace RapidNote.Presentacion.Vista
 {
-    public partial class ExportarConfiguracion : System.Web.UI.Page, IContratoExportarConfiguracion
+    public partial class ImportarConfiguracion : System.Web.UI.Page, IContratoImportarConfiguracion
     {
-        private PresentadorExportarConfiguracion presentador;
+        private PresentadorImportarConfiguracion presentador;
 
         protected override void OnInit(EventArgs e)
         {
             base.OnInit(e);
-            presentador = new PresentadorExportarConfiguracion(this);
+            presentador = new PresentadorImportarConfiguracion(this);
 
         }
 
         protected void Page_PreRender(object sender, EventArgs e)
         {
-            presentador = new PresentadorExportarConfiguracion(this);
+            presentador = new PresentadorImportarConfiguracion(this);
         }
 
         protected void Page_Load(object sender, EventArgs e)
@@ -35,8 +35,7 @@ namespace RapidNote.Presentacion.Vista
             {
                 if (!IsPostBack)
                 {
-                    Entidad auxUsuario = presentador.Ejecutar();
-                    HyperLink1.NavigateUrl = "~/xml/" + auxUsuario.Estado;
+                    
                 }
             }
         }
@@ -56,6 +55,26 @@ namespace RapidNote.Presentacion.Vista
         public System.Web.SessionState.HttpSessionState Sesion
         {
             get { return Session; }
+        }
+
+
+        public string nombreArchivo
+        {
+            get { return FileUploadArchivo.FileName; }
+        }
+
+        protected void Button1_Click(object sender, EventArgs e)
+        {
+            if (FileUploadArchivo.HasFile)
+            {
+                presentador.Ejecutar();
+            }
+        }
+
+
+        public FileUpload fileUpload
+        {
+            get { return FileUploadArchivo; }
         }
     }
 }
