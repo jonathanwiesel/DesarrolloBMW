@@ -263,5 +263,117 @@ namespace RapidNote.DAO.DAOSQL
                 connexion.CerrarConexionBd();
             }
         }
+
+        
+        public bool EliminarAdjuntosTodos(Entidad libreta)
+        {
+            bool result = false;
+            SqlCommand sqlcmd = new SqlCommand();
+            Conexion connexion = new Conexion();
+            List<Adjunto> listaAdjuntos = new List<Adjunto>();
+            Entidad adjunto = null;
+
+            try
+            {
+                connexion.AbrirConexionBd();
+                sqlcmd.Connection = connexion.ObjetoConexion();
+                sqlcmd.CommandType = CommandType.StoredProcedure;
+                sqlcmd.CommandText = "EliminarAdjuntosTodos";
+                sqlcmd.CommandTimeout = 2;
+
+                SqlParameter parametroIdlibreta = new SqlParameter("@idLibreta", (libreta as Libreta).Idlibreta);
+                sqlcmd.Parameters.Add(parametroIdlibreta);
+                sqlcmd.ExecuteNonQuery();
+                if (log.IsInfoEnabled) log.Info("Clase: " + System.Reflection.MethodBase.GetCurrentMethod().DeclaringType + " libreta: " + (libreta as Clases.Libreta).ToString());
+                result = true;
+                return result;
+            }
+            catch (Exception E)
+            {
+                Console.WriteLine(E.Message);
+                if (log.IsErrorEnabled) log.Error("Clase: " + System.Reflection.MethodBase.GetCurrentMethod().DeclaringType + " mensaje: " + E.Message, E);
+                return result;
+            }
+
+            finally
+            {
+                connexion.CerrarConexionBd();
+            }
+        }
+
+
+        public List<Adjunto> AdjuntosHuerfanos(Entidad libreta)
+        {
+            SqlCommand sqlcmd = new SqlCommand();
+            Conexion connexion = new Conexion();
+            List<Adjunto> listaAdjuntos = new List<Adjunto>();
+            Entidad adjunto = null;
+
+            try
+            {
+                connexion.AbrirConexionBd();
+                sqlcmd.Connection = connexion.ObjetoConexion();
+                sqlcmd.CommandType = CommandType.StoredProcedure;
+                sqlcmd.CommandText = "AdjuntosHuerfanos";
+                sqlcmd.CommandTimeout = 2;
+                SqlParameter parametroIdlibreta = new SqlParameter("@idLibreta", (libreta as Libreta).Idlibreta);
+                sqlcmd.Parameters.Add(parametroIdlibreta);
+                sqlcmd.ExecuteNonQuery();
+                SqlDataReader sqlrd;
+                sqlrd = sqlcmd.ExecuteReader();
+                while (sqlrd.Read())
+                {
+                    adjunto = FabricaEntidad.CrearAdjunto();
+                    (adjunto as Adjunto).Titulo = sqlrd["TITULO"].ToString();
+                    listaAdjuntos.Add((adjunto as Adjunto));
+                }
+                if (log.IsInfoEnabled) log.Info("Clase: " + System.Reflection.MethodBase.GetCurrentMethod().DeclaringType + " adjunto: " + (adjunto as Clases.Adjunto).ToString());
+                return listaAdjuntos;
+            }
+            catch (Exception E)
+            {
+                Console.WriteLine(E.Message);
+                if (log.IsErrorEnabled) log.Error("Clase: " + System.Reflection.MethodBase.GetCurrentMethod().DeclaringType + " mensaje: " + E.Message, E);
+                return listaAdjuntos;
+            }
+
+            finally
+            {
+                connexion.CerrarConexionBd();
+            }
+        }
+
+        public bool EliminarAdjuntosHuerfanos(string nombre)
+        {
+            bool result = false;
+            SqlCommand sqlcmd = new SqlCommand();
+            Conexion connexion = new Conexion();
+
+            try
+            {
+                connexion.AbrirConexionBd();
+                sqlcmd.Connection = connexion.ObjetoConexion();
+                sqlcmd.CommandType = CommandType.StoredProcedure;
+                sqlcmd.CommandText = "EliminarAdjuntosHuerfanos";
+                sqlcmd.CommandTimeout = 2;
+                SqlParameter parametroIdlibreta = new SqlParameter("@nombre", nombre);
+                sqlcmd.Parameters.Add(parametroIdlibreta);
+                sqlcmd.ExecuteNonQuery();
+                result = true;
+                return result;
+            }
+            catch (Exception E)
+            {
+                Console.WriteLine(E.Message);
+                if (log.IsErrorEnabled) log.Error("Clase: " + System.Reflection.MethodBase.GetCurrentMethod().DeclaringType + " mensaje: " + E.Message, E);
+                return result;
+            }
+
+            finally
+            {
+                connexion.CerrarConexionBd();
+            }
+        }
+
     }
 }

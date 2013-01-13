@@ -229,10 +229,7 @@
             <Fechacreacion>05/12/2012 0:00:00</Fechacreacion>
             <Fechamodificacion>No ha sido modificada</Fechamodificacion>
             <Etiquetas />
-            <Adjuntos>
-                <NombreArchivo>verga.png</NombreArchivo>
-                <Urlarchivo />
-            </Adjuntos>
+            <Adjuntos />
         </Nota>
         <Nota>
             <Titulo>pupu y pipi</Titulo>
@@ -248,10 +245,7 @@
             <Fechacreacion>08/12/2012 0:00:00</Fechacreacion>
             <Fechamodificacion>No ha sido modificada</Fechamodificacion>
             <Etiquetas />
-            <Adjuntos>
-                <NombreArchivo>Penguins.jpg</NombreArchivo>
-                <Urlarchivo />
-            </Adjuntos>
+            <Adjuntos />
         </Nota>
         <Nota>
             <Titulo>dfdssdf</Titulo>
@@ -259,12 +253,7 @@
             <Fechacreacion>08/12/2012 0:00:00</Fechacreacion>
             <Fechamodificacion>No ha sido modificada</Fechamodificacion>
             <Etiquetas />
-            <Adjuntos>
-                <NombreArchivo>vaina.png</NombreArchivo>
-                <Urlarchivo />
-                <NombreArchivo>verga.png</NombreArchivo>
-                <Urlarchivo />
-            </Adjuntos>
+            <Adjuntos />
         </Nota>
         <Nota>
             <Titulo>ewrwer</Titulo>
@@ -288,28 +277,17 @@
             <Fechacreacion>12/01/2013 0:00:00</Fechacreacion>
             <Fechamodificacion>No ha sido modificada</Fechamodificacion>
             <Etiquetas />
-            <Adjuntos>
-                <NombreArchivo>documento-visión-víctor-bereciartu-modificado.docx</NombreArchivo>
-                <Urlarchivo />
-            </Adjuntos>
-        </Nota>
-        <NombreLibreta>bolas</NombreLibreta>
-        <NombreLibreta>hola</NombreLibreta>
-        <Nota>
-            <Titulo>dfsdcvcfs</Titulo>
-            <Contenido>wqqwwqrqrqr</Contenido>
-            <Fechacreacion>30/11/2012 0:00:00</Fechacreacion>
-            <Fechamodificacion>05/12/2012 0:00:00</Fechamodificacion>
-            <Etiquetas />
             <Adjuntos />
         </Nota>
         <Nota>
-            <Titulo>cbgndfg</Titulo>
-            <Contenido>vcvvsvsd</Contenido>
-            <Fechacreacion>05/12/2012 0:00:00</Fechacreacion>
-            <Fechamodificacion>05/12/2012 0:00:00</Fechamodificacion>
+            <Titulo>dssdf</Titulo>
+            <Contenido>sdfsdf</Contenido>
+            <Fechacreacion>12/01/2013 0:00:00</Fechacreacion>
+            <Fechamodificacion>No ha sido modificada</Fechamodificacion>
             <Etiquetas />
             <Adjuntos>
+                <NombreArchivo>error.png</NombreArchivo>
+                <Urlarchivo />
                 <NombreArchivo>ERSCU.png</NombreArchivo>
                 <Urlarchivo />
                 <NombreArchivo>vaina.png</NombreArchivo>
@@ -317,96 +295,35 @@
             </Adjuntos>
         </Nota>
         <Nota>
-            <Titulo>nojoda2</Titulo>
-            <Contenido>nojoda2</Contenido>
-            <Fechacreacion>05/12/2012 0:00:00</Fechacreacion>
-            <Fechamodificacion>12/01/2013 0:00:00</Fechamodificacion>
-            <Etiquetas />
-            <Adjuntos />
-        </Nota>
-        <Nota>
-            <Titulo>pupu y pipi</Titulo>
-            <Contenido>sdasdasd</Contenido>
-            <Fechacreacion>06/12/2012 0:00:00</Fechacreacion>
-            <Fechamodificacion>12/01/2013 0:00:00</Fechamodificacion>
-            <Etiquetas />
-            <Adjuntos />
-        </Nota>
-        <Nota>
-            <Titulo>padrino</Titulo>
-            <Contenido>safasfsaf</Contenido>
-            <Fechacreacion>06/12/2012 0:00:00</Fechacreacion>
+            <Titulo>dfdsfd</Titulo>
+            <Contenido>dsfsdfsd</Contenido>
+            <Fechacreacion>12/01/2013 0:00:00</Fechacreacion>
             <Fechamodificacion>No ha sido modificada</Fechamodificacion>
             <Etiquetas />
             <Adjuntos>
-                <NombreArchivo>Tulips.jpg</NombreArchivo>
+                <NombreArchivo>Koala.jpg</NombreArchivo>
                 <Urlarchivo />
             </Adjuntos>
         </Nota>
-        <Nota>
-            <Titulo>vdcxxcv</Titulo>
-            <Contenido>xcvxcvxc</Contenido>
-            <Fechacreacion>08/12/2012 0:00:00</Fechacreacion>
-            <Fechamodificacion>No ha sido modificada</Fechamodificacion>
-            <Etiquetas />
-            <Adjuntos>
-                <NombreArchivo>Jellyfish.jpg</NombreArchivo>
-                <Urlarchivo />
-                <NombreArchivo>Tulips.jpg</NombreArchivo>
-                <Urlarchivo />
-            </Adjuntos>
-        </Nota>
-        <Nota>
-            <Titulo>dfsdf</Titulo>
-            <Contenido>sdfsdfsd</Contenido>
-            <Fechacreacion>08/12/2012 0:00:00</Fechacreacion>
-            <Fechamodificacion>No ha sido modificada</Fechamodificacion>
-            <Etiquetas />
-            <Adjuntos />
-        </Nota>
-        <Nota>
-            <Titulo>dvcxvcxv</Titulo>
-            <Contenido>xcvxcvxc</Contenido>
-            <Fechacreacion>08/12/2012 0:00:00</Fechacreacion>
-            <Fechamodificacion>No ha sido modificada</Fechamodificacion>
-            <Etiquetas />
-            <Adjuntos>
-                <NombreArchivo>Jellyfish.jpg</NombreArchivo>
-                <Urlarchivo />
-            </Adjuntos>
-        </Nota>
-        <Nota>
-            <Titulo>dsdfsd</Titulo>
-            <Contenido>sdfsdfsd</Contenido>
-            <Fechacreacion>08/12/2012 0:00:00</Fechacreacion>
-            <Fechamodificacion>No ha sido modificada</Fechamodificacion>
-            <Etiquetas />
-            <Adjuntos>
-                <NombreArchivo>Penguins.jpg</NombreArchivo>
-                <Urlarchivo />
-            </Adjuntos>
-        </Nota>
-        <Nota>
-            <Titulo>sdfsdf</Titulo>
-            <Contenido>dasfsdfsdafsd</Contenido>
-            <Fechacreacion>08/12/2012 0:00:00</Fechacreacion>
-            <Fechamodificacion>No ha sido modificada</Fechamodificacion>
-            <Etiquetas />
-            <Adjuntos>
-                <NombreArchivo>vaina.png</NombreArchivo>
-                <Urlarchivo />
-                <NombreArchivo>verga.png</NombreArchivo>
-                <Urlarchivo />
-            </Adjuntos>
-        </Nota>
-        <Nota>
-            <Titulo>dffsdf</Titulo>
-            <Contenido>dsfsdfsdf</Contenido>
-            <Fechacreacion>08/12/2012 0:00:00</Fechacreacion>
-            <Fechamodificacion>No ha sido modificada</Fechamodificacion>
-            <Etiquetas />
-            <Adjuntos />
-        </Nota>
+        <NombreLibreta>bolas</NombreLibreta>
         <NombreLibreta>bolas y mas</NombreLibreta>
+        <NombreLibreta>culo</NombreLibreta>
+        <Nota>
+            <Titulo>pipi</Titulo>
+            <Contenido>wassasasad</Contenido>
+            <Fechacreacion>12/01/2013 0:00:00</Fechacreacion>
+            <Fechamodificacion>No ha sido modificada</Fechamodificacion>
+            <Etiquetas />
+            <Adjuntos />
+        </Nota>
+        <NombreLibreta>cdfff</NombreLibreta>
+        <Nota>
+            <Titulo>cdqddf</Titulo>
+            <Contenido>dsfsdfasdsd</Contenido>
+            <Fechacreacion>12/01/2013 0:00:00</Fechacreacion>
+            <Fechamodificacion>No ha sido modificada</Fechamodificacion>
+            <Etiquetas />
+            <Adjuntos />
+        </Nota>
     </Libretas>
 </Usuario>

@@ -53,5 +53,24 @@ namespace RapidNote.DAO.IDAOS
         /// <param name="usuario"></param>
         /// <returns></returns>
         List<Adjunto> ListarAjuntos(Entidad nota, Entidad usuario);
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="libreta"></param>
+        /// <returns></returns>
+        bool EliminarAdjuntosTodos(Entidad libreta);
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
+        List<Adjunto> AdjuntosHuerfanos(Entidad libreta);
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
+        bool EliminarAdjuntosHuerfanos(string nombre);
     }
 }

@@ -18,6 +18,9 @@ namespace RapidNote.Presentacion.Presentador.Libreta
         private Comando<Entidad> comando2;
         private Comando<Boolean> comando3;
         private Comando<Boolean> comando4;
+        private Comando<List<Adjunto>> comando5;
+        private Comando<bool> comando6;
+        
         private string _mensajeErrorInsertar = "Error al modificar en base de datos";
         private string _mensajeErrorEliminar = "Error al eliminar en base de datos";
         private string _mensajeErrorExiste = "Error, ya posee una libreta con ese nombre";
@@ -91,27 +94,15 @@ namespace RapidNote.Presentacion.Presentador.Libreta
 
         public void EliminarTodosAdjuntos()
         {
+            usuario = (_vista.Sesion["usuario"] as Clases.Usuario);
             libreta = FabricaEntidad.CrearLibreta();
             (libreta as Clases.Libreta).Idlibreta = int.Parse(_vista.getIdLibreta().ToString());
-            //Entidad usuario = (contrato.Sesion["usuario"] as Clases.Usuario);
-
-            //List<Entidad> adjuntos = contrato.getAdjuntos();
-            //foreach (Entidad adjunto in adjuntos)
-            //{
-
-            //    if ((adjunto as Clases.Adjunto).Titulo != null)
-            //    {
-            //        comandoverificareliminar = FabricaComando.CrearComandoBorrarAdjunto(nota, (adjunto as Clases.Adjunto).Titulo, usuario);
-            //        int result = comandoverificareliminar.Ejecutar();
-            //        if (result == 0)
-            //        {
-            //            comandoeliminardropbox = FabricaComando.CrearComandoEliminarAdjuntoDropbox(usuario, (adjunto as Clases.Adjunto).Titulo);
-            //            resultado = comandoeliminardropbox.Ejecutar();
-            //            //contrato.Redireccionar2("../Vista/EditarNota.aspx?id=" + contrato.getIdNota());
-            //            //return resultado;
-            //        }
-            //    }
-            //}
+            comando5 = FabricaComando.CrearComandoBorrarAdjuntosTodos(libreta);
+            List<Adjunto> lista = new List<Adjunto>();
+            lista = comando5.Ejecutar();
+            comando6 = FabricaComando.CrearComandoVerificarAdjuntoEli(lista, usuario);
+            comando6.Ejecutar();
+            
         }
     }
 }

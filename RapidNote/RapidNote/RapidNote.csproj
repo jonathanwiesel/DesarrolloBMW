@@ -153,6 +153,8 @@
     <Compile Include="Logica\Comandos\Adjunto\ComandoAgregarAdjuntoBD.cs" />
     <Compile Include="Logica\Comandos\Adjunto\ComandoAgregarAdjuntoConNota.cs" />
     <Compile Include="Logica\Comandos\Adjunto\ComandoBorrarAdjunto.cs" />
+    <Compile Include="Logica\Comandos\Adjunto\ComandoBorrarAdjuntosTodos.cs" />
+    <Compile Include="Logica\Comandos\Adjunto\ComandoVerificarAdjuntoEli.cs" />
     <Compile Include="Logica\Comandos\Comandodrop.cs" />
     <Compile Include="Logica\Comandos\Dropbox\ComandoAdjuntarDropbox.cs" />
     <Compile Include="Logica\Comandos\Dropbox\ComandoAutentificarDropbox.cs" />

@@ -188,5 +188,15 @@ namespace RapidNote.Logica.Fabrica
             return new ComandoBorrarAdjunto(nota, titulo, usuario);
         }
 
+        public static Comando<List<Adjunto>> CrearComandoBorrarAdjuntosTodos(Entidad libreta)
+        {
+            return new ComandoBorrarAdjuntosTodos(libreta);
+        }
+
+        public static Comando<bool> CrearComandoVerificarAdjuntoEli(List<Adjunto> lista, Entidad usuario)
+        {
+            return new ComandoVerificarAdjuntoEli(lista, usuario);
+        }
+
     }
 }
