@@ -14,6 +14,9 @@ using Spring.Social.Dropbox.Connect;
 using RapidNote.DAO.IDAOS;
 using RapidNote.DAO.DAOFactory;
 using System.IO;
+using OpenQA.Selenium;
+using OpenQA.Selenium.Firefox;
+using System.Threading;
 
 namespace RapidNote.Pruebas
 {
@@ -26,6 +29,7 @@ namespace RapidNote.Pruebas
         Entidad adjunto;
         string DropboxAppKey;
         string DropboxAppSecret;
+        IWebDriver selenium;
 
         [SetUp]
         public void Before()
@@ -36,6 +40,11 @@ namespace RapidNote.Pruebas
             nota = FabricaEntidad.CrearNota();
             libreta = FabricaEntidad.CrearLibreta();
             adjunto = FabricaEntidad.CrearAdjunto();
+
+            FirefoxProfile firefoxProf = new FirefoxProfile();
+
+            selenium = new FirefoxDriver();
+            selenium.Manage().Timeouts().ImplicitlyWait(new TimeSpan(0, 0, 30));
 
         }
 
@@ -48,6 +57,10 @@ namespace RapidNote.Pruebas
             DropboxAppKey = null;
             DropboxAppSecret = null;
             adjunto = null;
+
+            if (selenium != null) {
+                selenium.Close();
+            }
         }
 
         [Test]
@@ -233,6 +246,63 @@ namespace RapidNote.Pruebas
             long fileSize = file.Length;
             
             Assert.IsTrue(fileSize > 0);
+        }
+
+        [Test]
+        public void PruebaSeleniumNuevaNota() {
+
+            string email = "elbano28@gmail.com";
+            string clave = "1234";
+
+            string login = "http://localhost:1622/Presentacion/Vista/Login.aspx";
+            string nota = "http://localhost:1622/Presentacion/Vista/NuevaNota.aspx";
+
+            selenium.Navigate().GoToUrl(login);
+            selenium.FindElement(By.CssSelector("[id$='correo']")).SendKeys(email);
+            selenium.FindElement(By.CssSelector("[id$='clave']")).SendKeys(clave);
+            selenium.FindElement(By.CssSelector("[id$='clave']")).SendKeys(Keys.Enter);
+
+            Assert.AreEqual("Home Page", selenium.Title);
+
+            selenium.Navigate().GoToUrl(nota);
+
+            Assert.AreEqual("Nota", selenium.Title);
+
+            string nombreNota = "PruebaConSelenium";
+            string contenidoNota = "Estamos probando selenium y esta saliendo bien";
+            string etiqueta = "selenium";
+
+            selenium.FindElement(By.CssSelector("[id$='TextBoxTitulo']")).SendKeys(nombreNota);
+            selenium.FindElement(By.CssSelector("[id$='TextBoxContenido']")).SendKeys(contenidoNota);
+            selenium.FindElement(By.CssSelector("[id$='TextBoxEtiqueta']")).SendKeys(etiqueta);
+
+            selenium.FindElement(By.CssSelector("[id$='Button4']")).Click(); //boton agregar etiqueta
+
+            Thread.Sleep(2000);
+
+            selenium.FindElement(By.CssSelector("[id$='Button1']")).Click(); //boton guardar
+
+            Assert.AreEqual("Home Page", selenium.Title);
+
+            selenium.FindElement(By.CssSelector("[id$='BuscadorMain_TextBoxBuscadorSiteM']")).SendKeys(etiqueta);
+            selenium.FindElement(By.CssSelector("[id$='BuscadorMain_TextBoxBuscadorSiteM']")).SendKeys(Keys.Enter);
+            
+            Thread.Sleep(2000);
+
+            selenium.FindElement(By.XPath("//table[contains(@id,'MainContent_GridViewNotas')]//tbody/tr/td[1]")).Click();
+
+            Thread.Sleep(1000);
+
+            string urlNotaSelenium = selenium.Url;
+
+            Assert.IsTrue(urlNotaSelenium.Contains("/EditarNota.aspx?id="));
+
+            string nombreNotaSelenium = selenium.FindElement(By.CssSelector("[id$='TextBoxTitulo']")).GetAttribute("value");
+
+            Assert.AreEqual(nombreNotaSelenium, nombreNota);
+
+
+
         }
     }
 }
